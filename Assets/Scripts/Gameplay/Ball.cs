@@ -44,7 +44,7 @@ public class Ball : MonoBehaviour
         _rigidbody.AddForce(new Vector2(0f, -GravityCurrentlyApplied));
     }
 
-    private void OnCollisionEnter(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             Debug.LogError("BallPlayerHit (NotImplemented)");
