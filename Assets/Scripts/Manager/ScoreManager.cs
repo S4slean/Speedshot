@@ -20,6 +20,14 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI blueTeamScoretxt, redTeamScoretxt;
 
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
+    }
+
     public void Goal(Team team)
     {
         Team winningTeam = Team.None;
