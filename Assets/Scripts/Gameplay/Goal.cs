@@ -9,16 +9,17 @@ public class Goal : MonoBehaviour
 
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         switch (teamGoal)
         {
             case Team.Blue:
-                sprite.color = Color.blue;
+                sprite.color = new Color(Color.blue.r, Color.blue.g, Color.blue.b, 0.5f);
                 break;
             case Team.Red:
-                sprite.color = Color.red;
+                sprite.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.5f);
                 break;
             default:
-                sprite.color = Color.white;
+                sprite.color = new Color(Color.white.r, Color.white.g, Color.white.b, 0.5f);
                 break;
         }
     }
