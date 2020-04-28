@@ -149,7 +149,7 @@ MonoBehaviour:
   rb2D: {fileID: 6000590579473320538}
   box2D: {fileID: 6000590579473320537}
   anim: {fileID: 6000590579473320532}
-  runSpeed: 8
+  runSpeed: 10
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeToMaxSpeed: 0.3
-  decelerationTime: 0.4
+  decelerationTime: 0.235
   dodgeDuration: 1
   dodgeLength: 5
   dodgeCurve:
@@ -215,21 +215,48 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 1
-      value: -0.012500763
-      inSlope: -2.6997678
-      outSlope: -2.6997678
+      time: 0.18524629
+      value: 0.58323216
+      inSlope: -0.63164055
+      outSlope: -0.63164055
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10138446
+      inWeight: 0.29908437
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8039228
+      value: 0.24178842
+      inSlope: -2.6994948
+      outSlope: -2.6994948
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.064504504
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.86303645
+      value: 0.16787262
+      inSlope: -0.098968156
+      outSlope: -0.098968156
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9876033
+      value: 0.16098067
+      inSlope: -0.030130738
+      outSlope: -0.030130738
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.76421034
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForce: 8
-  jumpMaxDuration: 0.7
-  jumpReleaseFactor: 1.35
-  wallJumpDuration: 0.7
+  jumpForce: 20
+  jumpMaxDuration: 0.3
+  jumpReleaseFactor: 1
+  wallJumpDuration: 0.4
   wallJumpVerticalCurve:
     serializedVersion: 2
     m_Curve:
@@ -243,22 +270,31 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 0.5
-      value: 0.6410003
-      inSlope: -1.3319961
-      outSlope: -1.3319961
+      time: 0.57301235
+      value: 0.02025364
+      inSlope: -4.4928207
+      outSlope: -4.4928207
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: -0.012500763
-      inSlope: -2.6997678
-      outSlope: -2.6997678
+      time: 0.6653858
+      value: -0.5987347
+      inSlope: 0.03160947
+      outSlope: 0.03160947
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10138446
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.73594767
+      value: -0.7708264
+      inSlope: 0.07100658
+      outSlope: 0.07100658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.97611046
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -276,21 +312,21 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 1
-      value: -0.012500763
-      inSlope: -2.6997678
-      outSlope: -2.6997678
+      time: 1.0066681
+      value: 0.0014762878
+      inSlope: -3.2414083
+      outSlope: -3.2414083
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10138446
+      inWeight: 0.04545456
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallRejectionForce: 8
-  walljumpUpForce: 9.81
-  gravity: 9.81
-  maxFallSpeed: 15
+  wallRejectionForce: 19
+  walljumpUpForce: 15
+  gravity: 20
+  maxFallSpeed: 25
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
