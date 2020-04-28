@@ -149,7 +149,7 @@ MonoBehaviour:
   rb2D: {fileID: 6000590579473320538}
   box2D: {fileID: 6000590579473320537}
   anim: {fileID: 6000590579473320532}
-  runSpeed: 10
+  runSpeed: 12
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -174,8 +174,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  timeToMaxSpeed: 0.3
+  timeToMaxSpeed: 0.5
+  airControl: 0.7
   decelerationTime: 0.235
+  airDecelerationTime: 1
   dodgeDuration: 1
   dodgeLength: 5
   dodgeCurve:
@@ -253,7 +255,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForce: 20
+  jumpForce: 22
   jumpMaxDuration: 0.3
   jumpReleaseFactor: 1
   wallJumpDuration: 0.4
@@ -270,63 +272,21 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 0.57301235
-      value: 0.02025364
-      inSlope: -4.4928207
-      outSlope: -4.4928207
+      time: 1.0021658
+      value: 0.03879307
+      inSlope: -2.005573
+      outSlope: -2.005573
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.18030122
       outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6653858
-      value: -0.5987347
-      inSlope: 0.03160947
-      outSlope: 0.03160947
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.73594767
-      value: -0.7708264
-      inSlope: 0.07100658
-      outSlope: 0.07100658
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.97611046
-      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallJumpHorizontalCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.078223765
-      outSlope: -0.078223765
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.29509693
-    - serializedVersion: 3
-      time: 1.0066681
-      value: 0.0014762878
-      inSlope: -3.2414083
-      outSlope: -3.2414083
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.04545456
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  wallRejectionForce: 19
+  wallRejectionMaxSpeedRatio: 1
   walljumpUpForce: 15
-  gravity: 20
-  maxFallSpeed: 25
+  gravity: 25
+  maxFallSpeed: 30
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
