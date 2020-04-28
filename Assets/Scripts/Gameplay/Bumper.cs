@@ -10,13 +10,14 @@ public class Bumper : MonoBehaviour
     {
         if(col.transform.tag == "Player")
         {
-            //TriggerBumper(col.GetComponent<Player>());
+            TriggerBumper(col.GetComponent<Character>());
         }
     }
 
-    /*public void TriggerBumper(PlayerPrefs affectedPlayer)
+    public void TriggerBumper(Character affectedPlayer)
     {
-        affectedPlayer.Bump();
-    }*/
+        Debug.Log("BUMP!");
+        //affectedPlayer.Bump();
+    }
 
 }
