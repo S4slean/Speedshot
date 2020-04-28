@@ -4,15 +4,254 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[Header("References")]
+	public Transform self;
+	public Rigidbody2D rb2D;
+	public BoxCollider2D box2D;
+	public Animator anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[Header("Acceleration")]
+	public float runSpeed = 10;
+	public AnimationCurve accelerationCurve;
+	public float timeToMaxSpeed = 1;
+	private float accelerationTracker;
+	private int dir;
+
+	[Header("Deceleration")]
+	[Range(0.05f, 1f)] public float decelerationTime = .3f;
+
+	[Header("Dodge")]
+	public float dodgeDuration = 1;
+	private Vector3 dodgeDirection;
+	public float dodgeLength = 5f;
+	public AnimationCurve dodgeCurve;
+	private float dodgeTracker;
+
+	[Header("Jump")]
+	public AnimationCurve jumpCurve;
+	public float jumpForce = 5;
+	public float jumpMaxDuration;
+	public float jumpReleaseFactor = 2f;
+	private float jumpTracker;
+
+	[Header("WallJump")]
+	public float wallJumpDuration = 1;
+	public AnimationCurve wallJumpVerticalCurve;
+	public AnimationCurve wallJumpHorizontalCurve;
+	public float wallRejectionForce = 1;
+	public float walljumpUpForce = 1.5f;
+	private float wallJumpTracker;
+
+	[Header("Gravity")]
+	public float gravity = 9.81f;
+	public float maxFallSpeed = 50f;
+
+	[Header("Collisions")]
+	public LayerMask collisionMask;
+	public float shellThickness = 0.1f;
+
+	[Header("Shoot")]
+	public float timeToMaxShoot = 1;
+	public float minShootForce = 1;
+	public float maxShootForce = 10f;
+	private float currentShootForce = 0;
+
+	[Header("Slide")]
+	public float slideDuration = 1.3f;
+	public AnimationCurve slideCurve;
+	private float slideTracker;
+
+	[Header("AirDash")]
+	public float airDashDuration = 1.2f;
+	public AnimationCurve airDashCurve;
+	private float airDashTracker;
+
+	public enum WallRide { None, Right, Left };
+
+	[Header("States")]
+	public bool hasTheBall = false;
+	public bool grounded = false;
+	public bool jumping = false;
+	public bool wallJumping = false;
+	private int wallJumpDir = 1;
+	public WallRide wallRide = WallRide.None;
+	public bool attacking = false;
+	public bool damaged = false;
+
+	private Vector3 movementAxis;
+
+	public void Update()
+	{
+		HandleInputs();
+		HandleCollisions();
+
+		MoveCharacter();
+	}
+
+	private void HandleInputs()
+	{
+		movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+		movementAxis.Normalize();
+
+		if (Input.GetButtonDown("Jump"))
+		{
+			if (grounded)
+				Jump();
+			else if (!grounded && wallRide != WallRide.None)
+				WallJump();
+		}
+	}
+
+	private void HandleCollisions()
+	{
+		DetectGround();
+		DetectWall();
+	}
+
+	private bool DetectGround()
+	{
+		if (rb2D.velocity.y > 0)
+		{
+			grounded = false;
+		}
+		else
+		{
+			grounded = Physics2D.BoxCast(self.position, new Vector2(box2D.size.x * .95f, shellThickness), 0, Vector2.down, shellThickness, collisionMask);
+		}
+
+		return grounded;
+	}
+
+	private WallRide DetectWall()
+	{
+		wallRide = WallRide.None;
+
+		if (rb2D.velocity.x >= 0)
+		{
+			if (Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .95f), 0, Vector3.right, shellThickness, collisionMask))
+			{
+				wallRide = WallRide.Right;
+			}
+		}
+		if (rb2D.velocity.x <= 0)
+		{
+
+			if (Physics2D.BoxCast(self.position + new Vector3((-box2D.size.x / 2), box2D.size.y / 2, 0), new Vector2(shellThickness * 1.2f, box2D.size.y * .95f), 0, Vector3.left, shellThickness, collisionMask))
+			{
+				wallRide = WallRide.Left;
+			}
+		}
+
+
+		return wallRide;
+	}
+
+	public float HorizontalMovement(Vector3 axis)
+	{
+		float horizontalMovement = 0;
+
+
+		if (axis.x > 0 && wallRide == WallRide.Right || axis.x < 0 && wallRide == WallRide.Left)
+		{
+			accelerationTracker = 0;
+		}
+
+		else if (axis.x == 0)
+		{
+			accelerationTracker -= Time.deltaTime / decelerationTime;
+		}
+
+		else
+		{
+			accelerationTracker += Time.deltaTime / timeToMaxSpeed;
+			if (axis.x == 1) dir = 1;
+			else if (axis.x < 0) dir = -1;
+		}
+
+
+		accelerationTracker = Mathf.Clamp(accelerationTracker, 0, 1);
+		horizontalMovement = accelerationCurve.Evaluate(accelerationTracker) * dir * runSpeed;
+
+		if (wallJumping)
+		{
+			horizontalMovement += wallJumpHorizontalCurve.Evaluate(wallJumpTracker) * wallJumpDir * wallRejectionForce;
+		}
+
+		return horizontalMovement;
+	}
+
+	public float VerticalMovement()
+	{
+		float verticalMovement;
+
+		if (jumping)
+		{
+			jumpTracker += Time.deltaTime * (Input.GetButton("Jump") ? 1 : jumpReleaseFactor) / jumpMaxDuration;
+			if (jumpTracker >= 1)
+			{
+				jumpTracker = 0;
+				jumping = false;
+				verticalMovement = rb2D.velocity.y;
+			}
+			else
+			{
+				verticalMovement = jumpCurve.Evaluate(jumpTracker) * jumpForce;
+			}
+		}
+		else if (wallJumping)
+		{
+			wallJumpTracker += Time.deltaTime * (Input.GetButton("Jump") ? 1 : jumpReleaseFactor) / wallJumpDuration;
+			if (wallJumpTracker >= 1)
+			{
+				wallJumpTracker = 0;
+				wallJumping = false;
+				verticalMovement = rb2D.velocity.y;
+			}
+			else
+			{
+
+				verticalMovement = wallJumpVerticalCurve.Evaluate(wallJumpTracker) * walljumpUpForce;
+			}
+		}
+		else
+		{
+			verticalMovement = rb2D.velocity.y;
+			verticalMovement -= gravity * Time.deltaTime;
+			verticalMovement = Mathf.Clamp(verticalMovement, -maxFallSpeed, jumpForce);
+		}
+
+		if (grounded && verticalMovement < 0)
+		{
+			verticalMovement = 0;
+		}
+
+		return verticalMovement;
+	}
+
+	public void Jump()
+	{
+		Debug.Log("Jump");
+		jumping = true;
+		jumpTracker = 0;
+	}
+
+	public void WallJump()
+	{
+		wallJumping = true;
+		wallJumpTracker = 0;
+
+		if (wallRide == WallRide.Right)
+			wallJumpDir = -1;
+		else if (wallRide == WallRide.Left)
+			wallJumpDir = 1;
+		else
+			wallJumpDir = 0;
+
+	}
+
+	public void MoveCharacter()
+	{
+		rb2D.velocity = new Vector2(HorizontalMovement(movementAxis), VerticalMovement());
+	}
 }
+
