@@ -323,7 +323,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallRejectionForce: 20
+  wallRejectionForce: 19
   walljumpUpForce: 15
   gravity: 20
   maxFallSpeed: 25
