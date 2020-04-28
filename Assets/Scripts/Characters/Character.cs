@@ -230,7 +230,6 @@ public class Character : MonoBehaviour
 
 	public void Jump()
 	{
-		Debug.Log("Jump");
 		jumping = true;
 		jumpTracker = 0;
 	}
