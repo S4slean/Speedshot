@@ -315,6 +315,8 @@ public class Character : MonoBehaviour
 
 	public void Tackle()
 	{
+		jumping = false;
+		wallJumping = false;
 		attacking = true;
 		airDashTracker = 0;
 	}
