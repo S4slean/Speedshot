@@ -297,6 +297,7 @@ public class Character : MonoBehaviour
 			{
                 triggeredBumper.bumpTracker = 0;
                 bumping = false;
+                triggeredBumper = null;
 				verticalMovement = rb2D.velocity.y;
 			}
 			else
