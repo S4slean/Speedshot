@@ -10,15 +10,17 @@ public class Character : MonoBehaviour
 	public BoxCollider2D box2D;
 	public Animator anim;
 
-	[Header("Acceleration")]
+	[Header("Movement")]
 	public float runSpeed = 10;
 	public AnimationCurve accelerationCurve;
 	public float timeToMaxSpeed = 1;
+	[Range(0, 1)] public float airControl = .7f;
 	private float accelerationTracker;
 	private int dir;
 
 	[Header("Deceleration")]
 	[Range(0.05f, 1f)] public float decelerationTime = .3f;
+	public float airDecelerationTime = 1f;
 
 	[Header("Dodge")]
 	public float dodgeDuration = 1;
@@ -37,8 +39,7 @@ public class Character : MonoBehaviour
 	[Header("WallJump")]
 	public float wallJumpDuration = 1;
 	public AnimationCurve wallJumpVerticalCurve;
-	public AnimationCurve wallJumpHorizontalCurve;
-	public float wallRejectionForce = 1;
+	[Range(0,1)] public float wallRejectionMaxSpeedRatio = 1;
 	public float walljumpUpForce = 1.5f;
 	private float wallJumpTracker;
 
@@ -100,6 +101,15 @@ public class Character : MonoBehaviour
 			else if (!grounded && wallRide != WallRide.None)
 				WallJump();
 		}
+
+		if (Input.GetButtonDown("Fire1"))
+		{
+			if (hasTheBall)
+				Shoot();
+			else
+				Tackle();
+
+		}
 	}
 
 	private void HandleCollisions()
@@ -128,7 +138,7 @@ public class Character : MonoBehaviour
 
 		if (rb2D.velocity.x >= 0)
 		{
-			if (Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .95f), 0, Vector3.right, shellThickness, collisionMask))
+			if (Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.right, shellThickness, collisionMask))
 			{
 				wallRide = WallRide.Right;
 			}
@@ -136,7 +146,7 @@ public class Character : MonoBehaviour
 		if (rb2D.velocity.x <= 0)
 		{
 
-			if (Physics2D.BoxCast(self.position + new Vector3((-box2D.size.x / 2), box2D.size.y / 2, 0), new Vector2(shellThickness * 1.2f, box2D.size.y * .95f), 0, Vector3.left, shellThickness, collisionMask))
+			if (Physics2D.BoxCast(self.position + new Vector3((-box2D.size.x / 2), box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.left, shellThickness, collisionMask))
 			{
 				wallRide = WallRide.Left;
 			}
@@ -153,29 +163,70 @@ public class Character : MonoBehaviour
 
 		if (axis.x > 0 && wallRide == WallRide.Right || axis.x < 0 && wallRide == WallRide.Left)
 		{
-			accelerationTracker = 0;
+			if (!wallJumping)
+				accelerationTracker = 0;
 		}
-
 		else if (axis.x == 0)
 		{
-			accelerationTracker -= Time.deltaTime / decelerationTime;
-		}
+			if (accelerationTracker > 0)
+			{
+				if (grounded)
+				{
+					accelerationTracker -= Time.deltaTime / decelerationTime;
+				}
+				else
+				{
+					accelerationTracker -= Time.deltaTime / airDecelerationTime;
+				}
+				accelerationTracker = Mathf.Clamp(accelerationTracker, 0, 1);
+			}
+			else if (accelerationTracker < 0)
+			{
+				if (grounded)
+				{
+					accelerationTracker += Time.deltaTime / decelerationTime;
+				}
+				else
+				{
+					accelerationTracker += Time.deltaTime / airDecelerationTime;
+				}
+				accelerationTracker = Mathf.Clamp(accelerationTracker, -1, 0);
+			}
 
+
+		}
+		else if (attacking)
+		{
+			if (!grounded)
+			{
+				airDashTracker += Time.deltaTime / airDashDuration;
+				horizontalMovement = airDashCurve.Evaluate(airDashTracker);
+
+				if (airDashTracker >= 1)
+				{
+					attacking = false;
+				}
+			}
+		}
 		else
 		{
-			accelerationTracker += Time.deltaTime / timeToMaxSpeed;
-			if (axis.x == 1) dir = 1;
-			else if (axis.x < 0) dir = -1;
+			if (grounded)
+			{
+				accelerationTracker = Mathf.Abs(accelerationTracker) * axis.x;
+				accelerationTracker += Time.deltaTime * Mathf.Sign(axis.x) / timeToMaxSpeed;
+			}
+			else
+			{
+				accelerationTracker += Time.deltaTime * axis.x * airControl / timeToMaxSpeed;
+			}
+
+
 		}
 
 
-		accelerationTracker = Mathf.Clamp(accelerationTracker, 0, 1);
-		horizontalMovement = accelerationCurve.Evaluate(accelerationTracker) * dir * runSpeed;
+		accelerationTracker = Mathf.Clamp(accelerationTracker, -1, 1);
+		horizontalMovement = accelerationCurve.Evaluate(Mathf.Abs(accelerationTracker)) * Mathf.Sign(accelerationTracker) * runSpeed;
 
-		if (wallJumping)
-		{
-			horizontalMovement += wallJumpHorizontalCurve.Evaluate(wallJumpTracker) * wallJumpDir * wallRejectionForce;
-		}
 
 		return horizontalMovement;
 	}
@@ -236,6 +287,7 @@ public class Character : MonoBehaviour
 
 	public void WallJump()
 	{
+		jumping = false;
 		wallJumping = true;
 		wallJumpTracker = 0;
 
@@ -246,11 +298,24 @@ public class Character : MonoBehaviour
 		else
 			wallJumpDir = 0;
 
+		accelerationTracker = wallJumpDir * wallRejectionMaxSpeedRatio;
+
 	}
 
 	public void MoveCharacter()
 	{
 		rb2D.velocity = new Vector2(HorizontalMovement(movementAxis), VerticalMovement());
+	}
+
+	public void Shoot()
+	{
+
+	}
+
+	public void Tackle()
+	{
+		attacking = true;
+		airDashTracker = 0;
 	}
 }
 
