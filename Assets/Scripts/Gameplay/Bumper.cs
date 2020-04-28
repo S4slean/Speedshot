@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
+    [Header("Bumping")]
+    public AnimationCurve bumpCurve;
+    public float bumpForce = 5;
+    public float bumpMaxDuration;
+    public float bumpReleaseFactor = 2f;
+    [HideInInspector]public float bumpTracker;
+
     private SpriteRenderer sprite;
 
     void OnTriggerEnter2D(Collider2D col)
@@ -17,7 +24,7 @@ public class Bumper : MonoBehaviour
     public void TriggerBumper(Character affectedPlayer)
     {
         Debug.Log("BUMP!");
-        //affectedPlayer.Bump();
+        affectedPlayer.Bump(this);
     }
 
 }

@@ -73,6 +73,7 @@ public class Character : MonoBehaviour
 	public bool hasTheBall = false;
 	public bool grounded = false;
 	public bool jumping = false;
+	public bool bumping = false;
 	public bool wallJumping = false;
 	private int wallJumpDir = 1;
 	public WallRide wallRide = WallRide.None;
@@ -80,6 +81,9 @@ public class Character : MonoBehaviour
 	public bool damaged = false;
 
 	private Vector3 movementAxis;
+
+    //Triggered Bumper
+    private Bumper triggeredBumper;
 
 	public void Update()
 	{
@@ -249,6 +253,21 @@ public class Character : MonoBehaviour
 				verticalMovement = jumpCurve.Evaluate(jumpTracker) * jumpForce;
 			}
 		}
+		else if (bumping)
+		{
+			triggeredBumper.bumpTracker += Time.deltaTime * triggeredBumper.bumpReleaseFactor / triggeredBumper.bumpMaxDuration;
+			if (triggeredBumper.bumpTracker >= 1)
+			{
+                triggeredBumper.bumpTracker = 0;
+				bumping = false;
+                triggeredBumper = null;
+				verticalMovement = rb2D.velocity.y;
+			}
+			else
+			{
+				verticalMovement = triggeredBumper.bumpCurve.Evaluate(triggeredBumper.bumpTracker) * triggeredBumper.bumpForce;
+			}
+		}
 		else if (wallJumping)
 		{
 			wallJumpTracker += Time.deltaTime * (Input.GetButton("Jump") ? 1 : jumpReleaseFactor) / wallJumpDuration;
@@ -320,5 +339,11 @@ public class Character : MonoBehaviour
 		attacking = true;
 		airDashTracker = 0;
 	}
+
+    public void Bump(Bumper bumper)
+    {
+        triggeredBumper = bumper;
+        bumping = true;
+    }
 }
 
