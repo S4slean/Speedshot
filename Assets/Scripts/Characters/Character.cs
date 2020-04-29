@@ -40,6 +40,7 @@ public class Character : MonoBehaviour
 	public float jumpMaxDuration;
 	public float jumpReleaseFactor = 2f;
 	private float jumpTracker;
+	private Bumper triggeredBumper;
 
 	[Header("WallJump")]
 	public float wallJumpDuration = 1;
@@ -54,13 +55,11 @@ public class Character : MonoBehaviour
 
 	[Header("Collisions")]
 	public LayerMask collisionMask;
+	public LayerMask wallSlideMask;
 	public float shellThickness = 0.1f;
 
 	[Header("Shoot")]
-	public float timeToMaxShoot = 1;
-	public float minShootForce = 1;
-	public float maxShootForce = 10f;
-	private float currentShootForce = 0;
+	public float shootForce = 5;
 	public float ballDistanceFromPlayer = 2;
 
 	[Header("Slide")]
@@ -68,6 +67,7 @@ public class Character : MonoBehaviour
 	public float slideDuration = 1.3f;
 	public AnimationCurve slideCurve;
 	private float slideTracker;
+	private float attackDir = 1;
 
 	[Header("AirDash")]
 	public float airDashSpeed = 5;
@@ -100,6 +100,7 @@ public class Character : MonoBehaviour
 	public bool dodging = false;
 	public bool damaged = false;
 	public bool catching = false;
+	public bool bumping = false;
 	public TeamEnum team = TeamEnum.TEAM1;
 
 	private Vector3 movementAxis;
@@ -115,6 +116,7 @@ public class Character : MonoBehaviour
 		HandleCollisions();
 
 		MoveCharacter();
+		UpdateAnims();
 	}
 
 	private void HandleInputs()
@@ -212,10 +214,14 @@ public class Character : MonoBehaviour
 		}
 		else
 		{
-			grounded = Physics2D.BoxCast(self.position, new Vector2(box2D.size.x * .95f, shellThickness), 0, Vector2.down, shellThickness, collisionMask);
+			grounded = Physics2D.BoxCast(self.position, new Vector2(box2D.size.x * .85f, shellThickness), 0, Vector2.down, shellThickness, collisionMask);
 		}
 
-		if (grounded && !attacking) canAttack = true;
+		if (grounded && !attacking)
+		{
+			canAttack = true;
+			rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+		}
 
 		return grounded;
 	}
@@ -226,7 +232,7 @@ public class Character : MonoBehaviour
 
 		if (rb2D.velocity.x >= 0)
 		{
-			if (Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.right, shellThickness, collisionMask))
+			if (Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.right, shellThickness, wallSlideMask))
 			{
 				wallRide = WallRide.Right;
 				canAttack = true;
@@ -235,7 +241,7 @@ public class Character : MonoBehaviour
 		if (rb2D.velocity.x <= 0)
 		{
 
-			if (Physics2D.BoxCast(self.position + new Vector3((-box2D.size.x / 2), box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.left, shellThickness, collisionMask))
+			if (Physics2D.BoxCast(self.position + new Vector3((-box2D.size.x / 2), box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.left, shellThickness, wallSlideMask))
 			{
 				wallRide = WallRide.Left;
 				canAttack = true;
@@ -302,7 +308,7 @@ public class Character : MonoBehaviour
 			{
 				case Attack.AirDash:
 					airDashTracker += Time.deltaTime / airDashDuration;
-					horizontalMovement = airDashCurve.Evaluate(airDashTracker) * airDashSpeed * ((axis.x != 0) ? axis.x : Mathf.Sign(rb2D.velocity.x));
+					horizontalMovement = airDashCurve.Evaluate(airDashTracker) * airDashSpeed * attackDir;
 
 					if (airDashTracker >= 1)
 					{
@@ -314,7 +320,7 @@ public class Character : MonoBehaviour
 
 				case Attack.Slide:
 					slideTracker += Time.deltaTime / slideDuration;
-					horizontalMovement = slideCurve.Evaluate(slideTracker) * slideSpeed * ((axis.x != 0) ? axis.x : Mathf.Sign(rb2D.velocity.x));
+					horizontalMovement = slideCurve.Evaluate(slideTracker) * slideSpeed * attackDir;
 
 					if (slideTracker >= 1)
 					{
@@ -396,6 +402,21 @@ public class Character : MonoBehaviour
 				knockbackTracker = 0;
 			}
 		}
+		else if (bumping)
+		{
+			triggeredBumper.bumpTracker += Time.deltaTime * triggeredBumper.bumpReleaseFactor / triggeredBumper.bumpMaxDuration;
+			if (triggeredBumper.bumpTracker >= 1)
+			{
+				triggeredBumper.bumpTracker = 0;
+				bumping = false;
+				triggeredBumper = null;
+				verticalMovement = rb2D.velocity.y;
+			}
+			else
+			{
+				verticalMovement = triggeredBumper.bumpCurve.Evaluate(triggeredBumper.bumpTracker) * triggeredBumper.bumpForce;
+			}
+		}
 		else
 		{
 			verticalMovement = rb2D.velocity.y;
@@ -415,6 +436,7 @@ public class Character : MonoBehaviour
 	{
 		jumping = true;
 		jumpTracker = 0;
+		anim.Play("Jump");
 	}
 
 	public void WallJump()
@@ -434,6 +456,13 @@ public class Character : MonoBehaviour
 
 	}
 
+	public void InterruptJumps()
+	{
+		jumping = false;
+		jumpTracker = 0;
+		wallJumping = false;
+		wallJumpTracker = 0;
+	}
 	public void MoveCharacter()
 	{
 		rb2D.velocity = new Vector2(HorizontalMovement(movementAxis), VerticalMovement());
@@ -442,7 +471,7 @@ public class Character : MonoBehaviour
 	public void Shoot()
 	{
 		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + (Vector2)movementAxis * ballDistanceFromPlayer);
-		ball.ThrowBall(movementAxis,team);
+		ball.ThrowBall(movementAxis,shootForce, team);
 		hasTheBall = false;
 	}
 
@@ -454,6 +483,11 @@ public class Character : MonoBehaviour
 		attacking = true;
 		airDashTracker = 0;
 		attack = Attack.AirDash;
+		anim.Play("AirDash");
+		attackDir = movementAxis.x != 0 ? Mathf.Sign(movementAxis.x) : dir;
+		if (wallRide == WallRide.Right) attackDir = -1;
+		else if (wallRide == WallRide.Left) attackDir = 1;
+
 	}
 
 	public void Slide()
@@ -464,6 +498,8 @@ public class Character : MonoBehaviour
 		attacking = true;
 		slideTracker = 0;
 		attack = Attack.Slide;
+		anim.Play("Slide");
+		attackDir = movementAxis.x != 0 ? Mathf.Sign(movementAxis.x) : dir;
 	}
 
 	public void Dodge(int dodgeDir)
@@ -484,6 +520,8 @@ public class Character : MonoBehaviour
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
+		InterruptJumps();
+
 		if(collision.gameObject.GetComponent<Ball>() != null)
 		{
 			if(catching || dodging)
@@ -501,6 +539,30 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+	}
+
+	public void Bump(Bumper bumper)
+	{
+		triggeredBumper = bumper;
+		triggeredBumper.bumpTracker = 0f;
+		bumping = true;
+	}
+
+	public void UpdateAnims()
+	{
+		anim.SetBool("grounded", grounded);
+		anim.SetBool("running", rb2D.velocity.x != 0 ? true: false);
+		anim.SetBool("wallSliding", wallRide == WallRide.None ? false : true);
+		transform.localScale = new Vector3(dir, 1, 1);
+
+		if (wallRide == WallRide.Right)
+		{
+			transform.localScale = new Vector3(-1, 1, 1);
+		}
+		else if(wallRide == WallRide.Left)
+		{
+			transform.localScale = new Vector3(1, 1, 1);
+		}
 	}
 }
 
