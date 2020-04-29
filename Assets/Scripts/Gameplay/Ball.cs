@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
     public bool IsGrabbed { get; private set; }
     public Character Grabber { get; private set; }
     public bool IsEmpowered { get; private set; }
-    public Team TeamEmpowerement { get; private set; }
+    public TeamEnum TeamEmpowerement { get; private set; }
     public bool IsSubjectToGravity { get; private set; }
     public float GravityCurrentlyApplied { get => (IsGrabbed || !IsSubjectToGravity) ? 0f : baseGravity; }
 
@@ -102,7 +102,7 @@ public class Ball : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , Team throwerTeam)
+    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , TeamEnum throwerTeam)
     {
         //Enable Good Trail
         _rigidbody.velocity = throwMagnitude * throwDirection.normalized;           //throwMagnitude could be processed by the player (throwDirection => throwVelocity)
@@ -132,6 +132,6 @@ public class Ball : MonoBehaviour
     {
         StopCoroutine(empowerementFadeCoroutine);
         IsEmpowered = false;
-        TeamEmpowerement = Team.None;
+        TeamEmpowerement = TeamEnum.NONE;
     }
 }
