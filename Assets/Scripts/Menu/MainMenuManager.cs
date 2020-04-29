@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private Scene[] mapSelection;
-
     private void Start()
     {
         
