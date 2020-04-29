@@ -24,18 +24,12 @@ public class Ball : MonoBehaviour
                 if (value == true)
                 {
                     savedVelocity = _rigidbody.velocity;
-                    _rigidbody.velocity = Vector2.zero;
-
-                    savedGravityState = IsSubjectToGravity;
-                    IsSubjectToGravity = false;
+                    _rigidbody.velocity = Vector2.zero; 
                 }
                 else
                 {
                     _rigidbody.velocity = savedVelocity;
                     savedVelocity = Vector2.zero;
-
-                    IsSubjectToGravity = savedGravityState;
-                    savedGravityState = false;
                 }
             }
             isFreezed = value;
@@ -45,10 +39,10 @@ public class Ball : MonoBehaviour
     public Character Grabber { get; private set; }
     public bool IsEmpowered { get; private set; }
     public TeamEnum TeamEmpowerement { get; private set; }
-    public bool IsSubjectToGravity { get; private set; }
+    public bool IsSubjectToGravity { get; set; }
     public float GravityCurrentlyApplied { get => (IsGrabbed || !IsSubjectToGravity) ? 0f : baseGravity; }
 
-    private bool savedGravityState = false;
+
     private Vector2 savedVelocity = Vector2.zero;
     private Rigidbody2D _rigidbody;
     private Coroutine empowerementFadeCoroutine;
@@ -68,7 +62,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
-            if(IsEmpowered && player.team != TeamEmpowerement)
+            if(IsEmpowered)
                player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
             else
                 player.CatchBall();
