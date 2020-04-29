@@ -44,8 +44,15 @@ public class Goal : MonoBehaviour
                 break;
         }
 
+        //Display GOAL! Screen
+        Debug.Log("GOAAAAAL!!!!");
+
         //Respawn players
+        GameManager.instance.SpawnTeams();
         //Respawn ball
+        GameManager.instance.SpawnBall();
+
+        //Start CountDown
     }
 
 }

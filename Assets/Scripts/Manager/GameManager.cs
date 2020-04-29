@@ -9,6 +9,18 @@ public class GameManager : MonoBehaviour
 
     public event Action<bool> PauseGameEvent;
 
+    [Header("Spawn Points")]
+    public Transform redTeamSpawnPointsContainer;
+    public Transform blueTeamSpawnPointsContainer;
+    public Transform ballSpawnPoint;
+
+    [Header("Teams")]
+    public List<Character> blueTeam;
+    public List<Character> redTeam;
+
+    [Header("Ball")]
+    public Ball ball;
+
     private void Awake()
     {
         if (instance != null)
@@ -24,7 +36,13 @@ public class GameManager : MonoBehaviour
 
     private void SetupGame()
     {
+        //Spawn Players
+        SpawnTeams();
 
+        //Spawn Ball
+        SpawnBall();
+
+        //Start Countdown
     }
 
     public void StartGame()
@@ -41,5 +59,33 @@ public class GameManager : MonoBehaviour
     public void LeaveGame()
     {
 
+    }
+
+    public void SpawnTeams()
+    {
+        int spawnIndex = 0;
+        foreach (Character p in blueTeam)
+        {
+            SpawnPlayer(p, blueTeamSpawnPointsContainer.GetChild(spawnIndex).transform);
+            spawnIndex++;
+        }
+
+        spawnIndex = 0;
+
+        foreach (Character p in redTeam)
+        {
+            SpawnPlayer(p, redTeamSpawnPointsContainer.GetChild(spawnIndex).transform);
+            spawnIndex++;
+        }
+    }
+
+    public void SpawnPlayer(Character p, Transform spawnPoint)
+    {
+        p.transform.position = spawnPoint.position;
+    }
+
+    public void SpawnBall()
+    {
+        ball.transform.position = ballSpawnPoint.position;
     }
 }

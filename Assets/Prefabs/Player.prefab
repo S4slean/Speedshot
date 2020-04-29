@@ -176,7 +176,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   timeToMaxSpeed: 0.5
   airControl: 0.7
-  decelerationTime: 0.235
+  decelerationTime: 0.101
   airDecelerationTime: 1
   dodgeDuration: 1
   dodgeLength: 5
@@ -192,6 +192,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0.29509693
+    - serializedVersion: 3
+      time: 0.6110339
+      value: 0.71273196
+      inSlope: -1.1431834
+      outSlope: -1.1431834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: -0.012500763
@@ -217,13 +226,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 0.18524629
+      time: 0.14443666
       value: 0.58323216
       inSlope: -0.63164055
       outSlope: -0.63164055
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.29908437
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.52226907
+      value: 0.58146405
+      inSlope: -0.1312357
+      outSlope: -0.1312357
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.8039228
@@ -258,7 +276,7 @@ MonoBehaviour:
   jumpForce: 22
   jumpMaxDuration: 0.3
   jumpReleaseFactor: 1
-  wallJumpDuration: 0.4
+  wallJumpDuration: 0.1
   wallJumpVerticalCurve:
     serializedVersion: 2
     m_Curve:
@@ -283,8 +301,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallRejectionMaxSpeedRatio: 1
-  walljumpUpForce: 15
+  wallRejectionMaxSpeedRatio: 0.239
+  walljumpUpForce: 28
   gravity: 25
   maxFallSpeed: 30
   collisionMask:
@@ -294,7 +312,8 @@ MonoBehaviour:
   timeToMaxShoot: 1
   minShootForce: 1
   maxShootForce: 10
-  slideDuration: 1.3
+  slideSpeed: 20
+  slideDuration: 0.6
   slideCurve:
     serializedVersion: 2
     m_Curve:
@@ -308,30 +327,58 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 1
-      value: -0.012500763
-      inSlope: -2.6997678
-      outSlope: -2.6997678
+      time: 0.43612447
+      value: 0.49724665
+      inSlope: -0.039048523
+      outSlope: -0.039048523
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10138446
+      inWeight: 0.32748702
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5968858
+      value: 0.21358886
+      inSlope: -1.3127072
+      outSlope: -1.3127072
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.59671676
+    - serializedVersion: 3
+      time: 1
+      value: -0.012500763
+      inSlope: -0.76331776
+      outSlope: -0.76331776
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.45001578
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  airDashDuration: 1.2
+  airDashSpeed: 25
+  airDashDuration: 0.3
   airDashCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.0032691956
       inSlope: -0.078223765
       outSlope: -0.078223765
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0.29509693
+    - serializedVersion: 3
+      time: 0.19173495
+      value: 0.9981348
+      inSlope: -0.1971324
+      outSlope: -0.1971324
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: -0.012500763
@@ -347,8 +394,11 @@ MonoBehaviour:
   hasTheBall: 0
   grounded: 0
   jumping: 0
+  bumping: 0
   wallJumping: 0
+  canAttack: 1
   wallRide: 0
+  attack: 0
   attacking: 0
   damaged: 0
 --- !u!95 &6000590579473320532
