@@ -252,8 +252,8 @@ MonoBehaviour:
   airControl: 0.7
   decelerationTime: 0.101
   airDecelerationTime: 1
-  dodgeDuration: 1
-  dodgeLength: 5
+  dodgeDuration: 0.5
+  dodgeLength: 15
   dodgeCurve:
     serializedVersion: 2
     m_Curve:

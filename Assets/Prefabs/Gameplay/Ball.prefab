@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4450599489935501487}
   - component: {fileID: 2482016614568494399}
   - component: {fileID: 5566434483686935859}
+  - component: {fileID: -4805981672662270310}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -97,11 +98,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseGravity: 9.81
-  bounciness: 1
-  friction: 0
+  bounciness: 0.9
+  friction: 0.01
   horizontalPlayerHitBounceVelocity: 0
   verticalPlayerHitBounceVelocity: 0
   empoweredStateDuration: 1
+  throwerCollisionIgnoredDuration: 0.2
+  startWithGravity: 1
+  physicsCollider: {fileID: 5566434483686935859}
+  catchCollider: {fileID: -4805981672662270310}
 --- !u!50 &2482016614568494399
 Rigidbody2D:
   serializedVersion: 4
@@ -139,3 +144,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!58 &-4805981672662270310
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160437923672153852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
