@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float throwMagnitude;
     [SerializeField] private float baseGravity;
     [SerializeField] private float bounciness;
     [SerializeField] private float friction;
@@ -51,6 +50,11 @@ public class Ball : MonoBehaviour
         
     }
 
+    public void Restart()
+    {
+        
+    }
+
     public void SetAsGrabbed(Character grabber)
     {
         Grabber = grabber;
@@ -64,7 +68,7 @@ public class Ball : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void ThrowBall(Vector2 throwDirection, TeamEnum throwerTeam)
+    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , TeamEnum throwerTeam)
     {
         //Enable Good Trail
         _rigidbody.velocity = throwMagnitude * throwDirection.normalized;           //throwMagnitude could be processed by the player (throwDirection => throwVelocity)
