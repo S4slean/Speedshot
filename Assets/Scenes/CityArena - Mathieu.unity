@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 234268872}
   - component: {fileID: 234268871}
   - component: {fileID: 234268870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 388734527}
   - component: {fileID: 388734526}
   - component: {fileID: 388734525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 620768688}
   - component: {fileID: 620768687}
   - component: {fileID: 620768686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 701353349}
   - component: {fileID: 701353348}
   - component: {fileID: 701353347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,7 +2172,7 @@ GameObject:
   - component: {fileID: 1067178393}
   - component: {fileID: 1067178396}
   - component: {fileID: 1067178397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2361,6 +2361,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
+        type: 3}
+      propertyPath: maxFallSpeed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
+        type: 3}
+      propertyPath: gravity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
@@ -2774,7 +2784,7 @@ GameObject:
   - component: {fileID: 1261180136}
   - component: {fileID: 1261180135}
   - component: {fileID: 1261180134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2965,7 +2975,7 @@ GameObject:
   - component: {fileID: 1283256060}
   - component: {fileID: 1283256059}
   - component: {fileID: 1283256058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4038,7 +4048,7 @@ GameObject:
   - component: {fileID: 1774623032}
   - component: {fileID: 1774623035}
   - component: {fileID: 1774623036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4229,7 +4239,7 @@ GameObject:
   - component: {fileID: 2100368869}
   - component: {fileID: 2100368868}
   - component: {fileID: 2100368872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New SpriteShapeController (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
