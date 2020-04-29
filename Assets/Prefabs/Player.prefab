@@ -252,8 +252,8 @@ MonoBehaviour:
   airControl: 0.7
   decelerationTime: 0.101
   airDecelerationTime: 1
-  dodgeDuration: 1
-  dodgeLength: 5
+  dodgeDuration: 0.5
+  dodgeLength: 15
   dodgeCurve:
     serializedVersion: 2
     m_Curve:
@@ -349,9 +349,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpForce: 22
-  jumpMaxDuration: 0.3
+  jumpMaxDuration: 0.25
   jumpReleaseFactor: 1
-  wallJumpDuration: 0.1
+  wallJumpDuration: 0.3
   wallJumpVerticalCurve:
     serializedVersion: 2
     m_Curve:
@@ -378,8 +378,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   wallRejectionMaxSpeedRatio: 0.239
   walljumpUpForce: 28
-  gravity: 25
-  maxFallSpeed: 30
+  gravity: 35
+  maxFallSpeed: 45
   collisionMask:
     serializedVersion: 2
     m_Bits: 513
@@ -387,8 +387,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   shellThickness: 0.1
-  shootForce: 5
-  ballDistanceFromPlayer: 2
+  shootForce: 30
+  ballDistanceFromPlayer: 3
   slideSpeed: 20
   slideDuration: 0.6
   slideCurve:
