@@ -88,4 +88,21 @@ public class GameManager : MonoBehaviour
     {
         ball.transform.position = ballSpawnPoint.position;
     }
+
+    public void SetPlayersMovable(bool movable)
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(blueTeam);
+        players.AddRange(redTeam);
+
+        foreach(Character p in players)
+        {
+            //set movable
+        }
+    }
+
+    public void SetBallMovable(bool movable)
+    {
+        //set movable
+    }
 }

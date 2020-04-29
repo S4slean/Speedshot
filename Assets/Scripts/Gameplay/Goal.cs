@@ -6,6 +6,7 @@ public class Goal : MonoBehaviour
 {
     [SerializeField] private Team teamGoal;
     private SpriteRenderer sprite;
+    private bool isTriggerable = true;
 
     void Start()
     {
@@ -26,13 +27,14 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.transform.tag == "Ball")
+        if(col.transform.tag == "Ball" && isTriggerable)
         {
-            TriggerGoal();
+            StartCoroutine(TriggerGoal());
+            isTriggerable = false;
         }
     }
 
-    public void TriggerGoal()
+    IEnumerator TriggerGoal()
     {
         switch (teamGoal)
         {
@@ -46,6 +48,13 @@ public class Goal : MonoBehaviour
 
         //Display GOAL! Screen
         Debug.Log("GOAAAAAL!!!!");
+        Time.timeScale = 0.5f;
+
+        yield return new WaitForSeconds(1);
+
+        //Freeze actors
+        GameManager.instance.SetPlayersMovable(false);
+        GameManager.instance.SetBallMovable(false);
 
         //Respawn players
         GameManager.instance.SpawnTeams();
@@ -53,6 +62,9 @@ public class Goal : MonoBehaviour
         GameManager.instance.SpawnBall();
 
         //Start CountDown
+        UIManager.instance.StartCountdown(3);
+
+        isTriggerable = true;
     }
 
 }
