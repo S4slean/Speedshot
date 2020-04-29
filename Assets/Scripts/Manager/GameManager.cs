@@ -97,12 +97,16 @@ public class GameManager : MonoBehaviour
 
         foreach(Character p in players)
         {
-            //set movable
+            p.enabled = movable;
+            if(movable)
+                p.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 1f);
+            else
+                p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 
     public void SetBallMovable(bool movable)
     {
-        //set movable
+        ball.IsSubjectToGravity = movable;
     }
 }
