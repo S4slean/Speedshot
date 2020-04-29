@@ -97,11 +97,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseGravity: 9.81
-  bounciness: 1
-  friction: 0
+  bounciness: 0.9
+  friction: 0.01
   horizontalPlayerHitBounceVelocity: 0
   verticalPlayerHitBounceVelocity: 0
   empoweredStateDuration: 1
+  startWithGravity: 1
 --- !u!50 &2482016614568494399
 Rigidbody2D:
   serializedVersion: 4
