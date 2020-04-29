@@ -472,7 +472,7 @@ public class Character : MonoBehaviour
 	public void Shoot()
 	{
 		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis) * ballDistanceFromPlayer);
-		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),shootForce, team);
+		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),shootForce, this, true);
 		hasTheBall = false;
 	}
 
