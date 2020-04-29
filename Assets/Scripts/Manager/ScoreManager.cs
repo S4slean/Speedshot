@@ -5,9 +5,9 @@ using UnityEngine;
 
 public enum Team
 {
-    None,
-    Blue,
-    Red
+    None = -1,
+    Blue = 0,
+    Red = 1
 }
 
 public class ScoreManager : MonoBehaviour

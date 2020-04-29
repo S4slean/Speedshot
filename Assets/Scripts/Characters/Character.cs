@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
 	public float timeToMaxSpeed = 1;
 	[Range(0, 1)] public float airControl = .7f;
 	private float accelerationTracker;
-	private int dir;
+	private int dir = 1;
 
 	[Header("Deceleration")]
 	[Range(0.05f, 1f)] public float decelerationTime = .3f;
@@ -107,7 +107,8 @@ public class Character : MonoBehaviour
 
 	public void Start()
 	{
-		//ball = GameObject.Find("Ball").GetComponent<Ball>();
+
+			ball = GameObject.FindObjectOfType<Ball>();
 	}
 
 	public void Update()
@@ -388,7 +389,7 @@ public class Character : MonoBehaviour
 				verticalMovement = wallJumpVerticalCurve.Evaluate(wallJumpTracker) * walljumpUpForce;
 			}
 		}
-		else if (attacking)
+		else if (attacking || dodging)
 		{
 			verticalMovement = 0;
 		}
@@ -470,8 +471,8 @@ public class Character : MonoBehaviour
 
 	public void Shoot()
 	{
-		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + (Vector2)movementAxis * ballDistanceFromPlayer);
-		ball.ThrowBall(movementAxis,shootForce, team);
+		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis) * ballDistanceFromPlayer);
+		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),shootForce, team);
 		hasTheBall = false;
 	}
 
@@ -521,18 +522,6 @@ public class Character : MonoBehaviour
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
 		InterruptJumps();
-
-		if(collision.gameObject.GetComponent<Ball>() != null)
-		{
-			if(catching || dodging)
-			{
-				CatchBall();
-			}
-			else
-			{
-				ReceiveDamage((int)Mathf.Sign((transform.position.x - ball.transform.position.x)));
-			}
-		}
 	}
 
 	public void CatchBall()

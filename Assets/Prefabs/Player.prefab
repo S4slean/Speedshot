@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4900078036465088696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2804703470305570617}
+  - component: {fileID: 4821270162524600872}
+  - component: {fileID: 8440401739237355187}
+  m_Layer: 1
+  m_Name: DamageBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2804703470305570617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900078036465088696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6000590579473320543}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4821270162524600872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900078036465088696}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.7}
+  m_EdgeRadius: 0
+--- !u!114 &8440401739237355187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900078036465088696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8db4dd9cee40a4fbea3ce45892bdcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  player: {fileID: 0}
 --- !u!1 &6000590579473320533
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +103,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.51, y: 1.371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2804703470305570617}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7518371292605484398, guid: 5e9481babe1c58145b81244d8fccc413,
+  m_Sprite: {fileID: -2883353385671244365, guid: 50614b066dc1fb74d8db5c0957ccbeb7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,18 +172,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.875}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.65625, y: 1.75}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.65625, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65625, y: 1.75}
+  m_Size: {x: 0.65625, y: 0.8}
   m_EdgeRadius: 0
 --- !u!50 &6000590579473320538
 Rigidbody2D:
@@ -149,6 +222,7 @@ MonoBehaviour:
   rb2D: {fileID: 6000590579473320538}
   box2D: {fileID: 6000590579473320537}
   anim: {fileID: 6000590579473320532}
+  ball: {fileID: 0}
   runSpeed: 12
   accelerationCurve:
     serializedVersion: 2
@@ -213,6 +287,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  bufferDuration: 0.4
   jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -274,9 +349,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpForce: 22
-  jumpMaxDuration: 0.3
+  jumpMaxDuration: 0.25
   jumpReleaseFactor: 1
-  wallJumpDuration: 0.1
+  wallJumpDuration: 0.3
   wallJumpVerticalCurve:
     serializedVersion: 2
     m_Curve:
@@ -303,15 +378,17 @@ MonoBehaviour:
     m_RotationOrder: 4
   wallRejectionMaxSpeedRatio: 0.239
   walljumpUpForce: 28
-  gravity: 25
-  maxFallSpeed: 30
+  gravity: 35
+  maxFallSpeed: 45
   collisionMask:
+    serializedVersion: 2
+    m_Bits: 513
+  wallSlideMask:
     serializedVersion: 2
     m_Bits: 1
   shellThickness: 0.1
-  timeToMaxShoot: 1
-  minShootForce: 1
-  maxShootForce: 10
+  shootForce: 30
+  ballDistanceFromPlayer: 3
   slideSpeed: 20
   slideDuration: 0.6
   slideCurve:
@@ -391,16 +468,32 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  invulnerabiltyDuration: 0.7
+  knockBackCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  knockBackDuration: 0.5
+  knockBackForceMaxSpeedRatio: 1
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 0
+  damageRange: 0.1
   hasTheBall: 0
   grounded: 0
   jumping: 0
-  bumping: 0
   wallJumping: 0
   canAttack: 1
   wallRide: 0
   attack: 0
   attacking: 0
+  dodging: 0
   damaged: 0
+  catching: 0
+  bumping: 0
+  team: 0
 --- !u!95 &6000590579473320532
 Animator:
   serializedVersion: 3
@@ -411,7 +504,7 @@ Animator:
   m_GameObject: {fileID: 6000590579473320533}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5a26b5aacfde7d4eaaff18cd6f3b1d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
