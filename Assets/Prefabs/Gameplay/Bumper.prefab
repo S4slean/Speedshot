@@ -121,3 +121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf1d2e1d6fa2c9479b033d0136a1261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bumpForce: 20
+  bumpMaxDuration: 0.3
+  bumpReleaseFactor: 1
+  bumpTracker: 0

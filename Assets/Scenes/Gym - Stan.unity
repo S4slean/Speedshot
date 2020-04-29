@@ -311,7 +311,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeToMaxSpeed: 0.3
+  airControl: 0.7
   decelerationTime: 0.4
+  airDecelerationTime: 1
   dodgeDuration: 1
   dodgeLength: 5
   dodgeCurve:
@@ -390,31 +392,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallJumpHorizontalCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  wallRejectionForce: 8
+  wallRejectionMaxSpeedRatio: 1
   walljumpUpForce: 8
   gravity: 9.81
   maxFallSpeed: 15
@@ -425,7 +403,8 @@ MonoBehaviour:
   timeToMaxShoot: 1
   minShootForce: 1
   maxShootForce: 10
-  slideDuration: 1.3
+  slideSpeed: 15
+  slideDuration: 0.4
   slideCurve:
     serializedVersion: 2
     m_Curve:
@@ -450,7 +429,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  airDashDuration: 1.2
+  airDashSpeed: 15
+  airDashDuration: 0.4
   airDashCurve:
     serializedVersion: 2
     m_Curve:
@@ -479,7 +459,9 @@ MonoBehaviour:
   grounded: 0
   jumping: 0
   wallJumping: 0
+  canAttack: 1
   wallRide: 0
+  attack: 0
   attacking: 0
   damaged: 0
 --- !u!50 &797215721
