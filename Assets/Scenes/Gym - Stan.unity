@@ -401,10 +401,11 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1
+  wallSlideMask:
+    serializedVersion: 2
+    m_Bits: 1
   shellThickness: 0.1
-  timeToMaxShoot: 1
-  minShootForce: 1
-  maxShootForce: 10
+  shootForce: 5
   ballDistanceFromPlayer: 2
   slideSpeed: 15
   slideDuration: 0.4
@@ -482,6 +483,7 @@ MonoBehaviour:
   dodging: 0
   damaged: 0
   catching: 0
+  bumping: 0
   team: 0
 --- !u!50 &797215721
 Rigidbody2D:
@@ -517,18 +519,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0.14}
+  m_Offset: {x: 0.01, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.65625, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.28}
+  m_Size: {x: 0.5, y: 0.8}
   m_EdgeRadius: 0
 --- !u!212 &797215723
 SpriteRenderer:

@@ -33,12 +33,12 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
             if(IsEmpowered)
-                Debug.LogError("BallHitPlayer (NotImplemented)");
+               player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
             else
-                Debug.LogError("BallHitPlayer (NotImplemented)");
+                player.CatchBall();
         }
             
         else
