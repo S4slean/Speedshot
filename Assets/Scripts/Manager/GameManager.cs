@@ -36,18 +36,22 @@ public class GameManager : MonoBehaviour
 
     private void SetupGame()
     {
+        GameManager.instance.SetPlayersMovable(false);
+        GameManager.instance.SetBallMovable(false);
+
         //Spawn Players
         SpawnTeams();
 
         //Spawn Ball
         SpawnBall();
 
-        //Start Countdown
+        StartGame();
     }
 
     public void StartGame()
     {
-
+        //Start Countdown
+        UIManager.instance.StartCountdown();
     }
 
     public void PauseGame(bool isPaused)
