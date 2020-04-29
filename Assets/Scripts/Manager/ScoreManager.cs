@@ -3,16 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum Team
-{
-    None,
-    Blue,
-    Red
-}
-
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
+    public static ScoreManager instance;
 
     [HideInInspector] public int blueTeamScore, redTeamScore;
 
@@ -22,33 +15,33 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        if (instance == null)
+            instance = this;
         else
             Destroy(this);
     }
 
-    public void Goal(Team team)
+    public void Goal(TeamEnum team)
     {
-        Team winningTeam = Team.None;
+        TeamEnum winningTeam = TeamEnum.NONE;
 
         switch (team)
         {
-            case Team.Blue:
+            case TeamEnum.TEAM1:
                 blueTeamScore++;
                 if (blueTeamScore >= FinalScore)
-                    winningTeam = Team.Blue;
+                    winningTeam = TeamEnum.TEAM1;
                 break;
 
-            case Team.Red:
+            case TeamEnum.TEAM2:
                 redTeamScore++;
                 if (redTeamScore >= FinalScore)
-                    winningTeam = Team.Red;
+                    winningTeam = TeamEnum.TEAM2;
                 break;
         }
 
         UpdateScorePanel();
-        if(winningTeam != Team.None)
+        if(winningTeam != TeamEnum.NONE)
         {
             TeamWinTheGame(winningTeam);
         }
@@ -60,18 +53,18 @@ public class ScoreManager : MonoBehaviour
         redTeamScoretxt.text = redTeamScore.ToString();
     }
 
-    public void TeamWinTheGame(Team winningTeam)
+    public void TeamWinTheGame(TeamEnum winningTeam)
     {
         //End the Game
         //Display winning team screen
 
         switch (winningTeam)
         {
-            case Team.Blue:
+            case TeamEnum.TEAM1:
                 Debug.Log("BLUE TEAM WIN THE GAME !");
                 break;
 
-            case Team.Red:
+            case TeamEnum.TEAM2:
                 Debug.Log("RED TEAM WIN THE GAME !");
                 break;
         }
