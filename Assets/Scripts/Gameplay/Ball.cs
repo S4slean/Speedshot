@@ -16,6 +16,9 @@ public class Ball : MonoBehaviour
     [Header("Empowerement Settings")]
     [SerializeField] private float empoweredStateDuration;
 
+    [Header("Debug")] 
+    [SerializeField] private bool startWithGravity;
+
     private bool isFreezed;
     public bool IsFreezed 
     {
@@ -58,6 +61,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        IsSubjectToGravity = startWithGravity;
     }
 
     private void FixedUpdate()
