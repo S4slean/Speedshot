@@ -24,12 +24,18 @@ public class Ball : MonoBehaviour
                 if (value == true)
                 {
                     savedVelocity = _rigidbody.velocity;
-                    _rigidbody.velocity = Vector2.zero; 
+                    _rigidbody.velocity = Vector2.zero;
+
+                    savedGravityState = IsSubjectToGravity;
+                    IsSubjectToGravity = false;
                 }
                 else
                 {
                     _rigidbody.velocity = savedVelocity;
                     savedVelocity = Vector2.zero;
+
+                    IsSubjectToGravity = savedGravityState;
+                    savedGravityState = false;
                 }
             }
             isFreezed = value;
@@ -42,7 +48,7 @@ public class Ball : MonoBehaviour
     public bool IsSubjectToGravity { get; private set; }
     public float GravityCurrentlyApplied { get => (IsGrabbed || !IsSubjectToGravity) ? 0f : baseGravity; }
 
-
+    private bool savedGravityState = false;
     private Vector2 savedVelocity = Vector2.zero;
     private Rigidbody2D _rigidbody;
     private Coroutine empowerementFadeCoroutine;
