@@ -9,14 +9,41 @@ public class Ball : MonoBehaviour
     [SerializeField] private float bounciness;
     [SerializeField] private float friction;
     [SerializeField] private float empoweredStateDuration;
-    
+
+    private bool isFreezed;
+    public bool IsFreezed 
+    {
+        get
+        {
+            return isFreezed;
+        }
+        set
+        {
+            if(value != isFreezed)
+            {
+                if (value == true)
+                {
+                    savedVelocity = _rigidbody.velocity;
+                    _rigidbody.velocity = Vector2.zero; 
+                }
+                else
+                {
+                    _rigidbody.velocity = savedVelocity;
+                    savedVelocity = Vector2.zero;
+                }
+            }
+            isFreezed = value;
+        }
+    }
     public bool IsGrabbed { get; private set; }
     public Character Grabber { get; private set; }
     public bool IsEmpowered { get; private set; }
-    public TeamEnum TeamEmpowerement { get; private set; }
-    public float GravityCurrentlyApplied { get => IsGrabbed? 0f : baseGravity; }
-    
+    public Team TeamEmpowerement { get; private set; }
+    public bool IsSubjectToGravity { get; private set; }
+    public float GravityCurrentlyApplied { get => (IsGrabbed || !IsSubjectToGravity) ? 0f : baseGravity; }
 
+
+    private Vector2 savedVelocity = Vector2.zero;
     private Rigidbody2D _rigidbody;
     private Coroutine empowerementFadeCoroutine;
 
@@ -33,12 +60,12 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
             if(IsEmpowered)
-                Debug.LogError("BallHitPlayer (NotImplemented)");
+               player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
             else
-                Debug.LogError("BallHitPlayer (NotImplemented)");
+                player.CatchBall();
         }
             
         else
@@ -47,12 +74,19 @@ public class Ball : MonoBehaviour
 
     public void Pause(bool isPaused)
     {
-        
+        isFreezed = isPaused;
     }
 
     public void Restart()
     {
-        
+        _rigidbody.velocity = Vector2.zero;
+        if(IsGrabbed)
+        {
+            IsGrabbed = false;
+            Grabber = null;
+        }
+        if(IsEmpowered)
+            StopEmpowerementState();
     }
 
     public void SetAsGrabbed(Character grabber)
@@ -68,7 +102,7 @@ public class Ball : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , TeamEnum throwerTeam)
+    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , Team throwerTeam)
     {
         //Enable Good Trail
         _rigidbody.velocity = throwMagnitude * throwDirection.normalized;           //throwMagnitude could be processed by the player (throwDirection => throwVelocity)
@@ -98,6 +132,6 @@ public class Ball : MonoBehaviour
     {
         StopCoroutine(empowerementFadeCoroutine);
         IsEmpowered = false;
-        TeamEmpowerement = TeamEnum.NONE;
+        TeamEmpowerement = Team.None;
     }
 }
