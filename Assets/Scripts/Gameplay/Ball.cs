@@ -62,7 +62,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
-            if(IsEmpowered)
+            if(IsEmpowered && player.team != TeamEmpowerement)
                player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
             else
                 player.CatchBall();
