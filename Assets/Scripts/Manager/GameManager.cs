@@ -81,11 +81,13 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer(Character p, Transform spawnPoint)
     {
+        p.gameObject.SetActive(true);
         p.transform.position = spawnPoint.position;
     }
 
     public void SpawnBall()
     {
+        ball.gameObject.SetActive(true);
         ball.transform.position = ballSpawnPoint.position;
     }
 
@@ -98,15 +100,23 @@ public class GameManager : MonoBehaviour
         foreach(Character p in players)
         {
             p.enabled = movable;
-            if(movable)
-                p.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 1f);
-            else
+            if(!movable)
+            {
+                p.GetComponent<Rigidbody2D>().gravityScale = 0f;
                 p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                p.enabled = false;
+            }
         }
     }
 
     public void SetBallMovable(bool movable)
     {
-        ball.IsSubjectToGravity = movable;
+        ball.enabled = movable;
+        if(!movable)
+        {
+            ball.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ball.enabled = false;
+        }
     }
 }

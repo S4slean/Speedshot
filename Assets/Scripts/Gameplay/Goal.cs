@@ -48,9 +48,14 @@ public class Goal : MonoBehaviour
 
         //Display GOAL! Screen
         Debug.Log("GOAAAAAL!!!!");
+        GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.ball.gameObject.SetActive(false);
+
         Time.timeScale = 0.5f;
 
         yield return new WaitForSeconds(1);
+        Time.timeScale = 1f;
 
         //Freeze actors
         GameManager.instance.SetPlayersMovable(false);
@@ -62,7 +67,7 @@ public class Goal : MonoBehaviour
         GameManager.instance.SpawnBall();
 
         //Start CountDown
-        UIManager.instance.StartCountdown(3);
+        UIManager.instance.StartCountdown();
 
         isTriggerable = true;
     }

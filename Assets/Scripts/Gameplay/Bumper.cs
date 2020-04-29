@@ -23,7 +23,7 @@ public class Bumper : MonoBehaviour
 
     public void TriggerBumper(Character affectedPlayer)
     {
-        Debug.Log("BUMP!");
+        //Debug.Log("BUMP!");
         affectedPlayer.Bump(this);
     }
 
