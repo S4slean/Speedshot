@@ -22,12 +22,12 @@ public class Ball : MonoBehaviour
     private Coroutine empowerementFadeCoroutine;
 
 
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         _rigidbody.AddForce(new Vector2(0f, -GravityCurrentlyApplied));
     }
