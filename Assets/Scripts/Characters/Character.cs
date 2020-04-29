@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
 	public Rigidbody2D rb2D;
 	public BoxCollider2D box2D;
 	public Animator anim;
+	public Ball ball;
 
 	[Header("Movement")]
 	public float runSpeed = 10;
@@ -24,10 +25,14 @@ public class Character : MonoBehaviour
 
 	[Header("Dodge")]
 	public float dodgeDuration = 1;
-	private Vector3 dodgeDirection;
+	private int dodgeDirection;
 	public float dodgeLength = 5f;
 	public AnimationCurve dodgeCurve;
 	private float dodgeTracker;
+	public float bufferDuration = .4f;
+	private bool leftBuffer = false;
+	private bool rightBuffer = false;
+	private float bufferTracker = 0;
 
 	[Header("Jump")]
 	public AnimationCurve jumpCurve;
@@ -56,6 +61,7 @@ public class Character : MonoBehaviour
 	public float minShootForce = 1;
 	public float maxShootForce = 10f;
 	private float currentShootForce = 0;
+	public float ballDistanceFromPlayer = 2;
 
 	[Header("Slide")]
 	public float slideSpeed = 5;
@@ -72,23 +78,36 @@ public class Character : MonoBehaviour
 	public enum WallRide { None, Right, Left };
 	public enum Attack { None, Slide, AirDash }
 
+	[Header("Damage")]
+	public float invulnerabiltyDuration = .7f;
+	public AnimationCurve knockBackCurve;
+	public float knockBackDuration = .5f;
+	[Range(0, 1)] public float knockBackForceMaxSpeedRatio = 1f;
+	public LayerMask damageMask;
+	public float damageRange = .1f;
+	private float knockbackTracker;
+
 	[Header("States")]
 	public bool hasTheBall = false;
 	public bool grounded = false;
 	public bool jumping = false;
-	public bool bumping = false;
 	public bool wallJumping = false;
 	private int wallJumpDir = 1;
 	public bool canAttack = true;
 	public WallRide wallRide = WallRide.None;
 	public Attack attack = Attack.None;
 	public bool attacking = false;
+	public bool dodging = false;
 	public bool damaged = false;
+	public bool catching = false;
+	public TeamEnum team = TeamEnum.TEAM1;
 
 	private Vector3 movementAxis;
 
-    //Triggered Bumper
-    private Bumper triggeredBumper;
+	public void Start()
+	{
+		//ball = GameObject.Find("Ball").GetComponent<Ball>();
+	}
 
 	public void Update()
 	{
@@ -103,6 +122,8 @@ public class Character : MonoBehaviour
 		movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 		movementAxis.Normalize();
 
+		HandleDodgeBuffers();
+
 		if (Input.GetButtonDown("Jump"))
 		{
 			if (grounded)
@@ -115,7 +136,7 @@ public class Character : MonoBehaviour
 		{
 			if (hasTheBall)
 				Shoot();
-			else if(canAttack)
+			else if (canAttack)
 			{
 				if (grounded)
 					Slide();
@@ -127,10 +148,60 @@ public class Character : MonoBehaviour
 		}
 	}
 
+	private void HandleDodgeBuffers()
+	{
+		if (Input.GetButtonDown("Left"))
+		{
+			rightBuffer = false;
+			if (leftBuffer)
+			{
+				bufferTracker = 0;
+				leftBuffer = false;
+				Dodge(-1);
+			}
+			else
+			{
+				leftBuffer = true;
+				bufferTracker = bufferDuration;
+			}
+		}
+		if (Input.GetButtonDown("Right"))
+		{
+			leftBuffer = false;
+			if (rightBuffer)
+			{
+				bufferTracker = 0;
+				rightBuffer = false;
+				Dodge(1);
+			}
+			else
+			{
+				rightBuffer = true;
+				bufferTracker = bufferDuration;
+			}
+		}
+
+		if (bufferTracker > 0)
+		{
+			bufferTracker -= Time.deltaTime;
+		}
+		if (bufferTracker <= 0)
+		{
+			bufferTracker = 0;
+			rightBuffer = false;
+			leftBuffer = false;
+		}
+	}
+
 	private void HandleCollisions()
 	{
 		DetectGround();
 		DetectWall();
+
+		if (attacking)
+		{
+			RaycastHit2D hit =  Physics2D.BoxCast(self.position + new Vector3(box2D.size.x / 2, box2D.size.y / 2, 0), new Vector2(shellThickness * 1.1f, box2D.size.y * .85f), 0, Vector3.right, shellThickness, damageMask);
+		}
 	}
 
 	private bool DetectGround()
@@ -185,7 +256,7 @@ public class Character : MonoBehaviour
 			if (!wallJumping)
 				accelerationTracker = 0;
 		}
-		else if (axis.x == 0)
+		else if (axis.x == 0 || damaged)
 		{
 			if (accelerationTracker > 0)
 			{
@@ -211,8 +282,6 @@ public class Character : MonoBehaviour
 				}
 				accelerationTracker = Mathf.Clamp(accelerationTracker, -1, 0);
 			}
-
-
 		}
 		else
 		{
@@ -225,8 +294,6 @@ public class Character : MonoBehaviour
 			{
 				accelerationTracker += Time.deltaTime * axis.x * airControl / timeToMaxSpeed;
 			}
-
-
 		}
 
 		if (attacking)
@@ -247,7 +314,7 @@ public class Character : MonoBehaviour
 
 				case Attack.Slide:
 					slideTracker += Time.deltaTime / slideDuration;
-					horizontalMovement = slideCurve.Evaluate(slideTracker) * slideSpeed * ((axis.x != 0)? axis.x : Mathf.Sign(rb2D.velocity.x));
+					horizontalMovement = slideCurve.Evaluate(slideTracker) * slideSpeed * ((axis.x != 0) ? axis.x : Mathf.Sign(rb2D.velocity.x));
 
 					if (slideTracker >= 1)
 					{
@@ -259,6 +326,16 @@ public class Character : MonoBehaviour
 
 			}
 		}
+		else if (dodging)
+		{
+			dodgeTracker += Time.deltaTime / dodgeDuration;
+			horizontalMovement = dodgeCurve.Evaluate(dodgeTracker) * dodgeDirection * dodgeLength;
+			if (dodgeTracker >= 1)
+			{
+				dodging = false;
+				dodgeTracker = 0;
+			}
+		}
 		else
 		{
 			accelerationTracker = Mathf.Clamp(accelerationTracker, -1, 1);
@@ -266,7 +343,7 @@ public class Character : MonoBehaviour
 		}
 
 		if (horizontalMovement > 0) dir = 1;
-		else if (horizontalMovement < 0)dir = -1;
+		else if (horizontalMovement < 0) dir = -1;
 
 
 		return horizontalMovement;
@@ -290,21 +367,6 @@ public class Character : MonoBehaviour
 				verticalMovement = jumpCurve.Evaluate(jumpTracker) * jumpForce;
 			}
 		}
-		else if (bumping)
-		{
-			triggeredBumper.bumpTracker += Time.deltaTime * triggeredBumper.bumpReleaseFactor / triggeredBumper.bumpMaxDuration;
-			if (triggeredBumper.bumpTracker >= 1)
-			{
-                triggeredBumper.bumpTracker = 0;
-                bumping = false;
-                triggeredBumper = null;
-				verticalMovement = rb2D.velocity.y;
-			}
-			else
-			{
-				verticalMovement = triggeredBumper.bumpCurve.Evaluate(triggeredBumper.bumpTracker) * triggeredBumper.bumpForce;
-			}
-		}
 		else if (wallJumping)
 		{
 			wallJumpTracker += Time.deltaTime * (Input.GetButton("Jump") ? 1 : jumpReleaseFactor) / wallJumpDuration;
@@ -323,6 +385,16 @@ public class Character : MonoBehaviour
 		else if (attacking)
 		{
 			verticalMovement = 0;
+		}
+		else if (damaged)
+		{
+			knockbackTracker += Time.deltaTime / knockBackDuration;
+			verticalMovement = knockBackCurve.Evaluate(knockbackTracker);
+			if (knockbackTracker >= 1)
+			{
+				damaged = false;
+				knockbackTracker = 0;
+			}
 		}
 		else
 		{
@@ -369,7 +441,9 @@ public class Character : MonoBehaviour
 
 	public void Shoot()
 	{
-
+		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + (Vector2)movementAxis * ballDistanceFromPlayer);
+		ball.ThrowBall(movementAxis,team);
+		hasTheBall = false;
 	}
 
 	public void Tackle()
@@ -392,11 +466,41 @@ public class Character : MonoBehaviour
 		attack = Attack.Slide;
 	}
 
-    public void Bump(Bumper bumper)
-    {
-        triggeredBumper = bumper;
-        triggeredBumper.bumpTracker = 0f;
-        bumping = true;
-    }
+	public void Dodge(int dodgeDir)
+	{
+		dodging = true;
+		dodgeTracker = 0;
+		dodgeDirection = dodgeDir;
+	}
+
+	public void ReceiveDamage(int dmgDir)
+	{
+		if (damaged || dodging) return;
+
+		damaged = true;
+		knockbackTracker = 0;
+		accelerationTracker = dmgDir * knockBackForceMaxSpeedRatio;
+	}
+
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.GetComponent<Ball>() != null)
+		{
+			if(catching || dodging)
+			{
+				CatchBall();
+			}
+			else
+			{
+				ReceiveDamage((int)Mathf.Sign((transform.position.x - ball.transform.position.x)));
+			}
+		}
+	}
+
+	public void CatchBall()
+	{
+		hasTheBall = true;
+		ball.SetAsGrabbed(this);
+	}
 }
 
