@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
         if (instance != null)
         {
             Destroy(this.gameObject);
+            PlayerManager.instance.AllowPlayerToJoin(true);
             return;
         }
         else

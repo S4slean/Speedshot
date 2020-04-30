@@ -18,27 +18,9 @@ public class MainMenuManager : MonoBehaviour
 			instance = this;
 	}
 
-	private void Start()
-	{
-
-	}
-
 	public void LaunchGame()
 	{
 		SceneManager.LoadScene("CityArena - Mathieu");
-	}
-
-	public void DebugLaunch()
-	{
-		SceneManager.LoadScene("CityArena - Mathieu Test");
-	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			DebugLaunch();
-			PlayerManager.instance.AllowPlayerToJoin(false);
-		}
+		PlayerManager.instance.AllowPlayerToJoin(false);
 	}
 }

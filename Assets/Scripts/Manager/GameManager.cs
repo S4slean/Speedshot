@@ -26,9 +26,6 @@ public class GameManager : MonoBehaviour
     [Header("Exit Settings")]
     public float timeBeforeExit;
 
-    [Header("Debug")]
-    public bool debugMode;
-
     private GameplayPlayerSetter gameplayPlayerSetter;
     private TeamEnum winningTeam = TeamEnum.NONE;
 
@@ -45,8 +42,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
-        if(!debugMode)
-            gameplayPlayerSetter.StartSetup();
+        gameplayPlayerSetter.StartSetup();
 
         SetupGame();
     }
@@ -72,8 +68,7 @@ public class GameManager : MonoBehaviour
         SetBallMovable(false);
 
         //Spawn Players
-        if(!debugMode)
-            SpawnTeams();
+        SpawnTeams();
 
 		//Spawn Ball
 		ball = GameObject.FindObjectOfType<Ball>();
