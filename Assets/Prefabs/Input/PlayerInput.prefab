@@ -56,7 +56,27 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 37a9f40d-82bf-4577-86fa-6117cdb630a9
+    m_ActionName: InputMap/VerticalAxis[/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/up,/Keyboard/downArrow,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5e21c89-2af1-4b5e-9eec-f94afe186252
+    m_ActionName: InputMap/HorizontalAxis[/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88eeaf2c-9cb8-4a6c-b6f2-6b3eea9f2d45
+    m_ActionName: InputMap/Start[/XInputControllerWindows/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: afcc2527-950d-4747-a004-7748cf003a80
+    m_ActionName: InputMap/A[/XInputControllerWindows/buttonSouth,/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 955be0d6-eb0c-41a5-a84a-f7122709d157
+    m_ActionName: InputMap/B[/XInputControllerWindows/buttonEast,/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InputMap
