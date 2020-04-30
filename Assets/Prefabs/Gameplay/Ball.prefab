@@ -123,10 +123,10 @@ MonoBehaviour:
   bounciness: 0.7
   friction: 0.05
   horizontalPlayerHitBounceVelocity: 10
-  verticalPlayerHitBounceVelocity: 5
+  verticalPlayerHitBounceVelocity: 10
   empoweredStateDuration: 1
   throwerCollisionIgnoredDuration: 0.2
-  bumperForceRatio: 0.496
+  bumperForceRatio: 0.5
   startWithGravity: 1
   physicsCollider: {fileID: 5566434483686935859}
   catchCollider: {fileID: -4805981672662270310}
@@ -146,7 +146,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.18
 --- !u!58 &-4805981672662270310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.3
 --- !u!1001 &4577089684196800891
 PrefabInstance:
   m_ObjectHideFlags: 0

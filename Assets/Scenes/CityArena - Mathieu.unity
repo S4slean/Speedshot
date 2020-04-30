@@ -6866,6 +6866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 513
+      objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7585,21 +7590,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: horizontalPlayerHitBounceVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: verticalPlayerHitBounceVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: bumperForceRatio
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6432250783090400581, guid: 01129d7e4f9fb4647954c638bfae9b28,
         type: 3}
