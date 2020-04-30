@@ -105,6 +105,7 @@ public class Character : MonoBehaviour
 	public bool bumping = false;
 	private bool inBump = false;
 	private Bumper bumperRef;
+	public int playerID = 1;
 	public TeamEnum team = TeamEnum.TEAM1;
 
 	[Header("Debug")]
@@ -688,6 +689,11 @@ public class Character : MonoBehaviour
 		wallJumping = false;
 		damaged = false;
 		wallRide = WallRide.None;
+	}
+
+	public void PlayStepSound()
+	{
+		AudioManager2D.instance.PlaySound("Player_Steps", transform.position);
 	}
 }
 
