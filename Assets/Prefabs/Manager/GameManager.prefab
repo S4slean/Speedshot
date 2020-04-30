@@ -357,6 +357,7 @@ MonoBehaviour:
   blueTeam: []
   redTeam: []
   ball: {fileID: 0}
+  timeBeforeExit: 5
   debugMode: 0
 --- !u!114 &5657866728961646866
 MonoBehaviour:

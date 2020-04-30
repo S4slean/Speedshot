@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    [Header("Exit Settings")]
+    public float timeBeforeExit;
+
     [Header("Debug")]
     public bool debugMode;
 
@@ -46,14 +49,6 @@ public class GameManager : MonoBehaviour
             gameplayPlayerSetter.StartSetup();
 
         SetupGame();
-    }
-
-    void Update()
-    {
-        if(winningTeam != TeamEnum.NONE && Input.anyKey)
-        {
-            SceneManager.LoadScene("Menu");
-        }
     }
 
     public void SetWinningTeam(TeamEnum team)
@@ -107,11 +102,15 @@ public class GameManager : MonoBehaviour
         UIManager.instance.DisplayVictoryScreen(winningTeam);
 
         //Wait for input to leave the game;
+        StartCoroutine(LeaveGame());
     }
 
-    public void LeaveGame()
+    public IEnumerator LeaveGame()
     {
+        yield return new WaitForSeconds(timeBeforeExit);
 
+        PlayerManager.instance.RemoveAllPlayer();
+        SceneManager.LoadScene("Menu");
     }
 
     public void SpawnTeams()
