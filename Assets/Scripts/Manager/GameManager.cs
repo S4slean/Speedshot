@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
-        SetupGame();
+        //SetupGame();
     }
 
     public void SetWinningTeam(TeamEnum team)
@@ -133,12 +133,10 @@ public class GameManager : MonoBehaviour
 
         foreach(Character p in players)
         {
-            p.enabled = movable;
             if(!movable)
             {
+                p.Reset();
                 p.GetComponent<Rigidbody2D>().gravityScale = 0f;
-                p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                p.enabled = false;
             }
         }
     }

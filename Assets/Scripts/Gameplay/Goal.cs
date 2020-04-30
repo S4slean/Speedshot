@@ -42,6 +42,8 @@ public class Goal : MonoBehaviour
         Debug.Log("GOAAAAAL!!!!");
         GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
         yield return new WaitForSeconds(0.2f);
+        GameManager.instance.ball.Grabber.hasTheBall = false;
+        GameManager.instance.ball.SetAsNotGrabbed(Vector2.zero);
         GameManager.instance.ball.gameObject.SetActive(false);
         isTriggerable = true;
 
