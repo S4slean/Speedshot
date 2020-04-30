@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2657454448750227635}
   - component: {fileID: 434337330}
   m_Layer: 0
-  m_Name: InputManager
+  m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2657454448750227632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6293585, y: 0.34284768, z: -2.5188372}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,8 +115,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9706eeb570d6d19449ba4e78bd2d1d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    [Header("Debug")]
+    public bool debugMode;
+
     private GameplayPlayerSetter gameplayPlayerSetter;
     private TeamEnum winningTeam = TeamEnum.NONE;
 
@@ -38,7 +41,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
-        gameplayPlayerSetter.StartSetup();
+        if(!debugMode)
+            gameplayPlayerSetter.StartSetup();
+
         SetupGame();
     }
 
