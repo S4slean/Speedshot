@@ -308,7 +308,7 @@ public class Character : MonoBehaviour
 			grounded = Physics2D.BoxCast(self.position, new Vector2(box2D.size.x * .85f, shellThickness), 0, Vector2.down, shellThickness, collisionMask);
 
 			if (grounded && previousValue == false)
-				AudioManager2D.instance.PlaySound("Player_Landing", transform.position);
+				AudioManager2D.instance?.PlaySound("Player_Landing", transform.position);
 		}
 
 		if (grounded && !attacking)
@@ -345,7 +345,7 @@ public class Character : MonoBehaviour
 		}
 
 		if (wallRide != WallRide.None && previouswallRideValue == WallRide.None)
-			AudioManager2D.instance.PlaySound("Player_WallLanding", transform.position);
+			AudioManager2D.instance?.PlaySound("Player_WallLanding", transform.position);
 
 		return wallRide;
 	}
@@ -536,7 +536,7 @@ public class Character : MonoBehaviour
 		jumpTracker = 0;
 		anim.Play("Jump");
 
-		AudioManager2D.instance.PlaySound("Player_Jump", transform.position);
+		AudioManager2D.instance?.PlaySound("Player_Jump", transform.position);
 	}
 
 	public void WallJump()
@@ -575,7 +575,7 @@ public class Character : MonoBehaviour
 		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),shootForce, this, true);
 		hasTheBall = false;
 
-		AudioManager2D.instance.PlaySound("Player_Pass", transform.position);
+		AudioManager2D.instance?.PlaySound("Player_Pass", transform.position);
 	}
 
 	public void Tackle()
@@ -591,7 +591,7 @@ public class Character : MonoBehaviour
 		if (wallRide == WallRide.Right) attackDir = -1;
 		else if (wallRide == WallRide.Left) attackDir = 1;
 
-		AudioManager2D.instance.PlaySound("Player_Dash", transform.position);
+		AudioManager2D.instance?.PlaySound("Player_Dash", transform.position);
 	}
 
 	public void Slide()
@@ -631,7 +631,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
-		AudioManager2D.instance.PlaySound("Player_Reception", transform.position);
+		AudioManager2D.instance?.PlaySound("Player_Reception", transform.position);
 	}
 
 	public void Bump(Bumper bumper)
