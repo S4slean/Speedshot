@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
+        gameplayPlayerSetter.StartSetup();
         SetupGame();
     }
 
