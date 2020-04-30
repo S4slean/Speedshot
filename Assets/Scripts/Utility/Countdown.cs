@@ -16,4 +16,9 @@ public class Countdown : MonoBehaviour
         GameManager.instance.SetPlayersMovable(true);
         GameManager.instance.SetBallMovable(true);
     }
+
+    public void PlaySound()
+    {
+        AudioManager2D.instance.PlaySound("Voice_Youwin", Camera.main.transform.position);
+    }
 }
