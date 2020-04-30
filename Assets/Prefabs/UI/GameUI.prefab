@@ -598,17 +598,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2717549590427671955, guid: 1d73e1584e52941439135db46b099c02,
         type: 2}
-    - target: {fileID: 2198419518366263656, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
+    - target: {fileID: 4726442855550178700, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.95
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5298503239895099951, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5499786583db0e24a8e42c9d39a572c5,
-        type: 3}
     - target: {fileID: 5498740432823732875, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
         type: 3}
       propertyPath: m_fontAsset
@@ -861,6 +855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8308356327555060267, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de177497abe4669498c671eabaebf6a5, type: 3}
 --- !u!224 &4540898170770699955 stripped
@@ -980,6 +979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719017779383602025, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7267674923554392153, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e,
         type: 3}
