@@ -627,11 +627,14 @@ public class Character : MonoBehaviour
 
 	public void ReceiveDamage(int dmgDir)
 	{
+		Debug.Log("receiveDamage");
+
 		if (damaged || dodging) return;
 
 		damaged = true;
 		knockbackTracker = 0;
 		accelerationTracker = dmgDir * knockBackForceMaxSpeedRatio;
+		anim.Play("DamageHit");
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
