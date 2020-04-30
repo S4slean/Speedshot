@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerFrame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private MenuInputHandler menuInputHandler;
+
+    private void Awake()
     {
-        
+        menuInputHandler = GetComponent<MenuInputHandler>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPlayerAssigned()
     {
-        
+
+    }
+
+    public void OnPlayerUnassigned()
+    {
+
     }
 }
