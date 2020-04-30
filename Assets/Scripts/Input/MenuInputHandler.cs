@@ -23,7 +23,7 @@ public class MenuInputHandler : MonoBehaviour
 
     public int CurrentPlayerID { get; private set; }
 
-    private PlayerInput _playerInput;
+    [HideInInspector]public PlayerInput _playerInput;
     private InputAction _verticalAxisAction;
     private InputAction _horizontalAxisAction;
     private InputAction _startAction;

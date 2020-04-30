@@ -592,6 +592,7 @@ public class Character : MonoBehaviour
 		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis), shootForce, this, true);
 		hasTheBall = false;
 		hasTheBallTrail.SetActive(false);
+		AudioManager2D.instance.PlaySound("Player_Pass", transform.position);
 	}
 
 	public void Tackle()
