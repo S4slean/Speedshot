@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
     {
         winningTeam = TeamEnum.NONE;
 
+        if(redTeam.Count == 0 && blueTeam.Count == 0)
+        {
+            SearchPlayerInScene();
+        }
+
         //Setup player portrait
         UIManager.instance.SetupPlayerPortrait();
 
@@ -112,6 +117,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Character p in redTeam)
         {
+            Debug.Log("RESPAWN");
             SpawnPlayer(p, redTeamSpawnPointsContainer.GetChild(spawnIndex).transform);
             spawnIndex++;
         }
@@ -175,6 +181,24 @@ public class GameManager : MonoBehaviour
         else
         {
             EndGame();
+        }
+    }
+
+    public void SearchPlayerInScene()
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(FindObjectsOfType<Character>());
+
+        foreach(Character p in players)
+        {
+            if(p.team == TeamEnum.TEAM1)
+            {
+                blueTeam.Add(p);
+            }
+            else if(p.team == TeamEnum.TEAM2)
+            {
+                redTeam.Add(p);
+            }
         }
     }
 }
