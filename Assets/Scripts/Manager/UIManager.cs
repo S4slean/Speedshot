@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour
     public Countdown countdown;
     public GameObject blueVictoryScreen, redVictoryScreen;
 
+    [Header("Player portraits")]
+    public GameObject bluePlayer1;
+    public GameObject bluePlayer2;
+    public GameObject redPlayer1;
+    public GameObject redPlayer2;
+
     private void Awake()
     {
         if (instance != null)
@@ -42,6 +48,25 @@ public class UIManager : MonoBehaviour
                 redVictoryScreen.SetActive(true);
                 break;
             
+        }
+    }
+
+    public void DisplayBallHolder()
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(GameManager.instance.blueTeam);
+        players.AddRange(GameManager.instance.redTeam);
+
+        foreach(Character p in players)
+        {
+            if (p.hasTheBall)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
