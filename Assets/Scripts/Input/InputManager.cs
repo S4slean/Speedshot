@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
                 players[i] = newPlayer;
 
                 newPlayer.gameObject.transform.parent = transform;
-                newPlayer.gameObject.name = "Player " + (i +1);
+                newPlayer.gameObject.name = "Player " + (i + 1);
 
                 SetupInput(i);
                 break;
