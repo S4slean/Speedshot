@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 6000590579473320539}
   - component: {fileID: 6000590579473320532}
   - component: {fileID: 1185737023362540102}
-  - component: {fileID: 705612612468513914}
   m_Layer: 1
   m_Name: Player Light Blue
   m_TagString: Player
@@ -393,6 +392,7 @@ MonoBehaviour:
   ball: {fileID: 0}
   tacleFX: {fileID: 1314488503260208113}
   slideFX: {fileID: 6760761034290026188}
+  hasTheBallTrail: {fileID: 0}
   runSpeed: 8
   accelerationCurve:
     serializedVersion: 2
@@ -646,12 +646,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  knockBackUpForce: 5
   knockBackDuration: 0.5
   knockBackForceMaxSpeedRatio: 1
   damageMask:
     serializedVersion: 2
     m_Bits: 2
   damageRange: 0.1
+  ballReleaseForce: 5
   hasTheBall: 0
   grounded: 0
   jumping: 0
@@ -666,6 +668,7 @@ MonoBehaviour:
   bumping: 0
   playerID: 1
   team: 0
+  portrait: {fileID: 0}
   debugMode: 1
 --- !u!95 &6000590579473320532
 Animator:
@@ -698,37 +701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324b74a955d5f324391b82a456e5a76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &705612612468513914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6000590579473320533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 56a1f604eb9660842ad063532b471cfe,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: InputMap
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &4694802113123608291
 PrefabInstance:
   m_ObjectHideFlags: 0
