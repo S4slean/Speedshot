@@ -63,6 +63,13 @@ public class PlayerFrame : MonoBehaviour
 			SetPlayerStatus(PlayerStatus.Waiting);
 		}
 
+		if(playerStatus == PlayerStatus.Waiting && menuInputHandler.ActionButtonDown)
+		{
+			SetPlayerStatus(PlayerStatus.NotAssigned);
+			PlayerManager.instance.RemovePlayer(menuInputHandler._playerInput);
+			//disconnectPlayer
+		}
+
 		if (menuInputHandler.StartButtonDown)
 		{
 			Debug.Log("Start");
