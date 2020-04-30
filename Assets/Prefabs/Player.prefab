@@ -387,7 +387,7 @@ MonoBehaviour:
   box2D: {fileID: 6000590579473320537}
   anim: {fileID: 6000590579473320532}
   ball: {fileID: 0}
-  runSpeed: 12
+  runSpeed: 8
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -451,7 +451,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  bufferDuration: 0.4
+  bufferDuration: 0.2
   jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -512,7 +512,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForce: 26
+  jumpForce: 14
   jumpMaxDuration: 0.35
   jumpReleaseFactor: 1
   wallJumpDuration: 0.3
@@ -541,7 +541,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   wallRejectionMaxSpeedRatio: 0.239
-  walljumpUpForce: 28
+  walljumpUpForce: 15
   gravity: 35
   maxFallSpeed: 40
   collisionMask:
@@ -551,10 +551,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   shellThickness: 0.1
-  shootForce: 30
-  ballDistanceFromPlayer: 3
-  slideSpeed: 20
-  slideDuration: 0.6
+  shootForce: 15
+  ballDistanceFromPlayer: 1.5
+  slideSpeed: 18
+  slideDuration: 0.7
   slideCurve:
     serializedVersion: 2
     m_Curve:
@@ -568,7 +568,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.29509693
     - serializedVersion: 3
-      time: 0.43612447
+      time: 0.3162972
       value: 0.49724665
       inSlope: -0.039048523
       outSlope: -0.039048523
@@ -577,8 +577,8 @@ MonoBehaviour:
       inWeight: 0.32748702
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5968858
-      value: 0.21358886
+      time: 0.4935838
+      value: 0.15050903
       inSlope: -1.3127072
       outSlope: -1.3127072
       tangentMode: 0
