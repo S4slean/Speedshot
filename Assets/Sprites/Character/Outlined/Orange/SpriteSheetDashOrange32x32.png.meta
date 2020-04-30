@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 0fbda91c6d92537498e61e3db2286c09
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4106634087333568184
+    second: SpriteSheetDashOrange32x32_0
+  - first:
+      213: -3332861719819652700
+    second: SpriteSheetDashOrange32x32_1
+  - first:
+      213: -4040620444162036821
+    second: SpriteSheetDashOrange32x32_2
+  - first:
+      213: 6409544310489893597
+    second: SpriteSheetDashOrange32x32_3
+  - first:
+      213: 278681314981448207
+    second: SpriteSheetDashOrange32x32_4
+  - first:
+      213: -1166846043811957914
+    second: SpriteSheetDashOrange32x32_5
+  - first:
+      213: 8707161365637594413
+    second: SpriteSheetDashOrange32x32_6
+  - first:
+      213: -7936548193722397674
+    second: SpriteSheetDashOrange32x32_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +64,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +95,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.39506584, y: -0.005238972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be170ec1f1bdf830800000000000000
+      internalID: 4106634087333568184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 27
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5000002, y: -0.005238972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1f6a09ceb4fb1d0800000000000000
+      internalID: -3332861719819652700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 27
+        height: 27
+      alignment: 9
+      pivot: {x: 0.50647765, y: 0.0012384498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab6a893d15dce7c0800000000000000
+      internalID: -4040620444162036821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.39557457, y: -0.0042133722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda40e6579643f850800000000000000
+      internalID: 6409544310489893597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.4929904, y: -0.0015762605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a0201fd231ed300800000000000000
+      internalID: 278681314981448207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49365234, y: -0.0031254294}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663b40394b78ecfe0800000000000000
+      internalID: -1166846043811957914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_6
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 0
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49074495, y: 0.0008715982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d75d8212d06d870800000000000000
+      internalID: 8707161365637594413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashOrange32x32_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.48854136, y: 0.0008715982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c886aa777bbd190800000000000000
+      internalID: -7936548193722397674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
