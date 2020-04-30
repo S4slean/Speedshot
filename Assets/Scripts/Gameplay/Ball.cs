@@ -91,10 +91,13 @@ public class Ball : MonoBehaviour
 
 
 
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
         IsSubjectToGravity = startWithGravity;
     }
 
