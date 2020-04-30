@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
         SetBallMovable(false);
 
         //Spawn Players
-        SpawnTeams();
+        if(!debugMode)
+            SpawnTeams();
 
 		//Spawn Ball
 		ball = GameObject.FindObjectOfType<Ball>();
