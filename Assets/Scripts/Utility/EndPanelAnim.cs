@@ -11,7 +11,7 @@ public class EndPanelAnim : MonoBehaviour
 
     public void PlaySound()
     {
-        AudioManager2D.instance.PlaySound("Event_BUT", Camera.main.transform.position);
+        AudioManager2D.instance.PlaySound("Event_GO", Camera.main.transform.position);
     }
 
 }
