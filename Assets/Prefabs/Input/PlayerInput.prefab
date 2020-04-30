@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3094494079147690865}
   - component: {fileID: 2942519082239642515}
-  - component: {fileID: 2894635421925362141}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -63,15 +62,3 @@ MonoBehaviour:
   m_DefaultActionMap: InputMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2894635421925362141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4356637615589403670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6632815ab85435b4c82cc7263e963515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
