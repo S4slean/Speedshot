@@ -103,6 +103,7 @@ public class Character : MonoBehaviour
 	public bool damaged = false;
 	public bool catching = false;
 	public bool bumping = false;
+	public int playerID = 1;
 	public TeamEnum team = TeamEnum.TEAM1;
 
 	[Header("Debug")]
