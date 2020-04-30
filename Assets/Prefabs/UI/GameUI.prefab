@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &2311425070695982950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631226084236424304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 617923490967bb143987cdbeb6240932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4993390220080875311
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Countdown
       objectReference: {fileID: 0}
+    - target: {fileID: 8096084764746953037, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8869253339822641283, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -745,6 +769,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5196940405536918183}
     m_Modifications:
+    - target: {fileID: 835005533906700133, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 836847247417145124, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 924252160858450876, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731395073771715432, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.1515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731395073771715432, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.1515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731395073771715432, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.1515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345529812602734699, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5241438136938811177, guid: de177497abe4669498c671eabaebf6a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -855,6 +914,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5997150702060244458, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193002866331314705, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681676408356763710, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681676408356763710, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896955886151760078, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8308356327555060267, guid: de177497abe4669498c671eabaebf6a5,
         type: 3}
       propertyPath: m_IsActive
@@ -862,6 +946,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de177497abe4669498c671eabaebf6a5, type: 3}
+--- !u!1 &2631226084236424304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5997150702060244458, guid: de177497abe4669498c671eabaebf6a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8627162839274912154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4540898170770699955 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5241438136938811177, guid: de177497abe4669498c671eabaebf6a5,
@@ -989,6 +1079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoalPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267674923554392153, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e, type: 3}
