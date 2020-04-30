@@ -351,16 +351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5237379728872282402}
     m_Modifications:
-    - target: {fileID: 1754711725634894302, guid: d6346e2343e5f2c478ca09044323d070,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6306628404608963363, guid: d6346e2343e5f2c478ca09044323d070,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6306628404983816169, guid: d6346e2343e5f2c478ca09044323d070,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,10 +702,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5237379728872282402}
     m_Modifications:
-    - target: {fileID: 1064751338257313937, guid: 000d04b2a98756343b8141a5a8cef8b1,
+    - target: {fileID: 1064751337795759452, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: -20.700008
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064751337795759452, guid: 000d04b2a98756343b8141a5a8cef8b1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -265.99985
       objectReference: {fileID: 0}
     - target: {fileID: 8178659713368993482, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
@@ -775,12 +770,12 @@ PrefabInstance:
     - target: {fileID: 8178659713368993482, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 90
+      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: 8178659713368993482, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -7
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8178659713368993482, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
@@ -827,10 +822,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Team Portraits
       objectReference: {fileID: 0}
-    - target: {fileID: 9156610429978426305, guid: 000d04b2a98756343b8141a5a8cef8b1,
+    - target: {fileID: 9156610430557414924, guid: 000d04b2a98756343b8141a5a8cef8b1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: 30.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156610430557414924, guid: 000d04b2a98756343b8141a5a8cef8b1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -266
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000d04b2a98756343b8141a5a8cef8b1, type: 3}
