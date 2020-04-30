@@ -855,6 +855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8308356327555060267, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de177497abe4669498c671eabaebf6a5, type: 3}
 --- !u!224 &4540898170770699955 stripped
