@@ -28,7 +28,12 @@ public class MenuInputHandler : MonoBehaviour
     private InputAction _aButtonAction;
     private InputAction _bButtonAction;
 
+    private PlayerFrame playerFrame;
 
+    private void Awake()
+    {
+        playerFrame = GetComponent<PlayerFrame>();
+    }
 
     public void SetPlayerInput(PlayerInput playerInput)
     {
@@ -45,6 +50,8 @@ public class MenuInputHandler : MonoBehaviour
         _startAction.performed += StartButtonPress;
         _aButtonAction.performed += AButtonPress;
         _bButtonAction.performed += BButtonPress;
+
+        playerFrame.OnPlayerAssigned();
     }
 
     public void UnsetPlayerInput()
@@ -62,6 +69,8 @@ public class MenuInputHandler : MonoBehaviour
         _bButtonAction = null;
 
         _playerInput = null;
+
+        playerFrame.OnPlayerUnassigned();
     }
 
 

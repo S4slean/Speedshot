@@ -38,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DebugLaunch();
+            PlayerManager.instance.AllowPlayerToJoin(false);
         }
     }
 }
