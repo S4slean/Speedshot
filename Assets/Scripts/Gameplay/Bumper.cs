@@ -19,6 +19,10 @@ public class Bumper : MonoBehaviour
         {
 			player.SetInBump(true, this);
         }
+        else if(col.transform.tag == "Ball")
+        {
+            TriggerBumper(col.GetComponent<Ball>());
+        }
     }
 
 	private void OnTriggerExit2D(Collider2D collision)
@@ -35,4 +39,9 @@ public class Bumper : MonoBehaviour
  //       affectedPlayer.Bump(this);
  //   }
 
+    public void TriggerBumper(Ball ball)
+    {
+        //Debug.Log("BUMP!");
+        ball.Bump(this);
+    }
 }

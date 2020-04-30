@@ -27,15 +27,24 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.transform.tag == "Ball" && isTriggerable)
+        if(col.transform.tag == "Player" && isTriggerable)
         {
-            StartCoroutine(TriggerGoal());
-            isTriggerable = false;
+            if (col.GetComponent<Character>().hasTheBall)
+            {
+                StartCoroutine(TriggerGoal());
+                isTriggerable = false;
+            }
         }
     }
 
     IEnumerator TriggerGoal()
     {
+        Debug.Log("GOAAAAAL!!!!");
+        GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.ball.gameObject.SetActive(false);
+        isTriggerable = true;
+
         switch (teamGoal)
         {
             case TeamEnum.TEAM1:
@@ -46,30 +55,9 @@ public class Goal : MonoBehaviour
                 break;
         }
 
-        //Display GOAL! Screen
-        Debug.Log("GOAAAAAL!!!!");
-        GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
-        yield return new WaitForSeconds(0.2f);
-        GameManager.instance.ball.gameObject.SetActive(false);
-
-        Time.timeScale = 0.5f;
-
-        yield return new WaitForSeconds(1);
-        Time.timeScale = 1f;
-
-        //Freeze actors
-        GameManager.instance.SetPlayersMovable(false);
-        GameManager.instance.SetBallMovable(false);
-
-        //Respawn players
-        GameManager.instance.SpawnTeams();
-        //Respawn ball
-        GameManager.instance.SpawnBall();
-
-        //Start CountDown
-        UIManager.instance.StartCountdown();
-
-        isTriggerable = true;
+        //Display goal anim
+        //Time.timeScale = 0.5f;
+        UIManager.instance.StartGoalAnim();
     }
 
 }

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    private TeamEnum winningTeam = TeamEnum.NONE;
+
     private void Awake()
     {
         if (instance != null)
@@ -34,10 +36,17 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void SetWinningTeam(TeamEnum team)
+    {
+        winningTeam = team;
+    }
+
     private void SetupGame()
     {
-        GameManager.instance.SetPlayersMovable(false);
-        GameManager.instance.SetBallMovable(false);
+        winningTeam = TeamEnum.NONE;
+
+        SetPlayersMovable(false);
+        SetBallMovable(false);
 
         //Spawn Players
         SpawnTeams();
@@ -52,12 +61,22 @@ public class GameManager : MonoBehaviour
     {
         //Start Countdown
         UIManager.instance.StartCountdown();
+
+        AudioManager2D.instance?.PlaySound("Event_Cheer", Camera.main.transform.position);
     }
 
     public void PauseGame(bool isPaused)
     {
         PauseGameEvent?.Invoke(isPaused);
         // Afficher Menu
+    }
+
+    public void EndGame()
+    {
+        //Display winning Screen
+        UIManager.instance.DisplayVictoryScreen(winningTeam);
+
+        //Wait for input to leave the game;
     }
 
     public void LeaveGame()
@@ -93,6 +112,8 @@ public class GameManager : MonoBehaviour
     {
         ball.gameObject.SetActive(true);
         ball.transform.position = ballSpawnPoint.position;
+
+        AudioManager2D.instance?.PlaySound("Event_BalleRemiseJeu", ball.transform.position);
     }
 
     public void SetPlayersMovable(bool movable)
@@ -115,12 +136,32 @@ public class GameManager : MonoBehaviour
 
     public void SetBallMovable(bool movable)
     {
-        ball.enabled = movable;
+        ball.IsSubjectToGravity = movable;
         if(!movable)
         {
-            ball.GetComponent<Rigidbody2D>().gravityScale = 0f;
-            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            ball.enabled = false;
+            ball.Restart();
+        }
+    }
+
+    public void RespawnAfterGoal()
+    {
+        if (winningTeam == TeamEnum.NONE)
+        {
+            //Freeze actors
+            SetPlayersMovable(false);
+            SetBallMovable(false);
+
+            //Respawn players
+            SpawnTeams();
+            //Respawn ball
+            SpawnBall();
+
+            //Start CountDown
+            UIManager.instance.StartCountdown();
+        }
+        else
+        {
+            EndGame();
         }
     }
 }

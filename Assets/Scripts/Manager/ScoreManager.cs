@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     [Header("Final Score")] public int FinalScore = 9;
 
+    public Animator blueScoreAnimator, redScoreAnimator;
     public TextMeshProUGUI blueTeamScoretxt, redTeamScoretxt;
 
     void Awake()
@@ -29,16 +30,20 @@ public class ScoreManager : MonoBehaviour
         {
             case TeamEnum.TEAM1:
                 blueTeamScore++;
+                blueScoreAnimator.SetTrigger("changeScore");
                 if (blueTeamScore >= FinalScore)
                     winningTeam = TeamEnum.TEAM1;
                 break;
 
             case TeamEnum.TEAM2:
                 redTeamScore++;
+                redScoreAnimator.SetTrigger("changeScore");
                 if (redTeamScore >= FinalScore)
                     winningTeam = TeamEnum.TEAM2;
                 break;
         }
+
+        AudioManager2D.instance?.PlaySound("Event_BUT", Camera.main.transform.position);
 
         UpdateScorePanel();
         if(winningTeam != TeamEnum.NONE)
@@ -56,7 +61,9 @@ public class ScoreManager : MonoBehaviour
     public void TeamWinTheGame(TeamEnum winningTeam)
     {
         //End the Game
-        //Display winning team screen
+        GameManager.instance.SetWinningTeam(winningTeam);
+
+        AudioManager2D.instance?.PlaySound("Event_MatchEnd", Camera.main.transform.position);
 
         switch (winningTeam)
         {
