@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
 	public Ball ball;
 	public GameObject tacleFX;
 	public GameObject slideFX;
+	public GameObject hasTheBallTrail;
 
 	[Header("Movement")]
 	public float runSpeed = 10;
@@ -590,6 +591,7 @@ public class Character : MonoBehaviour
 		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis) * ballDistanceFromPlayer);
 		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis), shootForce, this, true);
 		hasTheBall = false;
+		hasTheBallTrail.SetActive(false);
 	}
 
 	public void Tackle()
@@ -640,6 +642,7 @@ public class Character : MonoBehaviour
 			ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + Vector2.right * dmgDir  * ballDistanceFromPlayer);
 			ball.ThrowBall(new Vector2(dmgDir, 1).normalized , ballReleaseForce, null, false);
 			hasTheBall = false;
+			hasTheBallTrail.SetActive(false);
 		}
 
 		damaged = true;
@@ -660,6 +663,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+		hasTheBallTrail.SetActive(true);
         UIManager.instance.UpdateBallHolderPortrait();
 	}
 
