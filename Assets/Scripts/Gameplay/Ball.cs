@@ -26,6 +26,9 @@ public class Ball : MonoBehaviour
     [Header("UtilityReferences")]
     [SerializeField] private Collider2D physicsCollider;
     [SerializeField] private Collider2D catchCollider;
+	public TrailRenderer trailFx;
+
+
 
     private bool isFreezed;
     public bool IsFreezed 
@@ -189,6 +192,8 @@ public class Ball : MonoBehaviour
         {
             StartCoroutine(IgnoreCollisionCoroutine(playerCollider));
         }
+
+		UpdateTrailColor();
     }
 
     private void Bounce(Vector2 normal)
@@ -219,6 +224,7 @@ public class Ball : MonoBehaviour
         StopCoroutine(empowerementFadeCoroutine);
         IsEmpowered = false;
         TeamEmpowerement = TeamEnum.NONE;
+		UpdateTrailColor();
     }
 
     private IEnumerator IgnoreCollisionCoroutine(Collider2D otherCollider)
@@ -235,4 +241,11 @@ public class Ball : MonoBehaviour
         Physics2D.IgnoreCollision(physicsCollider, otherCollider, shouldBeIgnored);
         Physics2D.IgnoreCollision(catchCollider, otherCollider, shouldBeIgnored);
     }
+
+	private void UpdateTrailColor()
+	{
+		if(TeamEmpowerement == TeamEnum.NONE)	trailFx.startColor = Color.white;
+		else if(TeamEmpowerement == TeamEnum.TEAM1) trailFx.startColor = Color.blue;
+		else if (TeamEmpowerement == TeamEnum.TEAM1) trailFx.startColor = Color.red;
+	}
 }

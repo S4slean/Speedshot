@@ -85,11 +85,13 @@ public class Character : MonoBehaviour
 	[Header("Damage")]
 	public float invulnerabiltyDuration = .7f;
 	public AnimationCurve knockBackCurve;
+	public float knockBackUpForce = 5;
 	public float knockBackDuration = .5f;
 	[Range(0, 1)] public float knockBackForceMaxSpeedRatio = 1f;
 	public LayerMask damageMask;
 	public float damageRange = .1f;
 	private float knockbackTracker;
+	public float ballReleaseForce = 5;
 
 	[Header("States")]
 	public bool hasTheBall = false;
@@ -109,6 +111,7 @@ public class Character : MonoBehaviour
 	private Bumper bumperRef;
 	public int playerID = 1;
 	public TeamEnum team = TeamEnum.TEAM1;
+    public UI_PlayerPortrait portrait;
 
 	[Header("Debug")]
 	public bool debugMode;
@@ -500,7 +503,7 @@ public class Character : MonoBehaviour
 		else if (damaged)
 		{
 			knockbackTracker += Time.deltaTime / knockBackDuration;
-			verticalMovement = knockBackCurve.Evaluate(knockbackTracker);
+			verticalMovement = knockBackCurve.Evaluate(knockbackTracker) * knockBackUpForce;
 			if (knockbackTracker >= 1)
 			{
 				damaged = false;
@@ -627,11 +630,25 @@ public class Character : MonoBehaviour
 
 	public void ReceiveDamage(int dmgDir)
 	{
+		Debug.Log("receiveDamage");
+
+
 		if (damaged || dodging) return;
 
+		if (hasTheBall) 
+		{
+			ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + Vector2.right * dmgDir  * ballDistanceFromPlayer);
+			ball.ThrowBall(new Vector2(dmgDir, 1).normalized , ballReleaseForce, null, false);
+			hasTheBall = false;
+		}
+
 		damaged = true;
+		attacking = false;
+		jumping = false;
+		wallJumping = false;
 		knockbackTracker = 0;
 		accelerationTracker = dmgDir * knockBackForceMaxSpeedRatio;
+		anim.Play("DamageHit");
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -643,6 +660,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+        UIManager.instance.UpdateBallHolderPortrait();
 	}
 
 	public void Bump(Bumper bumper)
@@ -659,8 +677,11 @@ public class Character : MonoBehaviour
 		anim.SetBool("running", rb2D.velocity.x != 0 ? true : false);
 		anim.SetBool("wallSliding", wallRide == WallRide.None ? false : true);
 
-
-		if (wallRide == WallRide.Right && !grounded)
+		if(damaged)
+		{
+			transform.localScale = new Vector3(-dir, 1, 1);
+		}
+		else if (wallRide == WallRide.Right && !grounded)
 		{
 			transform.localScale = new Vector3(-1, 1, 1);
 		}

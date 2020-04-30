@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        //Test
+        SetupGame();
     }
 
     public void SetWinningTeam(TeamEnum team)
@@ -49,13 +50,17 @@ public class GameManager : MonoBehaviour
     {
         winningTeam = TeamEnum.NONE;
 
+        //Setup player portrait
+        UIManager.instance.SetupPlayerPortrait();
+
         SetPlayersMovable(false);
         SetBallMovable(false);
 
         //Spawn Players
         SpawnTeams();
 
-        //Spawn Ball
+		//Spawn Ball
+		ball = GameObject.FindObjectOfType<Ball>();
         SpawnBall();
 
         StartGame();
