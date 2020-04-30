@@ -688,7 +688,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2
   damageRange: 0.1
-  ballReleaseForce: 5
+  ballReleaseForce: 20
   hasTheBall: 0
   grounded: 0
   jumping: 0

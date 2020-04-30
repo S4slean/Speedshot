@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    [Header("Debug")]
+    public bool debugMode;
+
     private GameplayPlayerSetter gameplayPlayerSetter;
     private TeamEnum winningTeam = TeamEnum.NONE;
 
@@ -38,7 +41,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
-        gameplayPlayerSetter.StartSetup();
+        if(!debugMode)
+            gameplayPlayerSetter.StartSetup();
+
         SetupGame();
     }
 
@@ -134,12 +139,10 @@ public class GameManager : MonoBehaviour
 
         foreach(Character p in players)
         {
-            p.enabled = movable;
             if(!movable)
             {
+                p.Reset();
                 p.GetComponent<Rigidbody2D>().gravityScale = 0f;
-                p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                p.enabled = false;
             }
         }
     }
