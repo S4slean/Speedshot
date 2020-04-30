@@ -114,8 +114,8 @@ MonoBehaviour:
   blueTeamScore: 0
   redTeamScore: 0
   FinalScore: 9
-  blueScoreAnimator: {fileID: 8135140018646431125}
-  redScoreAnimator: {fileID: 4719658966019717077}
+  blueScoreAnimator: {fileID: 0}
+  redScoreAnimator: {fileID: 0}
   blueTeamScoretxt: {fileID: 8983569793869726717}
   redTeamScoretxt: {fileID: 8983569792952279448}
 --- !u!1 &1660631378046915413
@@ -370,10 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59868b6c5964eb74496a59f25afb95bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bluePlayerPrefab: {fileID: 6000590579473320533, guid: cc8d8d9e59894e64a889eb93412b75e8,
-    type: 3}
-  redPlayerPrefab: {fileID: 6000590579473320533, guid: 211a960e78819034fb81e216594ec5bb,
-    type: 3}
+  playerPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &3780785089340583989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,12 +590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f658c166246697b439ce8f5f7cef686d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &8135140018646431125 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4944352878367147424, guid: bf82514565b24da42ac9b89aaef2fac6,
-    type: 3}
-  m_PrefabInstance: {fileID: 3780785089340583989}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8983569793869726717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5247820705775875016, guid: bf82514565b24da42ac9b89aaef2fac6,
@@ -607,12 +602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4719658966019717077 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8432872462251362272, guid: bf82514565b24da42ac9b89aaef2fac6,
-    type: 3}
-  m_PrefabInstance: {fileID: 3780785089340583989}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8983569792952279448 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5247820706735231405, guid: bf82514565b24da42ac9b89aaef2fac6,

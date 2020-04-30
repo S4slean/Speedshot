@@ -74,7 +74,7 @@ public class PlayerManager : MonoBehaviour
     {
         for(int i = 0; i< players.Length; i++)
         {
-            if(players[i].PlayerInput == playerInput)
+            if(players[i] != null && players[i].PlayerInput == playerInput)
             {
                 UnsetupPlayer(i);
                 players[i] = null;
