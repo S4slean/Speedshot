@@ -689,5 +689,10 @@ public class Character : MonoBehaviour
 		damaged = false;
 		wallRide = WallRide.None;
 	}
+
+	public void PlayStepSound()
+	{
+		AudioManager2D.instance.PlaySound("Player_Steps", transform.position);
+	}
 }
 
