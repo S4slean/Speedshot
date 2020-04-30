@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  player: {fileID: 0}
+  player: {fileID: 6000590579473320539}
 --- !u!1 &6000590579473320533
 GameObject:
   m_ObjectHideFlags: 0

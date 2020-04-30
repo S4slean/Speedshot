@@ -104,6 +104,7 @@ MonoBehaviour:
   verticalPlayerHitBounceVelocity: 0
   empoweredStateDuration: 1
   throwerCollisionIgnoredDuration: 0.2
+  bumperForceRatio: 0.25
   startWithGravity: 1
   physicsCollider: {fileID: 5566434483686935859}
   catchCollider: {fileID: -4805981672662270310}
