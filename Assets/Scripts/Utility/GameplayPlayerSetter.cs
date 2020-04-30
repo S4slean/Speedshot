@@ -5,8 +5,7 @@ using UnityEngine.InputSystem.XR.Haptics;
 
 public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 {
-    public GameObject bluePlayerPrefab;
-    public GameObject redPlayerPrefab;
+    public GameObject[] playerPrefabs;
 
     private List<GameObject> bluePlayers;
     public List<GameObject> BluePlayers { get => bluePlayers; }
@@ -37,19 +36,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
     public void SetupPlayer(int playerID)
     {
-        switch (PlayerManager.instance.players[playerID].PlayerTeam)
-        {
-            case TeamEnum.TEAM1:
-                players[playerID] = (GameObject.Instantiate(bluePlayerPrefab));
-                bluePlayers.Add(players[playerID]);
-                break;
-            case TeamEnum.TEAM2:
-                players[playerID] = GameObject.Instantiate(redPlayerPrefab);
-                redPlayers.Add(players[playerID]);
-                break;
-            default:
-                return;
-        }
+        players[playerID] = (GameObject.Instantiate(playerPrefabs[PlayerManager.instance.players[playerID].skinIndex]));
 
         players[playerID].SetActive(false);
         characters[playerID] = players[playerID].GetComponent<Character>();
@@ -60,7 +47,12 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         //Character Settings
         characters[playerID].playerID = playerID;
+
         characters[playerID].team = PlayerManager.instance.players[playerID].PlayerTeam;
+        if(characters[playerID].team == TeamEnum.TEAM1)
+            bluePlayers.Add(players[playerID]);
+        else if(characters[playerID].team == TeamEnum.TEAM2)
+            redPlayers.Add(players[playerID]);
     }
 
     public void UnsetupPlayer(int playerID)
