@@ -457,7 +457,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  bufferDuration: 0.2
+  bufferDuration: 0
   jumpCurve:
     serializedVersion: 2
     m_Curve:
