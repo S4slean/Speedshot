@@ -11,7 +11,6 @@ public class PlayerFrame : MonoBehaviour
 	public GameObject arrows;
 	public enum PlayerStatus { NotAssigned, Waiting, Ready};
 	public PlayerStatus playerStatus;
-	public Sprite[] sprites;
 	private int iconIndex = 0;
 
     private void Awake()
@@ -28,23 +27,30 @@ public class PlayerFrame : MonoBehaviour
     public void OnPlayerUnassigned()
     {
 		img.gameObject.SetActive(false);
-		SetPlayerStatus(PlayerStatus.Waiting);
+		SetPlayerStatus(PlayerStatus.NotAssigned);
 	}
 
 	public void Update()
 	{
 		if ( playerStatus == PlayerStatus.Waiting && menuInputHandler.LeftButtonDown)
 		{
+			iconIndex += 4;
 			iconIndex -= 1;
-			if (iconIndex > 3) iconIndex = 0;
+			iconIndex = iconIndex % 4;
 			UpdateSprite();
+			PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].skinIndex = iconIndex;
+			PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].PlayerTeam = iconIndex < 2 ? TeamEnum.TEAM1 : TeamEnum.TEAM2;
+
+			
 		}
 
 		if (playerStatus == PlayerStatus.Waiting && menuInputHandler.RightButtonDown)
 		{
 			iconIndex += 1;
-			if (iconIndex < 0) iconIndex = 3;
+			iconIndex = iconIndex % 4;
 			UpdateSprite();
+			PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].skinIndex = iconIndex;
+			PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].PlayerTeam = iconIndex < 2 ? TeamEnum.TEAM1 : TeamEnum.TEAM2;
 		}
 
 		if (playerStatus == PlayerStatus.Waiting && menuInputHandler.JumpButtonDown)
@@ -59,7 +65,8 @@ public class PlayerFrame : MonoBehaviour
 
 		if (menuInputHandler.StartButtonDown)
 		{
-			//Check if everyone ready and start game
+			Debug.Log("Start");
+			PlayerFrameHandler.instance.CheckIfEveryoneIsReady();
 		}
 
 	}
@@ -67,7 +74,7 @@ public class PlayerFrame : MonoBehaviour
 	public void SetPlayerStatus(PlayerStatus newStatus)
 	{
 		playerStatus = newStatus;
-		if (playerStatus != PlayerStatus.Ready) arrows.SetActive(false);
+		arrows.SetActive(playerStatus == PlayerStatus.Waiting);
 		img.gameObject.SetActive(playerStatus != PlayerStatus.NotAssigned);
 
 		switch (playerStatus)
@@ -89,6 +96,6 @@ public class PlayerFrame : MonoBehaviour
 
 	public void UpdateSprite()
 	{
-		img.sprite = sprites[iconIndex];
+		img.sprite = PlayerFrameHandler.instance.sprites[iconIndex];
 	}
 }

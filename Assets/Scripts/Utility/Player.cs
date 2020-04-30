@@ -11,6 +11,8 @@ public class Player
 
     public PlayerInput PlayerInput { get; set; }
 
+	public int skinIndex { get; set; }
+
     public Player(int playerID, TeamEnum playerTeam, PlayerInput playerInput)
     {
         PlayerID = playerID;
