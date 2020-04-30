@@ -134,12 +134,10 @@ public class GameManager : MonoBehaviour
 
         foreach(Character p in players)
         {
-            p.enabled = movable;
             if(!movable)
             {
+                p.Reset();
                 p.GetComponent<Rigidbody2D>().gravityScale = 0f;
-                p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                p.enabled = false;
             }
         }
     }

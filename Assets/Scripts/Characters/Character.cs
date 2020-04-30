@@ -661,6 +661,8 @@ public class Character : MonoBehaviour
 
 	public void CatchBall()
 	{
+		if (damaged) return;
+
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
 		hasTheBallTrail.SetActive(true);
