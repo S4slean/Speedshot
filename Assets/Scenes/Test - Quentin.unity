@@ -1335,6 +1335,11 @@ PrefabInstance:
       propertyPath: bumpCurve.m_Curve.Array.data[4].inWeight
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 5364837010484621516, guid: 6a0ad28a76bd0d64c86f4ad4c6a57bd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8294010488417664494, guid: 6a0ad28a76bd0d64c86f4ad4c6a57bd3,
         type: 3}
       propertyPath: m_LocalPosition.x

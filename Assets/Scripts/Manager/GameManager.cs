@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        //Test
+        SetupGame();
     }
 
     public void SetWinningTeam(TeamEnum team)
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
     private void SetupGame()
     {
         winningTeam = TeamEnum.NONE;
+
+        //Setup player portrait
+        UIManager.instance.SetupPlayerPortrait();
 
         SetPlayersMovable(false);
         SetBallMovable(false);
