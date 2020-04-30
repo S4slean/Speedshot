@@ -109,6 +109,7 @@ public class Character : MonoBehaviour
 	private Bumper bumperRef;
 	public int playerID = 1;
 	public TeamEnum team = TeamEnum.TEAM1;
+    public UI_PlayerPortrait portrait;
 
 	[Header("Debug")]
 	public bool debugMode;
@@ -627,11 +628,14 @@ public class Character : MonoBehaviour
 
 	public void ReceiveDamage(int dmgDir)
 	{
+		Debug.Log("receiveDamage");
+
 		if (damaged || dodging) return;
 
 		damaged = true;
 		knockbackTracker = 0;
 		accelerationTracker = dmgDir * knockBackForceMaxSpeedRatio;
+		anim.Play("DamageHit");
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -643,6 +647,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+        UIManager.instance.UpdateBallHolderPortrait();
 	}
 
 	public void Bump(Bumper bumper)
