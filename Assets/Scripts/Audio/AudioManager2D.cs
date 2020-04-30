@@ -8,7 +8,7 @@ public class AudioManager2D : MonoBehaviour
 {
     public static AudioManager2D instance;
 
-    public SoundPool[] soundPools;
+	public SoundPool[] soundPools;
 
     private Dictionary<string, SoundPool> soundDictionary;
 

@@ -8,6 +8,7 @@ public class SoundPool
     public string soundPoolName;
     public float cooldown;
 
+
     public Sound[] sounds;
     
     private float lastPlayTime = 0;
@@ -28,7 +29,7 @@ public class SoundPool
 
         SetAudioSource(audioSource, selectedSound);
 
-        audioSource.Play();
+        audioSource.PlayOneShot(audioSource.clip);
 
         lastPlayTime = Time.time;
     }
