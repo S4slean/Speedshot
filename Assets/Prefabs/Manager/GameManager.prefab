@@ -370,10 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59868b6c5964eb74496a59f25afb95bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bluePlayerPrefab: {fileID: 6000590579473320533, guid: cc8d8d9e59894e64a889eb93412b75e8,
-    type: 3}
-  redPlayerPrefab: {fileID: 6000590579473320533, guid: 211a960e78819034fb81e216594ec5bb,
-    type: 3}
+  playerPrefabs:
+  - {fileID: 3677327820754588642, guid: bd95f274772d1a5489dfd2ec4c75249d, type: 3}
+  - {fileID: 8472714921843703376, guid: 3eb05bfd7089ced46a2534f575818dec, type: 3}
+  - {fileID: 4914963346944754879, guid: 2ced37861a595034c9e190b62eedb29d, type: 3}
+  - {fileID: 4597844007000892193, guid: 4c94aaa9f8f4e4743acc2173692777c2, type: 3}
 --- !u!1001 &3780785089340583989
 PrefabInstance:
   m_ObjectHideFlags: 0
