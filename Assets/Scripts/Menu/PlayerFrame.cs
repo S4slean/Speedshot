@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerFrame : MonoBehaviour
 {
-    private PlayerFrameHandler playerFrameHandler;
+    private MenuInputHandler menuInputHandler;
 
     private void Awake()
     {
-        playerFrameHandler = GetComponent<PlayerFrameHandler>();
+        menuInputHandler = GetComponent<MenuInputHandler>();
     }
 
     public void OnPlayerAssigned()
