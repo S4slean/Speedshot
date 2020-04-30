@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 81976a4d66edfe241bf91631ceecd48b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2461170068982802763
+    second: SpriteSheetEsquive32x32Red_0
+  - first:
+      213: 2329941369148826943
+    second: SpriteSheetEsquive32x32Red_1
+  - first:
+      213: -3604779990074232949
+    second: SpriteSheetEsquive32x32Red_2
+  - first:
+      213: 2718176209791446876
+    second: SpriteSheetEsquive32x32Red_3
+  - first:
+      213: -3806808637665935105
+    second: SpriteSheetEsquive32x32Red_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,138 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32Red_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4569942, y: -0.005318394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6d472bcda28ddd0800000000000000
+      internalID: -2461170068982802763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32Red_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50309086, y: -0.0007308711}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f356a97a45d955020800000000000000
+      internalID: 2329941369148826943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32Red_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.0019877916}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f603ea2bf39fdc0800000000000000
+      internalID: -3604779990074232949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32Red_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.42090416, y: -0.0009416925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f698d7cd6e8b520800000000000000
+      internalID: 2718176209791446876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32Red_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50293016, y: 0.0019877916}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff08800a6bf7b2bc0800000000000000
+      internalID: -3806808637665935105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

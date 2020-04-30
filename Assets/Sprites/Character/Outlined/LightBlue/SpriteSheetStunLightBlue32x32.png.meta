@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,12 +114,12 @@ TextureImporter:
       name: SpriteSheetStunLightBlue32x32_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 18
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.0026730932}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: SpriteSheetStunLightBlue32x32_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 0
-        width: 18
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 35
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.0026730932}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: SpriteSheetStunLightBlue32x32_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
-        width: 18
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 65
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0015941747}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: SpriteSheetStunLightBlue32x32_3
       rect:
         serializedVersion: 2
-        x: 103
-        y: 0
-        width: 17
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 95
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5000005, y: -0.0012442879}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: a5082617d0bf90a4f8bab9dde8bd29b5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7910993194046983847
+    second: SpriteSheetEsquive32x32LightBlue_0
+  - first:
+      213: 3458422204719104221
+    second: SpriteSheetEsquive32x32LightBlue_1
+  - first:
+      213: 7191398800653382023
+    second: SpriteSheetEsquive32x32LightBlue_2
+  - first:
+      213: -6594734741981710931
+    second: SpriteSheetEsquive32x32LightBlue_3
+  - first:
+      213: 4278338323875323507
+    second: SpriteSheetEsquive32x32LightBlue_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,138 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32LightBlue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0033969586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951fb40ba91863290800000000000000
+      internalID: -7910993194046983847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32LightBlue_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.0033969586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd00b93fba8ceff20800000000000000
+      internalID: 3458422204719104221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32LightBlue_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.0033969586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7817d178b1bfcc360800000000000000
+      internalID: 7191398800653382023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32LightBlue_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.38039494, y: -0.0055020885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5b04c41bbca74a0800000000000000
+      internalID: -6594734741981710931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetEsquive32x32LightBlue_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5000005, y: 0.0033969586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e5787b906bf5b30800000000000000
+      internalID: 4278338323875323507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

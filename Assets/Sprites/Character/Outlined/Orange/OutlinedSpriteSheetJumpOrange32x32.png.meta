@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: 31cc0979d40d492489587179ba256d7f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 560542406574429987
+    second: OutlinedSpriteSheetJumpOrange32x32_0
+  - first:
+      213: -3720330764750938993
+    second: OutlinedSpriteSheetJumpOrange32x32_1
+  - first:
+      213: -9003209271175634668
+    second: OutlinedSpriteSheetJumpOrange32x32_2
+  - first:
+      213: 6262241449165841931
+    second: OutlinedSpriteSheetJumpOrange32x32_3
+  - first:
+      213: -1084488559227434413
+    second: OutlinedSpriteSheetJumpOrange32x32_4
+  - first:
+      213: -2586743584127393080
+    second: OutlinedSpriteSheetJumpOrange32x32_5
+  - first:
+      213: -3917818235892144444
+    second: OutlinedSpriteSheetJumpOrange32x32_6
+  - first:
+      213: -6299773082321776543
+    second: OutlinedSpriteSheetJumpOrange32x32_7
+  - first:
+      213: 8053399920093125453
+    second: OutlinedSpriteSheetJumpOrange32x32_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +67,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +98,222 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.495355, y: -0.00164961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3275961595277c700800000000000000
+      internalID: 560542406574429987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49999976, y: -0.00164961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c101071eabe5cc0800000000000000
+      internalID: -3720330764750938993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4953549, y: -0.00164961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411a2117edc2e0380800000000000000
+      internalID: -9003209271175634668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49999976, y: 0.0029954351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06e1435b63f7e650800000000000000
+      internalID: 6262241449165841931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5047598, y: 0.00023904932}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a0648b66f13f0f0800000000000000
+      internalID: -1084488559227434413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_5
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4952407, y: 0.00023904932}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2e0175a6a0a1cd0800000000000000
+      internalID: -2586743584127393080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: -0.0045205774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6e91b621d11a9c0800000000000000
+      internalID: -3917818235892144444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: -0.0045205774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16094ae52c5b298a0800000000000000
+      internalID: -6299773082321776543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlinedSpriteSheetJumpOrange32x32_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.47144222, y: -0.0045205774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b5f4ffe8c63cf60800000000000000
+      internalID: 8053399920093125453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

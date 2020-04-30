@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: cd3a8059d8c5e5845b67e81a42ef1780
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1956635710619858184
+    second: SpriteSheetStunOrange32x32_0
+  - first:
+      213: 1880958872240367903
+    second: SpriteSheetStunOrange32x32_1
+  - first:
+      213: 716113559088123582
+    second: SpriteSheetStunOrange32x32_2
+  - first:
+      213: -7821857502080707308
+    second: SpriteSheetStunOrange32x32_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +83,117 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetStunOrange32x32_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4947589, y: 0.0020964064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fac8a91032a8d4e0800000000000000
+      internalID: -1956635710619858184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetStunOrange32x32_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.007337466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19a109e0228a1a10800000000000000
+      internalID: 1880958872240367903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetStunOrange32x32_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.0024687462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebec944ec7520f900800000000000000
+      internalID: 716113559088123582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetStunOrange32x32_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5000005, y: -0.0012441743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41551c83b0e237390800000000000000
+      internalID: -7821857502080707308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

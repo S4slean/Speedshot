@@ -6,13 +6,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
-public class InputManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public static InputManager instance;
+    public static PlayerManager instance;
 
-    [HideInInspector] public PlayerInput[] players = new PlayerInput[4];
+    [HideInInspector] public Player[] players = new Player[4];
 
-    public IInputSetter inputSetter { get; set; }
+
+    public IPlayerSetter playerSetter { get; set; }
 
     private PlayerInputManager playerInputManager;
 
@@ -48,56 +49,56 @@ public class InputManager : MonoBehaviour
         {
             if(players[i] == null)
             {
-                players[i] = newPlayer;
+                players[i] = new Player(i, TeamEnum.NONE, newPlayer);
 
                 newPlayer.gameObject.transform.parent = transform;
                 newPlayer.gameObject.name = "Player " + (i + 1);
 
-                SetupInput(i);
+                SetupPlayer(i);
                 break;
             }
         }
     }
 
-    public void RemovePlayer(PlayerInput player)
+    public void RemovePlayer(PlayerInput playerInput)
     {
         for(int i = 0; i< players.Length; i++)
         {
-            if(players[i] == player)
+            if(players[i].PlayerInput == playerInput)
             {
-                UnsetupInput(i);
+                UnsetupPlayer(i);
                 players[i] = null;
                 
-                Destroy(player.gameObject);
+                Destroy(playerInput.gameObject);
             }
         }
     }
 
-    public void SetupInput()
+    public void SetupPlayers()
     {
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i] != null)
-                SetupInput(i);
+                SetupPlayer(i);
         }
     }
 
-    public void UnsetupInput()
+    public void UnsetupPlayers()
     {
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i] != null)
-                UnsetupInput(i);
+                UnsetupPlayer(i);
         }
     }
 
-    private void SetupInput(int playerID)
+    private void SetupPlayer(int playerID)
     {
-        inputSetter?.SetupInput(playerID);
+        playerSetter?.SetupPlayer(playerID);
     }
 
-    private void UnsetupInput(int playerID)
+    private void UnsetupPlayer(int playerID)
     {
-        inputSetter?.UnsetupInput(playerID);
+        playerSetter?.UnsetupPlayer(playerID);
     }
 }
