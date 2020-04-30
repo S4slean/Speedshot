@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4869355602333929905}
   - component: {fileID: 4869355602333929904}
   m_Layer: 5
-  m_Name: Score
+  m_Name: BlueScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,17 +25,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4869355602333929870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4869355602697263708}
-  m_RootOrder: 0
+  m_Father: {fileID: 4869355603806608180}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 79, y: 8}
+  m_SizeDelta: {x: -146, y: 39.05056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4869355602333929905
 CanvasRenderer:
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4869355603295564758}
   - component: {fileID: 4869355603295564757}
   m_Layer: 5
-  m_Name: Score
+  m_Name: RedScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,17 +372,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4869355603295564755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4869355603072051727}
-  m_RootOrder: 0
+  m_Father: {fileID: 4869355603806608180}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -77.544205, y: 7}
+  m_SizeDelta: {x: -157.2684, y: 36.14584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4869355603295564758
 CanvasRenderer:
@@ -671,7 +671,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4869355603806608180}
   - component: {fileID: 4869355603806608182}
-  - component: {fileID: 4869355603806608181}
   m_Layer: 5
   m_Name: ScorePanel
   m_TagString: Untagged
@@ -691,8 +690,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4869355604165269000}
-  - {fileID: 4869355602697263708}
-  - {fileID: 4869355603072051727}
+  - {fileID: 4869355602333929871}
+  - {fileID: 4869355603295564756}
   - {fileID: 4869355604110551567}
   - {fileID: 4869355603653881947}
   m_Father: {fileID: 0}
@@ -923,7 +922,7 @@ RectTransform:
   m_GameObject: {fileID: 4869355604165268999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 9.569, y: 9.569, z: 9.569}
   m_Children: []
   m_Father: {fileID: 4869355603806608180}
   m_RootOrder: 0

@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if(debugMode)
                 {
-                    previousValue = (TeamEnum)((int)previousValue % 2 + 1);
+                    previousValue = (TeamEnum)((int)(previousValue + 1) % 2);
                     players[i] = new Player(i, previousValue, newPlayer);
                 }
                 else

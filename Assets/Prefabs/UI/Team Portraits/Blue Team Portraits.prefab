@@ -45,7 +45,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6306628404983816169}
   - component: {fileID: 6306628404983816175}
-  - component: {fileID: 6306628404983816168}
   m_Layer: 5
   m_Name: Blue Team Portraits
   m_TagString: Untagged
@@ -155,6 +154,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6306628404983816169}
     m_Modifications:
+    - target: {fileID: 681193313475778312, guid: 0b3ef01376c7c244c965953f67fe7ba3,
+        type: 3}
+      propertyPath: backgroundColor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1119356730354762062, guid: 0b3ef01376c7c244c965953f67fe7ba3,
         type: 3}
       propertyPath: m_Sprite
@@ -296,7 +300,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119356731332180644, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
 --- !u!224 &1754711726213620755 stripped
 RectTransform:
@@ -333,7 +338,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1119356730837165930, guid: 0b3ef01376c7c244c965953f67fe7ba3,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: backgroundColor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119356730354762062, guid: 0b3ef01376c7c244c965953f67fe7ba3,
+        type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119356731332180644, guid: 0b3ef01376c7c244c965953f67fe7ba3,
@@ -451,7 +461,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119356731332180644, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
 --- !u!224 &6306628404130729710 stripped
 RectTransform:

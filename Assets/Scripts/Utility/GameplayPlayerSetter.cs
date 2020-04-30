@@ -21,6 +21,10 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
     {
         bluePlayers = new List<GameObject>();
         redPlayers = new List<GameObject>();
+
+        players = new GameObject[4];
+        characters = new Character[4];
+        charactersInputHandler = new CharacterInputHandler[4];
     }
 
     public void StartSetup()
@@ -36,7 +40,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
         switch (PlayerManager.instance.players[playerID].PlayerTeam)
         {
             case TeamEnum.TEAM1:
-                players[playerID] = GameObject.Instantiate(bluePlayerPrefab);
+                players[playerID] = (GameObject.Instantiate(bluePlayerPrefab));
                 bluePlayers.Add(players[playerID]);
                 break;
             case TeamEnum.TEAM2:
@@ -56,6 +60,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         //Character Settings
         characters[playerID].playerID = playerID;
+        characters[playerID].team = PlayerManager.instance.players[playerID].PlayerTeam;
     }
 
     public void UnsetupPlayer(int playerID)
@@ -74,7 +79,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         foreach(Character character in characters)
         {
-            if (character.team == TeamEnum.TEAM1)
+            if (character != null && character.team == TeamEnum.TEAM1)
                 blueCharacters.Add(character);
         }
 
@@ -87,7 +92,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         foreach (Character character in characters)
         {
-            if (character.team == TeamEnum.TEAM1)
+            if (character != null && character.team == TeamEnum.TEAM1)
                 redCharacters.Add(character);
         }
 
