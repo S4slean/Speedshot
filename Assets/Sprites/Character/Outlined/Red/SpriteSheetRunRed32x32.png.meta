@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: e12700c8937d82543bd10ae5bf4c5706
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4547143342202262382
+    second: SpriteSheetRunRed32x32_0
+  - first:
+      213: -1986694835087381729
+    second: SpriteSheetRunRed32x32_1
+  - first:
+      213: 4019002161804011701
+    second: SpriteSheetRunRed32x32_2
+  - first:
+      213: 9170644001644152564
+    second: SpriteSheetRunRed32x32_3
+  - first:
+      213: 6804606949700331160
+    second: SpriteSheetRunRed32x32_4
+  - first:
+      213: -2063763935245777556
+    second: SpriteSheetRunRed32x32_5
+  - first:
+      213: 8006857376705316973
+    second: SpriteSheetRunRed32x32_6
+  - first:
+      213: -1767800133461706313
+    second: SpriteSheetRunRed32x32_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +64,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +95,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.45527866, y: 0.0006117746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c6049d83d45e0c0800000000000000
+      internalID: -4547143342202262382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49627316, y: 0.0006117746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b638dc297dd64e0800000000000000
+      internalID: -1986694835087381729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5037267, y: 0.0006117746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8eadd2c2d56c730800000000000000
+      internalID: 4019002161804011701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49999976, y: 0.0006117746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6019f912ca44f70800000000000000
+      internalID: 9170644001644152564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0006117746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896ea09e7f1de6e50800000000000000
+      internalID: 6804606949700331160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49651384, y: 0.0014213994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65c96b92a90c53e0800000000000000
+      internalID: -2063763935245777556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49999952, y: 0.0068220645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d688cb9ac521e1f60800000000000000
+      internalID: 8006857376705316973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetRunRed32x32_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 2
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5039263, y: -0.0025304295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9702315238777e0800000000000000
+      internalID: -1767800133461706313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

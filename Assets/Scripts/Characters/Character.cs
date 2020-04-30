@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
 	public BoxCollider2D box2D;
 	public Animator anim;
 	public Ball ball;
+	public GameObject tacleFX;
+	public GameObject slideFX;
 
 	[Header("Movement")]
 	public float runSpeed = 10;
@@ -546,6 +548,7 @@ public class Character : MonoBehaviour
 		jumping = true;
 		jumpTracker = 0;
 		anim.Play("Jump");
+		AudioManager2D.instance.PlaySound("Player_Jump", transform.position);
 	}
 
 	public void WallJump()
@@ -553,6 +556,7 @@ public class Character : MonoBehaviour
 		jumping = false;
 		wallJumping = true;
 		wallJumpTracker = 0;
+		AudioManager2D.instance.PlaySound("Player_Jump", transform.position);
 
 		if (wallRide == WallRide.Right)
 			wallJumpDir = -1;
@@ -595,6 +599,7 @@ public class Character : MonoBehaviour
 		attack = Attack.AirDash;
 		anim.Play("AirDash");
 		attackDir = movementAxis.x != 0 ? Mathf.Sign(movementAxis.x) : dir;
+		AudioManager2D.instance.PlaySound("Player_Dash", transform.position);
 		//if (wallRide == WallRide.Right) attackDir = -1;
 		//else if (wallRide == WallRide.Left) attackDir = 1;
 
@@ -609,6 +614,7 @@ public class Character : MonoBehaviour
 		slideTracker = 0;
 		attack = Attack.Slide;
 		anim.Play("Slide");
+		AudioManager2D.instance.PlaySound("Player_Dash", transform.position);
 		attackDir = movementAxis.x != 0 ? Mathf.Sign(movementAxis.x) : dir;
 	}
 
@@ -641,6 +647,7 @@ public class Character : MonoBehaviour
 
 	public void Bump(Bumper bumper)
 	{
+		
 		triggeredBumper = bumper;
 		triggeredBumper.bumpTracker = 0f;
 		bumping = true;
@@ -653,11 +660,11 @@ public class Character : MonoBehaviour
 		anim.SetBool("wallSliding", wallRide == WallRide.None ? false : true);
 
 
-		if (wallRide == WallRide.Right)
+		if (wallRide == WallRide.Right && !grounded)
 		{
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
-		else if (wallRide == WallRide.Left)
+		else if (wallRide == WallRide.Left && !grounded)
 		{
 			transform.localScale = new Vector3(1, 1, 1);
 		}
@@ -694,6 +701,16 @@ public class Character : MonoBehaviour
 	public void PlayStepSound()
 	{
 		AudioManager2D.instance.PlaySound("Player_Steps", transform.position);
+	}
+
+	public void SetActiveTacleFX()
+	{
+		tacleFX.SetActive(!tacleFX.activeSelf);
+	}
+
+	public void SetActiveSlideFX()
+	{
+		slideFX.SetActive(!slideFX.activeSelf);
 	}
 }
 
