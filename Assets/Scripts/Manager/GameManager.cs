@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     {
         //Start Countdown
         UIManager.instance.StartCountdown();
+
+        AudioManager2D.instance?.PlaySound("Event_Cheer", Camera.main.transform.position);
     }
 
     public void PauseGame(bool isPaused)
@@ -93,6 +95,8 @@ public class GameManager : MonoBehaviour
     {
         ball.gameObject.SetActive(true);
         ball.transform.position = ballSpawnPoint.position;
+
+        AudioManager2D.instance?.PlaySound("Event_BalleRemiseJeu", ball.transform.position);
     }
 
     public void SetPlayersMovable(bool movable)
