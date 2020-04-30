@@ -19,6 +19,11 @@ public class HitBox : MonoBehaviour
 			if(touchedPlayer.team != team)
 			{
 				touchedPlayer.ReceiveDamage((int)Mathf.Sign(touchedPlayer.transform.position.x - transform.position.x));
+
+				AudioManager2D.instance?.PlaySound("Player_ChocTacle", transform.position);
+
+				if (Random.Range(0, 1) > 0)
+					AudioManager2D.instance?.PlaySound("Event_Cheer", Camera.main.transform.position);
 			}
 		}
 	}

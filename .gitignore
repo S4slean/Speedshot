@@ -60,3 +60,11 @@ crashlytics-build.properties
 
 
 Assets/Sprites/Background\.meta
+
+Assets/ghost.controller
+
+Assets/ghost.controller.meta
+
+Assets/GhostFadeOut.anim
+
+Assets/GhostFadeOut.anim.meta

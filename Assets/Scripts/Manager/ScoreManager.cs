@@ -43,6 +43,8 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
 
+        AudioManager2D.instance?.PlaySound("Event_BUT", Camera.main.transform.position);
+
         UpdateScorePanel();
         if(winningTeam != TeamEnum.NONE)
         {
@@ -60,6 +62,8 @@ public class ScoreManager : MonoBehaviour
     {
         //End the Game
         GameManager.instance.SetWinningTeam(winningTeam);
+
+        AudioManager2D.instance?.PlaySound("Event_MatchEnd", Camera.main.transform.position);
 
         switch (winningTeam)
         {

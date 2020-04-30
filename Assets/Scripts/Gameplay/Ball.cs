@@ -108,13 +108,17 @@ public class Ball : MonoBehaviour
             if(IsEmpowered && player.team != TeamEmpowerement)
             {
                 player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
+                AudioManager2D.instance?.PlaySound("Player_ChocBalle", transform.position);
                 PlayerHitBounce();
             }
             //else
             //    player.CatchBall();
         }
         else
+        {
             Bounce(collision.GetContact(0).normal);
+            AudioManager2D.instance?.PlaySound("Event_BallHitTerrain", transform.position);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
