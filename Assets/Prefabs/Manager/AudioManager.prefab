@@ -67,7 +67,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 75187f435e4246744ae0c50a53e9d62d, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: f7b9ceab75c0376488da290c1a35984d, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 6ae70ec43bcb34a41a4faaa3f8294709, type: 3}
       priority: 0
       volume: 1
-      pitch: -0.2
+      pitch: 0.9
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -120,15 +120,8 @@ MonoBehaviour:
     sounds:
     - clip: {fileID: 8300000, guid: 063bb3205e9dede48a9017ebcebf7f72, type: 3}
       priority: 0
-      volume: 1
-      pitch: -0.1
-      stereoPan: 0
-      spatialBlend: 0
-      reverbZoneMix: 0
-    - clip: {fileID: 8300000, guid: 063bb3205e9dede48a9017ebcebf7f72, type: 3}
-      priority: 0
-      volume: 1
-      pitch: 0.1
+      volume: 0.2
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -138,7 +131,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 92076fea75911044e821339724e2f937, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -146,19 +139,19 @@ MonoBehaviour:
     cooldown: 0
     sounds:
     - clip: {fileID: 8300000, guid: 48376b4527cfd3646bc1af3d4eead605, type: 3}
-      priority: 0
+      priority: 256
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
   - soundPoolName: Player_Jump
     cooldown: 0
     sounds:
-    - clip: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 443cc587650b92b4ca6d29fc6a750b66, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -166,9 +159,9 @@ MonoBehaviour:
     cooldown: 0
     sounds:
     - clip: {fileID: 8300000, guid: 3edca35edf8ff144490b2ee3299e5f90, type: 3}
-      priority: 0
+      priority: 256
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -178,7 +171,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 0caf4696f161d3f459d34396f5c81330, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -188,7 +181,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 0c016cc75fabb234bb819292d76d3b76, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -198,7 +191,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: d3cd974d60d6e554e9c6c33003925acb, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -207,29 +200,29 @@ MonoBehaviour:
     sounds:
     - clip: {fileID: 8300000, guid: c2bdf9bdcdf8e23419724a4243bcfdde, type: 3}
       priority: 0
-      volume: 1
-      pitch: 0
+      volume: 0.3
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
     - clip: {fileID: 8300000, guid: c2bdf9bdcdf8e23419724a4243bcfdde, type: 3}
       priority: 0
-      volume: 1
-      pitch: 0
+      volume: 0.3
+      pitch: 0.9
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
     - clip: {fileID: 8300000, guid: e7c65eb88c524934dba5ff92153bb16d, type: 3}
       priority: 0
-      volume: 1
-      pitch: 0
+      volume: 0.3
+      pitch: 0.9
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
     - clip: {fileID: 8300000, guid: e7c65eb88c524934dba5ff92153bb16d, type: 3}
       priority: 0
-      volume: 1
-      pitch: 0
+      volume: 0.3
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -239,7 +232,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 7416a1724116a504391dfebf4cc2ade4, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
@@ -252,7 +245,117 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 2d8bfe4baf77d144b8f109f470b9eb02, type: 3}
       priority: 0
       volume: 1
-      pitch: 0
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_Bumper
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: dd2f7a022c772e04787764a7e751ac13, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_BandeauReadyGo
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 9a7af143a46763048b9737bc0794e62d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_SpawnBalle
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 3147bf63422b30241acfe6dda85958de, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_GO
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 8d7de321989288f4592fa2b9c1695665, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_1
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 093e923652ae32048ab77ea428bdf70b, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_2
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: b0ce159f76c9ec148b00c9dbddebd2f4, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_3
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: d2bdfd75998448249a23b8316c864198, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_GO
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 7e0975491362cf7408f7ebf0a50dd518, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_YouLose
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 78a0d067992fbe14dbcba2b811708cb3, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Voice_Youwin
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 6e9d1c4478c77834c804f9d55e191af9, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_Booing
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: c41947923613cbd4b9384be2fe1e439d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
