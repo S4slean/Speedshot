@@ -11,7 +11,7 @@ public class UI_PlayerPortrait : MonoBehaviour
 
     public void BuildPortrait(int playerIndex, TeamEnum playerTeam)
     {
-        playerNumber.sprite = UIManager.instance.indexPlayerSprite[playerIndex - 1];
+        playerNumber.sprite = UIManager.instance.indexPlayerSprite[playerIndex];
 
         SetPortraitPos(playerIndex, playerTeam);
     }
@@ -21,11 +21,11 @@ public class UI_PlayerPortrait : MonoBehaviour
         switch (playerTeam)
         {
             case TeamEnum.TEAM1:
-                transform.position = UIManager.instance.bluePlayerPortraitSlots[playerIndex - 1].position;
+                transform.position = UIManager.instance.bluePlayerPortraitSlots[playerIndex].position;
                 break;
 
             case TeamEnum.TEAM2:
-                transform.position = UIManager.instance.RedPlayerPortraitSlots[playerIndex - 1].position;
+                transform.position = UIManager.instance.RedPlayerPortraitSlots[playerIndex].position;
                 break;
         }
     }
