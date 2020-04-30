@@ -39,6 +39,12 @@ public class Goal : MonoBehaviour
 
     IEnumerator TriggerGoal()
     {
+        Debug.Log("GOAAAAAL!!!!");
+        GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.ball.gameObject.SetActive(false);
+        isTriggerable = true;
+
         switch (teamGoal)
         {
             case TeamEnum.TEAM1:
@@ -48,12 +54,6 @@ public class Goal : MonoBehaviour
                 ScoreManager.instance.Goal(TeamEnum.TEAM1);
                 break;
         }
-
-        Debug.Log("GOAAAAAL!!!!");
-        GameManager.instance.ball.GetComponent<Rigidbody2D>().velocity *= 0.1f;
-        yield return new WaitForSeconds(0.2f);
-        GameManager.instance.ball.gameObject.SetActive(false);
-        isTriggerable = true;
 
         //Display goal anim
         //Time.timeScale = 0.5f;
