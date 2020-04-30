@@ -5,40 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public static MainMenuManager instance;
+	public static MainMenuManager instance;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-            instance = this;
-    }
+	private void Awake()
+	{
+		if (instance != null)
+		{
+			Destroy(this.gameObject);
+			return;
+		}
+		else
+			instance = this;
+	}
 
-    private void Start()
-    {
-        
-    }
+	private void Start()
+	{
 
-    private void LaunchGame()
-    {
-        SceneManager.LoadScene("CityArena - Mathieu");
-    }
-    
-    public void DebugLaunch()
-    {
-        SceneManager.LoadScene("CityArena - Mathieu Test");
-    }
+	}
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DebugLaunch();
-            PlayerManager.instance.AllowPlayerToJoin(false);
-        }
-    }
+	public void LaunchGame()
+	{
+		SceneManager.LoadScene("CityArena - Mathieu");
+	}
+
+	public void DebugLaunch()
+	{
+		SceneManager.LoadScene("CityArena - Mathieu Test");
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			DebugLaunch();
+			PlayerManager.instance.AllowPlayerToJoin(false);
+		}
+	}
 }
