@@ -9,62 +9,13 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector2 movementAxis;
     public Vector2 MovementAxis { get => movementAxis; private set => movementAxis = value; }
     private bool rightButtonDown = false;
-    public bool RightButtonDown
-    {
-        get
-        {
-            bool returnValue = false;
-            if (rightButtonDown)
-            {
-                returnValue = true;
-                rightButtonDown = false;
-            }
-            return returnValue;
-        }
-    }
+    public bool RightButtonDown { get => ConsumeInpute(ref rightButtonDown); }
     private bool leftButtonDown = false;
-    public bool LeftButtonDown
-    {
-        get
-        {
-            bool returnValue = false;
-            if (leftButtonDown)
-            {
-                returnValue = true;
-                leftButtonDown = false;
-            }
-            return returnValue;
-        }
-    }
+    public bool LeftButtonDown { get => ConsumeInpute(ref leftButtonDown); }
     private bool jumpButtonDown = false;
-    public bool JumpButtonDown
-    {
-        get
-        {
-            //bool returnValue = false;
-            //if(jumpButtonDown)
-            //{
-            //    returnValue = true;
-            //    jumpButtonDown = false;
-            //}
-            //return returnValue;
-            return ConsumeInpute(ref jumpButtonDown);
-        }
-    }
+    public bool JumpButtonDown { get => ConsumeInpute(ref jumpButtonDown); }
     private bool actionButtonDown = false;
-    public bool ActionButtonDown
-    {
-        get
-        {
-            bool returnValue = false;
-            if (actionButtonDown)
-            {
-                returnValue = true;
-                actionButtonDown = false;
-            }
-            return returnValue;
-        }
-    }
+    public bool ActionButtonDown { get => ConsumeInpute(ref actionButtonDown); }
 
     private PlayerInput _playerInput;
     private InputAction _verticalAxisAction;
@@ -117,20 +68,20 @@ public class CharacterInputHandler : MonoBehaviour
 
     private void HorizontalMovement(CallbackContext context)
     {
-        movementAxis.x = context.ReadValue<int>();
+        movementAxis.x = context.ReadValue<float>();
     }
 
     private void HorizontalKeyPress(CallbackContext context)
     {
-        if (context.ReadValue<int>() < 0)
+        if (Mathf.Sign(context.ReadValue<float>()) < 0)
             leftButtonDown = true;
-        else if (context.ReadValue<int>() > 0)
+        else if (Mathf.Sign(context.ReadValue<float>()) > 0)
             rightButtonDown = true;
     }
 
     private void VerticalMovement(CallbackContext context)
     {
-        movementAxis.y = context.ReadValue<int>(); 
+        movementAxis.y = context.ReadValue<float>(); 
     }
 
     private void StartButtonPress(CallbackContext context)
