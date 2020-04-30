@@ -15,16 +15,24 @@ public class Bumper : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.transform.tag == "Player")
+        if(col.TryGetComponent<Character>(out Character player))
         {
-            TriggerBumper(col.GetComponent<Character>());
+			player.SetInBump(true, this);
         }
     }
 
-    public void TriggerBumper(Character affectedPlayer)
-    {
-        //Debug.Log("BUMP!");
-        affectedPlayer.Bump(this);
-    }
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.TryGetComponent<Character>(out Character player))
+		{
+			player.SetInBump(false, this);
+		}
+	}
+
+	//public void TriggerBumper(Character affectedPlayer)
+ //   {
+ //       //Debug.Log("BUMP!");
+ //       affectedPlayer.Bump(this);
+ //   }
 
 }
