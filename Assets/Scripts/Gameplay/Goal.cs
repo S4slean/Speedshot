@@ -51,15 +51,16 @@ public class Goal : MonoBehaviour
         {
             case TeamEnum.TEAM1:
                 ScoreManager.instance.Goal(TeamEnum.TEAM2);
+                UIManager.instance.StartGoalAnim(TeamEnum.TEAM2);
                 break;
             case TeamEnum.TEAM2:
                 ScoreManager.instance.Goal(TeamEnum.TEAM1);
+                UIManager.instance.StartGoalAnim(TeamEnum.TEAM1);
                 break;
         }
 
         //Display goal anim
         //Time.timeScale = 0.5f;
-        UIManager.instance.StartGoalAnim();
     }
 
 }

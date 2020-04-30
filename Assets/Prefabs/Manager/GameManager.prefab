@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameScreen: {fileID: 0}
-  goalScreen: {fileID: 1030383416017159706}
+  blueGoalScreen: {fileID: 1030383416017159706}
+  redGoalScreen: {fileID: 3930199028221811779}
   countdown: {fileID: 93654515153042111}
   blueVictoryScreen: {fileID: 646785744335784179}
   redVictoryScreen: {fileID: 7143745886531288336}
@@ -356,6 +357,7 @@ MonoBehaviour:
   blueTeam: []
   redTeam: []
   ball: {fileID: 0}
+  debugMode: 0
 --- !u!114 &5657866728961646866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,10 +379,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7166272736778796271}
     m_Modifications:
+    - target: {fileID: 2016590421262441758, guid: bf82514565b24da42ac9b89aaef2fac6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168249556080468332, guid: bf82514565b24da42ac9b89aaef2fac6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538386683546208071, guid: bf82514565b24da42ac9b89aaef2fac6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2631226084236424304, guid: bf82514565b24da42ac9b89aaef2fac6,
         type: 3}
       propertyPath: m_Name
       value: RedVictoryPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631226084236424304, guid: bf82514565b24da42ac9b89aaef2fac6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4993390220080875311, guid: bf82514565b24da42ac9b89aaef2fac6,
         type: 3}
@@ -495,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 5717751917662585235, guid: bf82514565b24da42ac9b89aaef2fac6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf82514565b24da42ac9b89aaef2fac6, type: 3}
@@ -539,6 +561,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3adfc0c8d2346fa4fb9bba9cdb5606e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3930199028221811779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 212464338563378294, guid: bf82514565b24da42ac9b89aaef2fac6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3780785089340583989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f658c166246697b439ce8f5f7cef686d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1030383416017159706 stripped
