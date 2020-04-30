@@ -145,7 +145,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  bumpForce: 23
-  bumpMaxDuration: 0.13
+  bumpForce: 21
+  bumpMaxDuration: 0.12
   bumpReleaseFactor: 1
   bumpTracker: 0

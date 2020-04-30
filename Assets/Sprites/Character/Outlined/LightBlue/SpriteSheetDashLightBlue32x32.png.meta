@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: fe3586d842f856a43ab45f4f6f7dce74
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1085182917976664281
+    second: SpriteSheetDashLightBlue32x32_0
+  - first:
+      213: -2674666859984411513
+    second: SpriteSheetDashLightBlue32x32_1
+  - first:
+      213: 938591155834474096
+    second: SpriteSheetDashLightBlue32x32_2
+  - first:
+      213: -1732689681883462116
+    second: SpriteSheetDashLightBlue32x32_3
+  - first:
+      213: -4812638569719960173
+    second: SpriteSheetDashLightBlue32x32_4
+  - first:
+      213: -2694019100697897825
+    second: SpriteSheetDashLightBlue32x32_5
+  - first:
+      213: -1423598772929542611
+    second: SpriteSheetDashLightBlue32x32_6
+  - first:
+      213: -768864865295849990
+    second: SpriteSheetDashLightBlue32x32_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +64,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +95,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.4324761, y: -0.005177581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727dda9b2e7a0f0f0800000000000000
+      internalID: -1085182917976664281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 27
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49499822, y: -0.005177581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784ae1e69aca1ead0800000000000000
+      internalID: -2674666859984411513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 27
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49472582, y: 0.0012886474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e46d0feab860d00800000000000000
+      internalID: 938591155834474096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: 0.005250985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c160a5d1aef34f7e0800000000000000
+      internalID: -1732689681883462116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49344236, y: 0.00015047884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d6f7328b2163db0800000000000000
+      internalID: -4812638569719960173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49311447, y: 0.00015047884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94d8c4c6ebec9ad0800000000000000
+      internalID: -2694019100697897825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_6
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.4999994, y: -0.0028624837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d264ad4657c5e3ce0800000000000000
+      internalID: -1423598772929542611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetDashLightBlue32x32_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: -0.0048598144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af523c78a717455f0800000000000000
+      internalID: -768864865295849990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
