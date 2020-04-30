@@ -23,7 +23,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
         redPlayers = new List<GameObject>();
     }
 
-    private void StartSetup()
+    public void StartSetup()
     {
         SetAsPlayerSetter();
         PlayerManager.instance.SetupPlayers();

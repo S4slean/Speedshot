@@ -885,6 +885,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Countdown
       objectReference: {fileID: 0}
+    - target: {fileID: 8096084764746953037, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8869253339822641283, guid: c077f5b5c3ad0ae4fa5d348a8c30a331,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1150,6 +1155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedVictoryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5997150702060244458, guid: de177497abe4669498c671eabaebf6a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7193002866331314705, guid: de177497abe4669498c671eabaebf6a5,
         type: 3}
       propertyPath: m_IsActive
@@ -1310,6 +1320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoalPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267674923554392153, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f21e8d8bef1ba4d8f6c0043dbc544e, type: 3}

@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Test
-        //SetupGame();
+        gameplayPlayerSetter.StartSetup();
+        SetupGame();
     }
 
     public void SetWinningTeam(TeamEnum team)
