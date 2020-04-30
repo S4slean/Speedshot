@@ -25,12 +25,12 @@ public class MainMenuManager : MonoBehaviour
 
     private void LaunchGame()
     {
-
+        SceneManager.LoadScene("CityArena - Mathieu");
     }
     
     public void DebugLaunch()
     {
-        SceneManager.LoadScene("Test - Quentin 2");
+        SceneManager.LoadScene("CityArena - Mathieu Test");
     }
 
     private void Update()
