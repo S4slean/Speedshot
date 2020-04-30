@@ -249,7 +249,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeToMaxSpeed: 0.5
-  airControl: 0.7
+  airControl: 1
   decelerationTime: 0.101
   airDecelerationTime: 1
   dodgeDuration: 0.5
@@ -348,8 +348,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForce: 22
-  jumpMaxDuration: 0.25
+  jumpForce: 26
+  jumpMaxDuration: 0.35
   jumpReleaseFactor: 1
   wallJumpDuration: 0.3
   wallJumpVerticalCurve:
@@ -379,7 +379,7 @@ MonoBehaviour:
   wallRejectionMaxSpeedRatio: 0.239
   walljumpUpForce: 28
   gravity: 35
-  maxFallSpeed: 45
+  maxFallSpeed: 40
   collisionMask:
     serializedVersion: 2
     m_Bits: 513
