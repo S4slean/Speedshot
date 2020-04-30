@@ -123,7 +123,7 @@ MonoBehaviour:
   bounciness: 0.7
   friction: 0.05
   horizontalPlayerHitBounceVelocity: 10
-  verticalPlayerHitBounceVelocity: 1
+  verticalPlayerHitBounceVelocity: 5
   empoweredStateDuration: 1
   throwerCollisionIgnoredDuration: 0.2
   bumperForceRatio: 0.496
@@ -131,27 +131,6 @@ MonoBehaviour:
   physicsCollider: {fileID: 5566434483686935859}
   catchCollider: {fileID: -4805981672662270310}
   trailFx: {fileID: 7569111218395257163}
---- !u!50 &2482016614568494399
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160437923672153852}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &5566434483686935859
 CircleCollider2D:
   m_ObjectHideFlags: 0

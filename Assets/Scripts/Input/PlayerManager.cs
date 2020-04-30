@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector] public Player[] players = new Player[4];
 
 
-    public IPlayerSetter playerSetter { get; set; }
+    public IPlayerSetter PlayerSetter { get; set; }
 
     private PlayerInputManager playerInputManager;
 
@@ -94,11 +94,11 @@ public class PlayerManager : MonoBehaviour
 
     private void SetupPlayer(int playerID)
     {
-        playerSetter?.SetupPlayer(playerID);
+        PlayerSetter?.SetupPlayer(playerID);
     }
 
     private void UnsetupPlayer(int playerID)
     {
-        playerSetter?.UnsetupPlayer(playerID);
+        PlayerSetter?.UnsetupPlayer(playerID);
     }
 }

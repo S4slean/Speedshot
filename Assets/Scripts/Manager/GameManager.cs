@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    private GameplayPlayerSetter gameplayPlayerSetter;
     private TeamEnum winningTeam = TeamEnum.NONE;
 
     private void Awake()
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         else
             instance = this;
+
+        gameplayPlayerSetter = GetComponent<GameplayPlayerSetter>();
     }
 
     private void Start()
@@ -55,7 +59,8 @@ public class GameManager : MonoBehaviour
         //Spawn Players
         SpawnTeams();
 
-        //Spawn Ball
+		//Spawn Ball
+		ball = GameObject.FindObjectOfType<Ball>();
         SpawnBall();
 
         StartGame();
