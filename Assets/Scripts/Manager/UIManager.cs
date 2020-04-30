@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject startGameScreen;
     public GoalAnim goalScreen;
     public Countdown countdown;
-    public GameObject blueVictoryScreen, redVictoryScreen;
+    public EndPanelAnim blueVictoryScreen, redVictoryScreen;
 
     [Header("Player portraits Ref")]
     public Sprite redBackgroundColor;
@@ -47,11 +47,11 @@ public class UIManager : MonoBehaviour
         switch (winningTeam)
         {
             case TeamEnum.TEAM1:
-                blueVictoryScreen.SetActive(true);
+                blueVictoryScreen.StartEndAnim();
                 break;
             
             case TeamEnum.TEAM2:
-                redVictoryScreen.SetActive(true);
+                redVictoryScreen.StartEndAnim();
                 break;
             
         }
