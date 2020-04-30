@@ -2362,15 +2362,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
+        type: 3}
+      propertyPath: wallSlideMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
+        type: 3}
+      propertyPath: damageMask.m_Bits
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.25
+      value: -11.42
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.89
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
