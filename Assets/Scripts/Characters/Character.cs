@@ -107,6 +107,7 @@ public class Character : MonoBehaviour
 	private Bumper bumperRef;
 	public int playerID = 1;
 	public TeamEnum team = TeamEnum.TEAM1;
+    public UI_PlayerPortrait portrait;
 
 	[Header("Debug")]
 	public bool debugMode;
@@ -637,6 +638,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+        UIManager.instance.UpdateBallHolderPortrait();
 	}
 
 	public void Bump(Bumper bumper)

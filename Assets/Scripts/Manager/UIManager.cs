@@ -12,11 +12,17 @@ public class UIManager : MonoBehaviour
     public Countdown countdown;
     public GameObject blueVictoryScreen, redVictoryScreen;
 
-    [Header("Player portraits")]
-    public GameObject bluePlayer1;
-    public GameObject bluePlayer2;
-    public GameObject redPlayer1;
-    public GameObject redPlayer2;
+    [Header("Player portraits Ref")]
+    public Sprite redBackgroundColor;
+    public Sprite blueBackgroundColor;
+    public List<Sprite> indexPlayerSprite;
+
+    [Header("Player portraits Slots")]
+    public List<Transform> bluePlayerPortraitSlots;
+    public List<Transform> RedPlayerPortraitSlots;
+
+    [Header("All Player Portrait")]
+    public List<UI_PlayerPortrait> allPlayerPortrait;
 
     private void Awake()
     {
@@ -51,22 +57,37 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayBallHolder()
+    public void SetupPlayerPortrait()
     {
+        foreach(UI_PlayerPortrait portrait in allPlayerPortrait)
+        {
+            Debug.Log("Inactivate");
+            portrait.gameObject.SetActive(false);
+        }
+
+        int portraitIndex = 0;
         List<Character> players = new List<Character>();
         players.AddRange(GameManager.instance.blueTeam);
         players.AddRange(GameManager.instance.redTeam);
 
         foreach(Character p in players)
         {
-            if (p.hasTheBall)
-            {
+            p.portrait = allPlayerPortrait[portraitIndex];
+            allPlayerPortrait[portraitIndex].BuildPortrait(p.playerID, p.team);
+            allPlayerPortrait[portraitIndex].gameObject.SetActive(true);
+            portraitIndex++;
+        }
+    }
 
-            }
-            else
-            {
+    public void UpdateBallHolderPortrait()
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(GameManager.instance.blueTeam);
+        players.AddRange(GameManager.instance.redTeam);
 
-            }
+        foreach (Character p in players)
+        {
+            p.portrait.UpdateHoldingSprite(p.hasTheBall);
         }
     }
 }
