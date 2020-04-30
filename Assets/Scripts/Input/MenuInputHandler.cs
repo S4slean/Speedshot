@@ -21,6 +21,8 @@ public class MenuInputHandler : MonoBehaviour
     private bool actionButtonDown = false;
     public bool ActionButtonDown { get => ConsumeInpute(ref actionButtonDown); }
 
+    public int CurrentPlayerID { get; private set; }
+
     private PlayerInput _playerInput;
     private InputAction _verticalAxisAction;
     private InputAction _horizontalAxisAction;
@@ -35,7 +37,7 @@ public class MenuInputHandler : MonoBehaviour
         playerFrame = GetComponent<PlayerFrame>();
     }
 
-    public void SetPlayerInput(PlayerInput playerInput)
+    public void SetPlayerInput(PlayerInput playerInput, int playerID)
     {
         _playerInput = playerInput;
 
@@ -52,6 +54,8 @@ public class MenuInputHandler : MonoBehaviour
         _bButtonAction.performed += BButtonPress;
 
         playerFrame.OnPlayerAssigned();
+
+        CurrentPlayerID = playerID;
     }
 
     public void UnsetPlayerInput()
@@ -71,6 +75,8 @@ public class MenuInputHandler : MonoBehaviour
         _playerInput = null;
 
         playerFrame.OnPlayerUnassigned();
+
+        CurrentPlayerID = -1;
     }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFrame : MonoBehaviour
 {
-    private MenuInputHandler menuInputHandler;
+    [HideInInspector] public MenuInputHandler menuInputHandler;
 
     private void Awake()
     {
