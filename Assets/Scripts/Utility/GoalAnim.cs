@@ -13,4 +13,9 @@ public class GoalAnim : MonoBehaviour
     {
         GameManager.instance.RespawnAfterGoal();
     }
+
+    public void PlaySound()
+    {
+        AudioManager2D.instance.PlaySound("Event_BUT", Camera.main.transform.position);
+    }
 }
