@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Character p in redTeam)
         {
+            Debug.Log("RESPAWN");
             SpawnPlayer(p, redTeamSpawnPointsContainer.GetChild(spawnIndex).transform);
             spawnIndex++;
         }
@@ -174,7 +175,6 @@ public class GameManager : MonoBehaviour
             //Respawn ball
             SpawnBall();
 
-            Debug.Log("AFTER GOAL");
             //Start CountDown
             UIManager.instance.StartCountdown();
         }

@@ -9,4 +9,9 @@ public class EndPanelAnim : MonoBehaviour
         GetComponent<Animator>().SetTrigger("EndGame");
     }
 
+    public void PlaySound()
+    {
+        AudioManager2D.instance.PlaySound("Event_BUT", Camera.main.transform.position);
+    }
+
 }
