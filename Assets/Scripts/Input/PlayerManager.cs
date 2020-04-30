@@ -10,6 +10,9 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    public bool debugMode;
+    private TeamEnum previousValue = TeamEnum.TEAM1;
+
     [HideInInspector] public Player[] players = new Player[4];
 
 
@@ -49,7 +52,13 @@ public class PlayerManager : MonoBehaviour
         {
             if(players[i] == null)
             {
-                players[i] = new Player(i, TeamEnum.NONE, newPlayer);
+                if(debugMode)
+                {
+                    previousValue = (TeamEnum)((int)previousValue % 2 + 1);
+                    players[i] = new Player(i, previousValue, newPlayer);
+                }
+                else
+                    players[i] = new Player(i, TeamEnum.NONE, newPlayer);
 
                 newPlayer.gameObject.transform.parent = transform;
                 newPlayer.gameObject.name = "Player " + (i + 1);
