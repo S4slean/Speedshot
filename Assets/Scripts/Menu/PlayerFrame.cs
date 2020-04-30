@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerFrame : MonoBehaviour
 {
-    private MenuInputHandler menuInputHandler;
+    [HideInInspector]public MenuInputHandler menuInputHandler;
 	public Image img;
 	public Text txt;
 	public GameObject arrows;
