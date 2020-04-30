@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 
