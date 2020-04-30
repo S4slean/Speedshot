@@ -36,18 +36,22 @@ public class GameManager : MonoBehaviour
 
     private void SetupGame()
     {
+        GameManager.instance.SetPlayersMovable(false);
+        GameManager.instance.SetBallMovable(false);
+
         //Spawn Players
         SpawnTeams();
 
         //Spawn Ball
         SpawnBall();
 
-        //Start Countdown
+        StartGame();
     }
 
     public void StartGame()
     {
-
+        //Start Countdown
+        UIManager.instance.StartCountdown();
     }
 
     public void PauseGame(bool isPaused)
@@ -81,11 +85,42 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer(Character p, Transform spawnPoint)
     {
+        p.gameObject.SetActive(true);
         p.transform.position = spawnPoint.position;
     }
 
     public void SpawnBall()
     {
+        ball.gameObject.SetActive(true);
         ball.transform.position = ballSpawnPoint.position;
+    }
+
+    public void SetPlayersMovable(bool movable)
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(blueTeam);
+        players.AddRange(redTeam);
+
+        foreach(Character p in players)
+        {
+            p.enabled = movable;
+            if(!movable)
+            {
+                p.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                p.enabled = false;
+            }
+        }
+    }
+
+    public void SetBallMovable(bool movable)
+    {
+        ball.enabled = movable;
+        if(!movable)
+        {
+            ball.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ball.enabled = false;
+        }
     }
 }

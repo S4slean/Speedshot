@@ -5,10 +5,25 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    [Header("Gravity Settings")]
     [SerializeField] private float baseGravity;
+    [Header("Standard Bounce")]
     [SerializeField] private float bounciness;
     [SerializeField] private float friction;
+    [Header("PlayerHit Bounce")]
+    [SerializeField] private float horizontalPlayerHitBounceVelocity;
+    [SerializeField] private float verticalPlayerHitBounceVelocity;
+    [Header("Empowerement Settings")]
     [SerializeField] private float empoweredStateDuration;
+    [Header("Throw Settings")]
+    [SerializeField] private float throwerCollisionIgnoredDuration;
+
+    [Header("Debug")] 
+    [SerializeField] private bool startWithGravity;
+
+    [Header("UtilityReferences")]
+    [SerializeField] private Collider2D physicsCollider;
+    [SerializeField] private Collider2D catchCollider;
 
     private bool isFreezed;
     public bool IsFreezed 
@@ -39,22 +54,48 @@ public class Ball : MonoBehaviour
     public Character Grabber { get; private set; }
     public bool IsEmpowered { get; private set; }
     public TeamEnum TeamEmpowerement { get; private set; }
-    public bool IsSubjectToGravity { get; private set; }
+    public bool IsSubjectToGravity { get; set; }
     public float GravityCurrentlyApplied { get => (IsGrabbed || !IsSubjectToGravity) ? 0f : baseGravity; }
+    private Collider2D ignoredCollider;
+    public Collider2D IgnoredCollider
+    {
+        get => ignoredCollider;
+        private set
+        {
+            if(ignoreCollisionCoroutine != null)
+            {
+                StopCoroutine(IgnoreCollisionCoroutine(ignoredCollider));
+            }
+
+            if(ignoredCollider != null)
+                IgnoreCollision(ignoredCollider, false);
+
+            if (value != null)
+                IgnoreCollision(value, true);
+
+            ignoredCollider = value;
+        }
+    }
 
 
     private Vector2 savedVelocity = Vector2.zero;
+    private Vector2 previousVelocity = Vector2.zero;
     private Rigidbody2D _rigidbody;
     private Coroutine empowerementFadeCoroutine;
+    private Coroutine ignoreCollisionCoroutine;
+
+
 
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        IsSubjectToGravity = startWithGravity;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        previousVelocity = _rigidbody.velocity;
         _rigidbody.AddForce(new Vector2(0f, -GravityCurrentlyApplied));
     }
 
@@ -62,14 +103,27 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
-            if(IsEmpowered)
-               player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
-            else
-                player.CatchBall();
+            if(IsEmpowered && player.team != TeamEmpowerement)
+            {
+                player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
+                PlayerHitBounce();
+            }
+            //else
+            //    player.CatchBall();
         }
-            
         else
             Bounce(collision.GetContact(0).normal);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Character>(out Character player))
+        {
+            if (!(IsEmpowered && player.team != TeamEmpowerement))
+            {
+                player.CatchBall();
+            }  
+        }
     }
 
     public void Pause(bool isPaused)
@@ -80,13 +134,18 @@ public class Ball : MonoBehaviour
     public void Restart()
     {
         _rigidbody.velocity = Vector2.zero;
+
         if(IsGrabbed)
         {
             IsGrabbed = false;
             Grabber = null;
         }
+
         if(IsEmpowered)
             StopEmpowerementState();
+
+        if(IgnoredCollider != null)
+            IgnoredCollider = null;
     }
 
     public void SetAsGrabbed(Character grabber)
@@ -102,24 +161,34 @@ public class Ball : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , TeamEnum throwerTeam)
+    public void ThrowBall(Vector2 throwDirection, float throwMagnitude , Character thrower, bool shouldBeEmpowered)
     {
         //Enable Good Trail
-        _rigidbody.velocity = throwMagnitude * throwDirection.normalized;           //throwMagnitude could be processed by the player (throwDirection => throwVelocity)
-        TeamEmpowerement = throwerTeam;
+        _rigidbody.velocity = throwMagnitude * throwDirection.normalized;
+        TeamEmpowerement = (thrower!= null && shouldBeEmpowered)? thrower.team : TeamEnum.NONE;
 
         if (TeamEmpowerement >= 0)
         {
             IsEmpowered = true;
             empowerementFadeCoroutine = StartCoroutine(EmpowerFadeCoroutine());
         }
+
+        if(thrower != null && thrower.gameObject.TryGetComponent<Collider2D>(out Collider2D playerCollider))
+        {
+            StartCoroutine(IgnoreCollisionCoroutine(playerCollider));
+        }
     }
 
     private void Bounce(Vector2 normal)
     {
-        Vector2 normalVelocity = Vector2.Dot(_rigidbody.velocity, normal) * normal;
-        Vector2 tangentialVelocity = _rigidbody.velocity - normalVelocity;
+        Vector2 normalVelocity = Vector2.Dot(previousVelocity, normal) * normal;
+        Vector2 tangentialVelocity = previousVelocity - normalVelocity;
         _rigidbody.velocity = - bounciness * normalVelocity + (1f - friction) * tangentialVelocity;
+    }
+
+    private void PlayerHitBounce()
+    {
+        _rigidbody.velocity = new Vector2(-Mathf.Sign(previousVelocity.x) * horizontalPlayerHitBounceVelocity, verticalPlayerHitBounceVelocity);
     }
 
     private IEnumerator EmpowerFadeCoroutine()
@@ -133,5 +202,20 @@ public class Ball : MonoBehaviour
         StopCoroutine(empowerementFadeCoroutine);
         IsEmpowered = false;
         TeamEmpowerement = TeamEnum.NONE;
+    }
+
+    private IEnumerator IgnoreCollisionCoroutine(Collider2D otherCollider)
+    {
+        IgnoredCollider = otherCollider;
+
+        yield return new WaitForSeconds(throwerCollisionIgnoredDuration);
+
+        IgnoredCollider = null;
+    }
+
+    private void IgnoreCollision(Collider2D otherCollider, bool shouldBeIgnored)
+    {
+        Physics2D.IgnoreCollision(physicsCollider, otherCollider, shouldBeIgnored);
+        Physics2D.IgnoreCollision(catchCollider, otherCollider, shouldBeIgnored);
     }
 }
