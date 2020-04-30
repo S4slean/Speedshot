@@ -723,6 +723,7 @@ public class Character : MonoBehaviour
 		wallJumping = false;
 		damaged = false;
 		wallRide = WallRide.None;
+		hasTheBallTrail.SetActive(false);
 	}
 
 	public void PlayStepSound()

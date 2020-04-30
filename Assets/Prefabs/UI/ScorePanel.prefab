@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: 10.904721}
+  m_AnchoredPosition: {x: 79, y: 8}
   m_SizeDelta: {x: -146, y: 39.05056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4869355602333929905
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294906112
+  m_fontColor: {r: 0, g: 0.06666667, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -191,8 +191,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -73.0892, y: 10.904721}
-  m_SizeDelta: {x: -166.1784, y: 39.05056}
+  m_AnchoredPosition: {x: -77.544205, y: 7}
+  m_SizeDelta: {x: -157.2684, y: 36.14584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4869355603295564758
 CanvasRenderer:
@@ -231,8 +231,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280361418
+  m_fontColor: {r: 0.7921569, g: 0.12941177, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -703,16 +703,16 @@ RectTransform:
   m_GameObject: {fileID: 4869355604165268999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 9.569, y: 9.569, z: 9.569}
   m_Children: []
   m_Father: {fileID: 4869355603806608180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -35.62818}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 392.47748, y: 71.25636}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4869355604165269002
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7c02aef97350d34bbabae108aa428ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4360bc0e3017da4daa227e7d588ead5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

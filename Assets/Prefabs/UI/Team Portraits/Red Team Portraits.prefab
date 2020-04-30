@@ -80,7 +80,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8178659713368993482}
   - component: {fileID: 8178659713368993484}
-  - component: {fileID: 8178659713368993485}
   m_Layer: 5
   m_Name: Red Team Portraits
   m_TagString: Untagged
@@ -119,35 +118,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8178659713368993483}
   m_CullTransparentMesh: 0
---- !u!114 &8178659713368993485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178659713368993483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1815de97fd33d9a4281b9c466429ca07, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &94013430155909115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +125,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8178659713368993482}
     m_Modifications:
+    - target: {fileID: 681193313475778312, guid: 0b3ef01376c7c244c965953f67fe7ba3,
+        type: 3}
+      propertyPath: backgroundColor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1119356730354762062, guid: 0b3ef01376c7c244c965953f67fe7ba3,
         type: 3}
       propertyPath: m_Sprite
@@ -277,7 +252,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119356731332180644, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
 --- !u!224 &1064751337795759452 stripped
 RectTransform:
@@ -292,6 +268,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8178659713368993482}
     m_Modifications:
+    - target: {fileID: 681193313475778312, guid: 0b3ef01376c7c244c965953f67fe7ba3,
+        type: 3}
+      propertyPath: backgroundColor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1119356730354762062, guid: 0b3ef01376c7c244c965953f67fe7ba3,
         type: 3}
       propertyPath: m_Sprite
@@ -414,7 +395,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119356731332180644, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3ef01376c7c244c965953f67fe7ba3, type: 3}
 --- !u!224 &9156610430557414924 stripped
 RectTransform:
