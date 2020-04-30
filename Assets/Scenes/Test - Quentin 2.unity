@@ -6868,8 +6868,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
-      propertyPath: collisionMask.m_Bits
-      value: 513
+      propertyPath: team
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
@@ -7053,6 +7053,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.66
       objectReference: {fileID: 0}
+    - target: {fileID: 1223838007784260677, guid: d47a2aa7404f8504899c1f3e3538113e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2311972518157526225, guid: d47a2aa7404f8504899c1f3e3538113e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7102,6 +7107,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 6.950012
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057706078569369945, guid: d47a2aa7404f8504899c1f3e3538113e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423952103531392299, guid: d47a2aa7404f8504899c1f3e3538113e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4009471041023935356, guid: d47a2aa7404f8504899c1f3e3538113e,
         type: 3}
@@ -7591,6 +7606,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
+        type: 3}
+      propertyPath: horizontalPlayerHitBounceVelocity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
+        type: 3}
+      propertyPath: verticalPlayerHitBounceVelocity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
+        type: 3}
+      propertyPath: bumperForceRatio
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6432250783090400581, guid: 01129d7e4f9fb4647954c638bfae9b28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7788,7 +7818,7 @@ PrefabInstance:
     - target: {fileID: 6000590579473320539, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
       propertyPath: team
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6000590579473320543, guid: 8459841fe8f905a44b544d0fcfa483f8,
         type: 3}
