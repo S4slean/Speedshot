@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,14 @@ public class GameManager : MonoBehaviour
             gameplayPlayerSetter.StartSetup();
 
         SetupGame();
+    }
+
+    void Update()
+    {
+        if(winningTeam != TeamEnum.NONE && Input.anyKey)
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void SetWinningTeam(TeamEnum team)
