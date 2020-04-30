@@ -557,7 +557,7 @@ MonoBehaviour:
   wallSlideMask:
     serializedVersion: 2
     m_Bits: 1
-  shellThickness: 0.05
+  shellThickness: 0.07
   shootForce: 15
   ballDistanceFromPlayer: 0
   slideSpeed: 18
