@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
     {
         foreach(UI_PlayerPortrait portrait in allPlayerPortrait)
         {
-            Debug.Log("Inactivate");
+            //Debug.Log("Inactivate");
             portrait.gameObject.SetActive(false);
         }
 

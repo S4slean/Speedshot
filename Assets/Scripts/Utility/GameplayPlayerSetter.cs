@@ -31,6 +31,8 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
     {
         SetAsPlayerSetter();
         PlayerManager.instance.SetupPlayers();
+        //Debug.Log(BlueCaracters().Count);
+        //Debug.Log(RedCaracters().Count);
         GameManager.instance.blueTeam = BlueCaracters();
         GameManager.instance.redTeam = RedCaracters();
     }
@@ -92,7 +94,7 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         foreach (Character character in characters)
         {
-            if (character != null && character.team == TeamEnum.TEAM1)
+            if (character != null && character.team == TeamEnum.TEAM2)
                 redCharacters.Add(character);
         }
 
