@@ -19,6 +19,6 @@ public class Countdown : MonoBehaviour
 
     public void PlaySound()
     {
-        AudioManager2D.instance.PlaySound("Voice_Youwin", Camera.main.transform.position);
+        AudioManager2D.instance.PlaySound("Event_GO", Camera.main.transform.position);
     }
 }
