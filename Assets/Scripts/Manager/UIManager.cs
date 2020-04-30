@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Screens")]
     public GameObject startGameScreen;
-    public GameObject GoalScreen;
+    public GoalAnim goalScreen;
     public Countdown countdown;
 
     private void Awake()
@@ -22,5 +22,10 @@ public class UIManager : MonoBehaviour
     public void StartCountdown()
     {
         countdown.StartCountdown();
+    }
+
+    public void StartGoalAnim()
+    {
+        goalScreen.StartGoalAnim();
     }
 }

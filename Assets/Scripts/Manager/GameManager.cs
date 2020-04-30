@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
 
     private void SetupGame()
     {
-        GameManager.instance.SetPlayersMovable(false);
-        GameManager.instance.SetBallMovable(false);
+        SetPlayersMovable(false);
+        SetBallMovable(false);
 
         //Spawn Players
         SpawnTeams();
@@ -115,12 +115,25 @@ public class GameManager : MonoBehaviour
 
     public void SetBallMovable(bool movable)
     {
-        ball.enabled = movable;
+        ball.IsSubjectToGravity = movable;
         if(!movable)
         {
-            ball.GetComponent<Rigidbody2D>().gravityScale = 0f;
-            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            ball.enabled = false;
+            ball.Restart();
         }
+    }
+
+    public void RespawnAfterGoal()
+    {
+        //Freeze actors
+        SetPlayersMovable(false);
+        SetBallMovable(false);
+
+        //Respawn players
+        SpawnTeams();
+        //Respawn ball
+        SpawnBall();
+
+        //Start CountDown
+        UIManager.instance.StartCountdown();
     }
 }

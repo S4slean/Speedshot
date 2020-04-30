@@ -17,6 +17,8 @@ public class Ball : MonoBehaviour
     [SerializeField] private float empoweredStateDuration;
     [Header("Throw Settings")]
     [SerializeField] private float throwerCollisionIgnoredDuration;
+    [Header("Bumper Settings")]
+    [SerializeField] [Range(0, 1)] private float bumperForceRatio;
 
     [Header("Debug")] 
     [SerializeField] private bool startWithGravity;
@@ -184,6 +186,11 @@ public class Ball : MonoBehaviour
         Vector2 normalVelocity = Vector2.Dot(previousVelocity, normal) * normal;
         Vector2 tangentialVelocity = previousVelocity - normalVelocity;
         _rigidbody.velocity = - bounciness * normalVelocity + (1f - friction) * tangentialVelocity;
+    }
+
+    public void Bump(Bumper bumper)
+    {
+        _rigidbody.velocity += (Vector2)bumper.transform.up * bumper.bumpForce * bumperForceRatio;
     }
 
     private void PlayerHitBounce()

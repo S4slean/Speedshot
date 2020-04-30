@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3160437923672153852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.9683, y: 3.9683, z: 3.9683}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseGravity: 9.81
-  bounciness: 0.9
-  friction: 0.01
+  bounciness: 0.7
+  friction: 0.05
   horizontalPlayerHitBounceVelocity: 0
   verticalPlayerHitBounceVelocity: 0
   empoweredStateDuration: 1
   throwerCollisionIgnoredDuration: 0.2
+  bumperForceRatio: 0.25
   startWithGravity: 1
   physicsCollider: {fileID: 5566434483686935859}
   catchCollider: {fileID: -4805981672662270310}

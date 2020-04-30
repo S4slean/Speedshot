@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &881433420343669025
+--- !u!1 &7337404674718185320
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6062857407752538289}
-  - component: {fileID: 8600526056515495890}
+  - component: {fileID: 605669113283457273}
+  - component: {fileID: 329082850339729814}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6062857407752538289
+--- !u!4 &605669113283457273
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881433420343669025}
+  m_GameObject: {fileID: 7337404674718185320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6293585, y: 0.34284768, z: -2.5188372}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,36 +31,228 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8600526056515495890
+--- !u!114 &329082850339729814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881433420343669025}
+  m_GameObject: {fileID: 7337404674718185320}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28198115938e4349bd837334670911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundPools:
-  - soundPoolName: Tacle
+  - soundPoolName: Ambiance_FondSonore
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 36be3378ef3858a438eae309ff411674, type: 3}
+      priority: 0
+      volume: 1
+      pitch: -0.3
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: 36be3378ef3858a438eae309ff411674, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_BUT
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 75187f435e4246744ae0c50a53e9d62d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_PlayerFall
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: f60bf0cef342f654694769b454405570, type: 3}
+      priority: 0
+      volume: 1
+      pitch: -0.2
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: f60bf0cef342f654694769b454405570, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0.2
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_MatchEnd
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: f7b9ceab75c0376488da290c1a35984d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_Cheer
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 6ae70ec43bcb34a41a4faaa3f8294709, type: 3}
+      priority: 0
+      volume: 1
+      pitch: -0.2
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: 6ae70ec43bcb34a41a4faaa3f8294709, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0.2
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_BallHitTerrain
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 063bb3205e9dede48a9017ebcebf7f72, type: 3}
+      priority: 0
+      volume: 1
+      pitch: -0.1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: 063bb3205e9dede48a9017ebcebf7f72, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0.1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_ChocTacle
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 92076fea75911044e821339724e2f937, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_Dash
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 48376b4527cfd3646bc1af3d4eead605, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_Jump
     cooldown: 0
     sounds:
     - clip: {fileID: 0}
       priority: 0
-      volume: 0
+      volume: 1
       pitch: 0
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
-    - clip: {fileID: 0}
+  - soundPoolName: Player_Landing
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 3edca35edf8ff144490b2ee3299e5f90, type: 3}
       priority: 0
-      volume: 0
+      volume: 1
       pitch: 0
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 0
-  - soundPoolName: 
+  - soundPoolName: Player_Pass
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 0caf4696f161d3f459d34396f5c81330, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_Reception
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 0c016cc75fabb234bb819292d76d3b76, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_ChocBalle
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: d3cd974d60d6e554e9c6c33003925acb, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_Steps
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: c2bdf9bdcdf8e23419724a4243bcfdde, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: c2bdf9bdcdf8e23419724a4243bcfdde, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: e7c65eb88c524934dba5ff92153bb16d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+    - clip: {fileID: 8300000, guid: e7c65eb88c524934dba5ff92153bb16d, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Player_WallLanding
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 7416a1724116a504391dfebf4cc2ade4, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
+  - soundPoolName: Event_BalleRemiseJeu
     cooldown: 0
     sounds: []
+  - soundPoolName: Event_BallFall
+    cooldown: 0
+    sounds:
+    - clip: {fileID: 8300000, guid: 2d8bfe4baf77d144b8f109f470b9eb02, type: 3}
+      priority: 0
+      volume: 1
+      pitch: 0
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 0
