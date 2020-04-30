@@ -19,6 +19,10 @@ public class Bumper : MonoBehaviour
         {
             TriggerBumper(col.GetComponent<Character>());
         }
+        else if(col.transform.tag == "Ball")
+        {
+            TriggerBumper(col.GetComponent<Ball>());
+        }
     }
 
     public void TriggerBumper(Character affectedPlayer)
@@ -27,4 +31,9 @@ public class Bumper : MonoBehaviour
         affectedPlayer.Bump(this);
     }
 
+    public void TriggerBumper(Ball ball)
+    {
+        //Debug.Log("BUMP!");
+        ball.Bump(this);
+    }
 }
