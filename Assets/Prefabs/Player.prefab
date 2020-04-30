@@ -514,8 +514,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForce: 14
-  jumpMaxDuration: 0.35
+  jumpForce: 15
+  jumpMaxDuration: 0.36
   jumpReleaseFactor: 1
   wallJumpDuration: 0.3
   wallJumpVerticalCurve:
