@@ -22,7 +22,10 @@ public class PlayerFrame : MonoBehaviour
     {
 		img.gameObject.SetActive(true);
 		SetPlayerStatus(PlayerStatus.Waiting);
-    }
+
+		PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].skinIndex = 0;
+		PlayerManager.instance.players[menuInputHandler.CurrentPlayerID].PlayerTeam = TeamEnum.TEAM1;
+	}
 
     public void OnPlayerUnassigned()
     {

@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeExit);
 
+        Destroy(GameObject.Find("Music"));
         PlayerManager.instance.RemoveAllPlayer();
         SceneManager.LoadScene("Menu");
     }
