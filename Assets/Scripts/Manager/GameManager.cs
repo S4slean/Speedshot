@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour
         //Spawn Players
         SpawnTeams();
 
-        //Spawn Ball
+		//Spawn Ball
+		ball = GameObject.FindObjectOfType<Ball>();
         SpawnBall();
 
         StartGame();
