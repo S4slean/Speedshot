@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
 	public BoxCollider2D box2D;
 	public Animator anim;
 	public Ball ball;
+	public GameObject tacleFX;
+	public GameObject slideFX;
 
 	[Header("Movement")]
 	public float runSpeed = 10;
@@ -699,6 +701,16 @@ public class Character : MonoBehaviour
 	public void PlayStepSound()
 	{
 		AudioManager2D.instance.PlaySound("Player_Steps", transform.position);
+	}
+
+	public void SetActiveTacleFX()
+	{
+		tacleFX.SetActive(!tacleFX.activeSelf);
+	}
+
+	public void SetActiveSlideFX()
+	{
+		slideFX.SetActive(!slideFX.activeSelf);
 	}
 }
 
