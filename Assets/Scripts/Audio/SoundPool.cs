@@ -21,6 +21,9 @@ public class SoundPool
 
     public void PlayRandomSound(AudioSource audioSource)
     {
+        if (sounds.Length == 0)
+            return;
+
         Sound selectedSound = SelectRandomSound();
 
         SetAudioSource(audioSource, selectedSound);
