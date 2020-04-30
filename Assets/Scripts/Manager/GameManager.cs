@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Ball")]
     public Ball ball;
 
+    private TeamEnum winningTeam = TeamEnum.NONE;
+
     private void Awake()
     {
         if (instance != null)
@@ -34,8 +36,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void SetWinningTeam(TeamEnum team)
+    {
+        winningTeam = team;
+    }
+
     private void SetupGame()
     {
+        winningTeam = TeamEnum.NONE;
+
         SetPlayersMovable(false);
         SetBallMovable(false);
 
@@ -58,6 +67,14 @@ public class GameManager : MonoBehaviour
     {
         PauseGameEvent?.Invoke(isPaused);
         // Afficher Menu
+    }
+
+    public void EndGame()
+    {
+        //Display winning Screen
+        UIManager.instance.DisplayVictoryScreen(winningTeam);
+
+        //Wait for input to leave the game;
     }
 
     public void LeaveGame()
@@ -124,16 +141,23 @@ public class GameManager : MonoBehaviour
 
     public void RespawnAfterGoal()
     {
-        //Freeze actors
-        SetPlayersMovable(false);
-        SetBallMovable(false);
+        if (winningTeam == TeamEnum.NONE)
+        {
+            //Freeze actors
+            SetPlayersMovable(false);
+            SetBallMovable(false);
 
-        //Respawn players
-        SpawnTeams();
-        //Respawn ball
-        SpawnBall();
+            //Respawn players
+            SpawnTeams();
+            //Respawn ball
+            SpawnBall();
 
-        //Start CountDown
-        UIManager.instance.StartCountdown();
+            //Start CountDown
+            UIManager.instance.StartCountdown();
+        }
+        else
+        {
+            EndGame();
+        }
     }
 }
