@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4116909055718702039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.63, z: 0}
-  m_LocalScale: {x: 6.159964, y: 5.3564906, z: 5.3564906}
+  m_LocalPosition: {x: 0.08, y: 1.57, z: 0}
+  m_LocalScale: {x: 1.9188288, y: 1.6685469, z: 1.6685469}
   m_Children: []
   m_Father: {fileID: 6000590579473320543}
   m_RootOrder: 1
@@ -178,8 +178,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4911404911474290606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.079999864, y: 1.1200001, z: 0}
-  m_LocalScale: {x: 5.4910855, y: 4.7748575, z: 4.7748575}
+  m_LocalPosition: {x: 0.079999864, y: 1.11, z: 0}
+  m_LocalScale: {x: 1.7104732, y: 1.4873682, z: 1.4873682}
   m_Children: []
   m_Father: {fileID: 6000590579473320543}
   m_RootOrder: 2
@@ -248,6 +248,8 @@ GameObject:
   - component: {fileID: 6000590579473320538}
   - component: {fileID: 6000590579473320539}
   - component: {fileID: 6000590579473320532}
+  - component: {fileID: 1185737023362540102}
+  - component: {fileID: 705612612468513914}
   m_Layer: 1
   m_Name: Player
   m_TagString: Player
@@ -542,8 +544,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   wallRejectionMaxSpeedRatio: 0.239
   walljumpUpForce: 15
-  gravity: 35
-  maxFallSpeed: 40
+  gravity: 45
+  maxFallSpeed: 45
   collisionMask:
     serializedVersion: 2
     m_Bits: 513
@@ -552,7 +554,7 @@ MonoBehaviour:
     m_Bits: 1
   shellThickness: 0.1
   shootForce: 15
-  ballDistanceFromPlayer: 1.5
+  ballDistanceFromPlayer: 0
   slideSpeed: 18
   slideDuration: 0.7
   slideCurve:
@@ -643,7 +645,7 @@ MonoBehaviour:
   knockBackForceMaxSpeedRatio: 1
   damageMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2
   damageRange: 0.1
   hasTheBall: 0
   grounded: 0
@@ -658,6 +660,7 @@ MonoBehaviour:
   catching: 0
   bumping: 0
   team: 0
+  debugMode: 1
 --- !u!95 &6000590579473320532
 Animator:
   serializedVersion: 3
@@ -677,3 +680,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1185737023362540102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000590579473320533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324b74a955d5f324391b82a456e5a76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &705612612468513914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000590579473320533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 56a1f604eb9660842ad063532b471cfe,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: InputMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

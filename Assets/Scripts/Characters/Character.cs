@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
@@ -103,31 +104,117 @@ public class Character : MonoBehaviour
 	public bool bumping = false;
 	public TeamEnum team = TeamEnum.TEAM1;
 
+	[Header("Debug")]
+	public bool debugMode;
+
 	private Vector3 movementAxis;
+	private CharacterInputHandler characterInputHandler;
 
 	public void Start()
 	{
+		ball = GameObject.FindObjectOfType<Ball>();
 
-			ball = GameObject.FindObjectOfType<Ball>();
+		characterInputHandler = GetComponent<CharacterInputHandler>();
+
+		//Debug
+		if(debugMode)
+			characterInputHandler.SetPlayerInput(GetComponent<PlayerInput>());
 	}
 
 	public void Update()
 	{
-		HandleInputs();
+		//HandleInputs();
+		NewHandleInputs();
 		HandleCollisions();
 
 		MoveCharacter();
 		UpdateAnims();
 	}
 
-	private void HandleInputs()
+	//private void HandleInputs()
+	//{
+	//	movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+	//	movementAxis.Normalize();
+
+	//	HandleDodgeBuffers();
+
+	//	if (Input.GetButtonDown("Jump"))
+	//	{
+	//		if (grounded)
+	//			Jump();
+	//		else if (!grounded && wallRide != WallRide.None)
+	//			WallJump();
+	//	}
+
+	//	if (Input.GetButtonDown("Fire1"))
+	//	{
+	//		if (hasTheBall)
+	//			Shoot();
+	//		else if (canAttack)
+	//		{
+	//			if (grounded)
+	//				Slide();
+
+	//			else
+	//				Tackle();
+	//		}
+
+	//	}
+	//}
+
+	//private void HandleDodgeBuffers()
+	//{
+	//	if (Input.GetButtonDown("Left"))
+	//	{
+	//		rightBuffer = false;
+	//		if (leftBuffer)
+	//		{
+	//			bufferTracker = 0;
+	//			leftBuffer = false;
+	//			Dodge(-1);
+	//		}
+	//		else
+	//		{
+	//			leftBuffer = true;
+	//			bufferTracker = bufferDuration;
+	//		}
+	//	}
+	//	if (Input.GetButtonDown("Right"))
+	//	{
+	//		leftBuffer = false;
+	//		if (rightBuffer)
+	//		{
+	//			bufferTracker = 0;
+	//			rightBuffer = false;
+	//			Dodge(1);
+	//		}
+	//		else
+	//		{
+	//			rightBuffer = true;
+	//			bufferTracker = bufferDuration;
+	//		}
+	//	}
+
+	//	if (bufferTracker > 0)
+	//	{
+	//		bufferTracker -= Time.deltaTime;
+	//	}
+	//	if (bufferTracker <= 0)
+	//	{
+	//		bufferTracker = 0;
+	//		rightBuffer = false;
+	//		leftBuffer = false;
+	//	}
+	//}
+
+	private void NewHandleInputs()
 	{
-		movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+		movementAxis = characterInputHandler.MovementAxis;
 		movementAxis.Normalize();
 
-		HandleDodgeBuffers();
+		NewHandleDodgeBuffers();
 
-		if (Input.GetButtonDown("Jump"))
+		if (characterInputHandler.JumpButtonDown)
 		{
 			if (grounded)
 				Jump();
@@ -135,7 +222,7 @@ public class Character : MonoBehaviour
 				WallJump();
 		}
 
-		if (Input.GetButtonDown("Fire1"))
+		if (characterInputHandler.ActionButtonDown)
 		{
 			if (hasTheBall)
 				Shoot();
@@ -151,9 +238,9 @@ public class Character : MonoBehaviour
 		}
 	}
 
-	private void HandleDodgeBuffers()
+	private void NewHandleDodgeBuffers()
 	{
-		if (Input.GetButtonDown("Left"))
+		if (characterInputHandler.LeftButtonDown)
 		{
 			rightBuffer = false;
 			if (leftBuffer)
@@ -168,7 +255,7 @@ public class Character : MonoBehaviour
 				bufferTracker = bufferDuration;
 			}
 		}
-		if (Input.GetButtonDown("Right"))
+		if (characterInputHandler.RightButtonDown)
 		{
 			leftBuffer = false;
 			if (rightBuffer)
@@ -471,6 +558,7 @@ public class Character : MonoBehaviour
 
 	public void Shoot()
 	{
+		if (Physics2D.Raycast((Vector2)transform.position + new Vector2(0, box2D.size.y / 2), ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),ballDistanceFromPlayer, collisionMask)) return;
 		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis) * ballDistanceFromPlayer);
 		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis),shootForce, this, true);
 		hasTheBall = false;
