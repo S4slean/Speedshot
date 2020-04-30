@@ -703,14 +703,14 @@ public class Character : MonoBehaviour
 		AudioManager2D.instance.PlaySound("Player_Steps", transform.position);
 	}
 
-	public void SetActiveTacleFX(bool newState)
+	public void SetActiveTacleFX()
 	{
-		tacleFX.SetActive(newState);
+		tacleFX.SetActive(!tacleFX.activeSelf);
 	}
 
-	public void SetActiveSlideFX(bool newState)
+	public void SetActiveSlideFX()
 	{
-		slideFX.SetActive(newState);
+		slideFX.SetActive(!slideFX.activeSelf);
 	}
 }
 

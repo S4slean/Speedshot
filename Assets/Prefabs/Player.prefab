@@ -391,6 +391,8 @@ MonoBehaviour:
   box2D: {fileID: 6000590579473320537}
   anim: {fileID: 6000590579473320532}
   ball: {fileID: 0}
+  tacleFX: {fileID: 1314488503260208113}
+  slideFX: {fileID: 6760761034290026188}
   runSpeed: 8
   accelerationCurve:
     serializedVersion: 2
@@ -801,6 +803,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f53d61d5af1c09f4e8a4e026d5d69b5a, type: 3}
+--- !u!1 &1314488503260208113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5987898481574198546, guid: f53d61d5af1c09f4e8a4e026d5d69b5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4694802113123608291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9002085611696880005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4452543319094108006, guid: f53d61d5af1c09f4e8a4e026d5d69b5a,
@@ -881,6 +889,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee73ac4e95c13bd43a61a682bf406ecf, type: 3}
+--- !u!1 &6760761034290026188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 752202029154178672, guid: ee73ac4e95c13bd43a61a682bf406ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6314987402905043132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6760761034290026191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 752202029154178675, guid: ee73ac4e95c13bd43a61a682bf406ecf,
