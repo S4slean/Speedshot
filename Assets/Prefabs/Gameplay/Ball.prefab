@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6432250783090400581}
   - component: {fileID: 3660982008669442598}
-  - component: {fileID: 4450599489935501487}
   - component: {fileID: 2482016614568494399}
+  - component: {fileID: 4450599489935501487}
   - component: {fileID: 5566434483686935859}
   - component: {fileID: -4805981672662270310}
   m_Layer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3160437923672153852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 4406881202790668112}
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b377782c7dd995b43b9a408f7c9fa74c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1372b20e760d73345b9eac6720c47ff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,30 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4450599489935501487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160437923672153852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a82d3f95b3f094e82ffee9b3c37911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseGravity: 9.81
-  bounciness: 0.7
-  friction: 0.05
-  horizontalPlayerHitBounceVelocity: 0
-  verticalPlayerHitBounceVelocity: 0
-  empoweredStateDuration: 1
-  throwerCollisionIgnoredDuration: 0.2
-  bumperForceRatio: 0.25
-  startWithGravity: 1
-  physicsCollider: {fileID: 5566434483686935859}
-  catchCollider: {fileID: -4805981672662270310}
-  trailFx: {fileID: 7569111218395257163}
 --- !u!50 &2482016614568494399
 Rigidbody2D:
   serializedVersion: 4
@@ -131,6 +107,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4450599489935501487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160437923672153852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a82d3f95b3f094e82ffee9b3c37911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseGravity: 9.81
+  bounciness: 0.7
+  friction: 0.05
+  horizontalPlayerHitBounceVelocity: 10
+  verticalPlayerHitBounceVelocity: 5
+  empoweredStateDuration: 1
+  throwerCollisionIgnoredDuration: 0.2
+  bumperForceRatio: 0.496
+  startWithGravity: 1
+  physicsCollider: {fileID: 5566434483686935859}
+  catchCollider: {fileID: -4805981672662270310}
+  trailFx: {fileID: 7569111218395257163}
 --- !u!58 &5566434483686935859
 CircleCollider2D:
   m_ObjectHideFlags: 0

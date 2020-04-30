@@ -12,6 +12,18 @@ public class UIManager : MonoBehaviour
     public Countdown countdown;
     public GameObject blueVictoryScreen, redVictoryScreen;
 
+    [Header("Player portraits Ref")]
+    public Sprite redBackgroundColor;
+    public Sprite blueBackgroundColor;
+    public List<Sprite> indexPlayerSprite;
+
+    [Header("Player portraits Slots")]
+    public List<Transform> bluePlayerPortraitSlots;
+    public List<Transform> RedPlayerPortraitSlots;
+
+    [Header("All Player Portrait")]
+    public List<UI_PlayerPortrait> allPlayerPortrait;
+
     private void Awake()
     {
         if (instance != null)
@@ -42,6 +54,40 @@ public class UIManager : MonoBehaviour
                 redVictoryScreen.SetActive(true);
                 break;
             
+        }
+    }
+
+    public void SetupPlayerPortrait()
+    {
+        foreach(UI_PlayerPortrait portrait in allPlayerPortrait)
+        {
+            Debug.Log("Inactivate");
+            portrait.gameObject.SetActive(false);
+        }
+
+        int portraitIndex = 0;
+        List<Character> players = new List<Character>();
+        players.AddRange(GameManager.instance.blueTeam);
+        players.AddRange(GameManager.instance.redTeam);
+
+        foreach(Character p in players)
+        {
+            p.portrait = allPlayerPortrait[portraitIndex];
+            allPlayerPortrait[portraitIndex].BuildPortrait(p.playerID, p.team);
+            allPlayerPortrait[portraitIndex].gameObject.SetActive(true);
+            portraitIndex++;
+        }
+    }
+
+    public void UpdateBallHolderPortrait()
+    {
+        List<Character> players = new List<Character>();
+        players.AddRange(GameManager.instance.blueTeam);
+        players.AddRange(GameManager.instance.redTeam);
+
+        foreach (Character p in players)
+        {
+            p.portrait.UpdateHoldingSprite(p.hasTheBall);
         }
     }
 }
