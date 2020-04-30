@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input/Controller.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/InputController.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @Controller : IInputActionCollection, IDisposable
+public class @InputController : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @Controller()
+    public @InputController()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""Controller"",
+    ""name"": ""InputController"",
     ""maps"": [
         {
             ""name"": ""InputMap"",
@@ -392,8 +392,8 @@ public class @Controller : IInputActionCollection, IDisposable
     private readonly InputAction m_InputMap_B;
     public struct InputMapActions
     {
-        private @Controller m_Wrapper;
-        public InputMapActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        private @InputController m_Wrapper;
+        public InputMapActions(@InputController wrapper) { m_Wrapper = wrapper; }
         public InputAction @VerticalAxis => m_Wrapper.m_InputMap_VerticalAxis;
         public InputAction @HorizontalAxis => m_Wrapper.m_InputMap_HorizontalAxis;
         public InputAction @Start => m_Wrapper.m_InputMap_Start;
