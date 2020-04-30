@@ -29,7 +29,7 @@ public class Goal : MonoBehaviour
     {
         if(col.transform.tag == "Player" && isTriggerable)
         {
-            if (col.GetComponent<Character>().hasTheBall)
+            if (col.GetComponent<Character>().hasTheBall && col.GetComponent<Character>().team != teamGoal)
             {
                 StartCoroutine(TriggerGoal());
                 isTriggerable = false;
