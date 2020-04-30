@@ -644,8 +644,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 37
+      time: -0.008262634
+      value: 8.529594
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
   catching: 0
   bumping: 0
   playerID: 1
-  team: 0
+  team: 1
   portrait: {fileID: 0}
   debugMode: 1
 --- !u!95 &6000590579473320532
