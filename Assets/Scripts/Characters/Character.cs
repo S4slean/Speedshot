@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
@@ -105,9 +106,9 @@ public class Character : MonoBehaviour
 
 	private Vector3 movementAxis;
 
+	
 	public void Start()
 	{
-
 			ball = GameObject.FindObjectOfType<Ball>();
 	}
 
@@ -121,6 +122,37 @@ public class Character : MonoBehaviour
 	}
 
 	private void HandleInputs()
+	{
+		movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+		movementAxis.Normalize();
+
+		HandleDodgeBuffers();
+
+		if (Input.GetButtonDown("Jump"))
+		{
+			if (grounded)
+				Jump();
+			else if (!grounded && wallRide != WallRide.None)
+				WallJump();
+		}
+
+		if (Input.GetButtonDown("Fire1"))
+		{
+			if (hasTheBall)
+				Shoot();
+			else if (canAttack)
+			{
+				if (grounded)
+					Slide();
+
+				else
+					Tackle();
+			}
+
+		}
+	}
+
+	private void NewHandleInputs()
 	{
 		movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 		movementAxis.Normalize();
