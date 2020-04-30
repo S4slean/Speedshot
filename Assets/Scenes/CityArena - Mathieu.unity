@@ -7586,21 +7586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: horizontalPlayerHitBounceVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: verticalPlayerHitBounceVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450599489935501487, guid: 01129d7e4f9fb4647954c638bfae9b28,
-        type: 3}
-      propertyPath: bumperForceRatio
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6432250783090400581, guid: 01129d7e4f9fb4647954c638bfae9b28,
         type: 3}
       propertyPath: m_LocalPosition.x
