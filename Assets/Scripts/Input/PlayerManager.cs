@@ -70,6 +70,20 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void RemoveAllPlayer()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                UnsetupPlayer(i);
+                Destroy(players[i].PlayerInput.gameObject);
+
+                players[i] = null;
+            }
+        }
+    }
+
     public void RemovePlayer(PlayerInput playerInput)
     {
         for(int i = 0; i< players.Length; i++)
