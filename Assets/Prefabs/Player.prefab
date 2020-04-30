@@ -552,7 +552,7 @@ MonoBehaviour:
     m_Bits: 1
   shellThickness: 0.1
   shootForce: 15
-  ballDistanceFromPlayer: 1.5
+  ballDistanceFromPlayer: 0
   slideSpeed: 18
   slideDuration: 0.7
   slideCurve:
@@ -643,7 +643,7 @@ MonoBehaviour:
   knockBackForceMaxSpeedRatio: 1
   damageMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2
   damageRange: 0.1
   hasTheBall: 0
   grounded: 0
