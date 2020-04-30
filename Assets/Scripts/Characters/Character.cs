@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
 	public Ball ball;
 	public GameObject tacleFX;
 	public GameObject slideFX;
+	public GameObject hasTheBallTrail;
 
 	[Header("Movement")]
 	public float runSpeed = 10;
@@ -85,11 +86,13 @@ public class Character : MonoBehaviour
 	[Header("Damage")]
 	public float invulnerabiltyDuration = .7f;
 	public AnimationCurve knockBackCurve;
+	public float knockBackUpForce = 5;
 	public float knockBackDuration = .5f;
 	[Range(0, 1)] public float knockBackForceMaxSpeedRatio = 1f;
 	public LayerMask damageMask;
 	public float damageRange = .1f;
 	private float knockbackTracker;
+	public float ballReleaseForce = 5;
 
 	[Header("States")]
 	public bool hasTheBall = false;
@@ -501,7 +504,7 @@ public class Character : MonoBehaviour
 		else if (damaged)
 		{
 			knockbackTracker += Time.deltaTime / knockBackDuration;
-			verticalMovement = knockBackCurve.Evaluate(knockbackTracker);
+			verticalMovement = knockBackCurve.Evaluate(knockbackTracker) * knockBackUpForce;
 			if (knockbackTracker >= 1)
 			{
 				damaged = false;
@@ -588,6 +591,7 @@ public class Character : MonoBehaviour
 		ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + ((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis) * ballDistanceFromPlayer);
 		ball.ThrowBall(((movementAxis == Vector3.zero) ? Vector2.right * dir : (Vector2)movementAxis), shootForce, this, true);
 		hasTheBall = false;
+		hasTheBallTrail.SetActive(false);
 	}
 
 	public void Tackle()
@@ -630,9 +634,21 @@ public class Character : MonoBehaviour
 	{
 		Debug.Log("receiveDamage");
 
+
 		if (damaged || dodging) return;
 
+		if (hasTheBall) 
+		{
+			ball.SetAsNotGrabbed((Vector2)transform.position + new Vector2(0, box2D.size.y / 2) + Vector2.right * dmgDir  * ballDistanceFromPlayer);
+			ball.ThrowBall(new Vector2(dmgDir, 1).normalized , ballReleaseForce, null, false);
+			hasTheBall = false;
+			hasTheBallTrail.SetActive(false);
+		}
+
 		damaged = true;
+		attacking = false;
+		jumping = false;
+		wallJumping = false;
 		knockbackTracker = 0;
 		accelerationTracker = dmgDir * knockBackForceMaxSpeedRatio;
 		anim.Play("DamageHit");
@@ -647,6 +663,7 @@ public class Character : MonoBehaviour
 	{
 		hasTheBall = true;
 		ball.SetAsGrabbed(this);
+		hasTheBallTrail.SetActive(true);
         UIManager.instance.UpdateBallHolderPortrait();
 	}
 
@@ -664,8 +681,11 @@ public class Character : MonoBehaviour
 		anim.SetBool("running", rb2D.velocity.x != 0 ? true : false);
 		anim.SetBool("wallSliding", wallRide == WallRide.None ? false : true);
 
-
-		if (wallRide == WallRide.Right && !grounded)
+		if(damaged)
+		{
+			transform.localScale = new Vector3(-dir, 1, 1);
+		}
+		else if (wallRide == WallRide.Right && !grounded)
 		{
 			transform.localScale = new Vector3(-1, 1, 1);
 		}

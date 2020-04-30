@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 1185737023362540102}
   - component: {fileID: 705612612468513914}
   m_Layer: 1
-  m_Name: Player
+  m_Name: Player Light Blue
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,6 @@ Transform:
   - {fileID: 6993413654120870533}
   - {fileID: 9002085611696880005}
   - {fileID: 6760761034290026191}
-  - {fileID: 1907205184239369974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,7 +315,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6945124934327508912, guid: 5d88dc66a27968640a11a328e01745ec,
+  m_Sprite: {fileID: 7489268052191670210, guid: 51e97e1419e0c9c45aa2f7a5bab6d6a5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -344,7 +343,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.0016496622}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0.65625, y: 1.75}
     adaptiveTilingThreshold: 0.5
@@ -394,7 +393,6 @@ MonoBehaviour:
   ball: {fileID: 0}
   tacleFX: {fileID: 1314488503260208113}
   slideFX: {fileID: 6760761034290026188}
-  hasTheBallTrail: {fileID: 809196513515165956}
   runSpeed: 8
   accelerationCurve:
     serializedVersion: 2
@@ -459,7 +457,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  bufferDuration: 0
+  bufferDuration: 0.2
   jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -559,7 +557,7 @@ MonoBehaviour:
   wallSlideMask:
     serializedVersion: 2
     m_Bits: 1
-  shellThickness: 0.07
+  shellThickness: 0.05
   shootForce: 15
   ballDistanceFromPlayer: 0
   slideSpeed: 18
@@ -644,36 +642,16 @@ MonoBehaviour:
   invulnerabiltyDuration: 0.7
   knockBackCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.008262634
-      value: 8.529594
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  knockBackUpForce: 5
   knockBackDuration: 0.5
   knockBackForceMaxSpeedRatio: 1
   damageMask:
     serializedVersion: 2
     m_Bits: 2
   damageRange: 0.1
-  ballReleaseForce: 5
   hasTheBall: 0
   grounded: 0
   jumping: 0
@@ -687,8 +665,7 @@ MonoBehaviour:
   catching: 0
   bumping: 0
   playerID: 1
-  team: 1
-  portrait: {fileID: 0}
+  team: 0
   debugMode: 1
 --- !u!95 &6000590579473320532
 Animator:
@@ -700,7 +677,7 @@ Animator:
   m_GameObject: {fileID: 6000590579473320533}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c5a26b5aacfde7d4eaaff18cd6f3b1d8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85b24d35172e32544aa3b8593e8f3a35, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -752,92 +729,6 @@ MonoBehaviour:
   m_DefaultActionMap: InputMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!1001 &1790942578965106909
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6000590579473320543}
-    m_Modifications:
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1432253775784446425, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_Name
-      value: Trail
-      objectReference: {fileID: 0}
-    - target: {fileID: 1432253775784446425, guid: af25ee6331886444f80cb284fdd7037e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: af25ee6331886444f80cb284fdd7037e, type: 3}
---- !u!1 &809196513515165956 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1432253775784446425, guid: af25ee6331886444f80cb284fdd7037e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1790942578965106909}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1907205184239369974 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 192939877141622315, guid: af25ee6331886444f80cb284fdd7037e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1790942578965106909}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4694802113123608291
 PrefabInstance:
   m_ObjectHideFlags: 0
