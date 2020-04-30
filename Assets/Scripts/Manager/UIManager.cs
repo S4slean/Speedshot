@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject startGameScreen;
     public GoalAnim goalScreen;
     public Countdown countdown;
+    public GameObject blueVictoryScreen, redVictoryScreen;
 
     private void Awake()
     {
@@ -27,5 +28,20 @@ public class UIManager : MonoBehaviour
     public void StartGoalAnim()
     {
         goalScreen.StartGoalAnim();
+    }
+
+    public void DisplayVictoryScreen(TeamEnum winningTeam)
+    {
+        switch (winningTeam)
+        {
+            case TeamEnum.TEAM1:
+                blueVictoryScreen.SetActive(true);
+                break;
+            
+            case TeamEnum.TEAM2:
+                redVictoryScreen.SetActive(true);
+                break;
+            
+        }
     }
 }
