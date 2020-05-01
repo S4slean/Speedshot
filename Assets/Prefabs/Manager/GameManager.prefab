@@ -84,10 +84,10 @@ MonoBehaviour:
   blueBackgroundColor: {fileID: 21300000, guid: 3c1cfa0701f03aa4883ba00269706e09,
     type: 3}
   indexPlayerSprite:
-  - {fileID: 21300000, guid: 90ca2c9cd4b15964f85eaa8f9ad2803d, type: 3}
-  - {fileID: 21300000, guid: 3a1c36641f3f9bf458fcca053f6591be, type: 3}
-  - {fileID: 21300000, guid: 39382854b0c266a4e987fdb1dace9995, type: 3}
-  - {fileID: 21300000, guid: b3f2154c9fb7b61448758b7f6adafe71, type: 3}
+  - {fileID: 21300000, guid: 69954e93077f4964f89d4602ba2dbf05, type: 3}
+  - {fileID: 21300000, guid: 28b3d0bb137bebf4598263403dd5d220, type: 3}
+  - {fileID: 21300000, guid: 62b88e75de96a4945b9257a342cd667f, type: 3}
+  - {fileID: 21300000, guid: d80f38733cca3a74d8bd40a0463fe805, type: 3}
   bluePlayerPortraitSlots:
   - {fileID: 7074616578735695050}
   - {fileID: 1263746608003354830}
@@ -358,7 +358,6 @@ MonoBehaviour:
   redTeam: []
   ball: {fileID: 0}
   timeBeforeExit: 5
-  debugMode: 0
 --- !u!114 &5657866728961646866
 MonoBehaviour:
   m_ObjectHideFlags: 0
