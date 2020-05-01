@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityArena - Mathieu.unity
     guid: 66a5f5b0a6f540b489ccdb83d79fa970
-  - enabled: 1
-    path: Assets/Scenes/CityArena - Mathieu Test.unity
-    guid: 88defee1c35db26489e10642b7eba775
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

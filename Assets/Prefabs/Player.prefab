@@ -565,7 +565,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   wallRejectionMaxSpeedRatio: 0.239
   walljumpUpForce: 15
-  wallSlideMaxFallSpeed: 1
+  wallSlideMaxFallSpeed: 20
   gravity: 45
   maxFallSpeed: 45
   collisionMask:
