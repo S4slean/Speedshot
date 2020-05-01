@@ -49,6 +49,9 @@ public class GameplayPlayerSetter : MonoBehaviour, IPlayerSetter
 
         //Character Settings
         characters[playerID].playerID = playerID;
+        players[playerID].GetComponent<PlayerNameEditor>().ChangeSprite(UIManager.instance.indexPlayerSprite[playerID]);
+
+
 
         characters[playerID].team = PlayerManager.instance.players[playerID].PlayerTeam;
         if(characters[playerID].team == TeamEnum.TEAM1)

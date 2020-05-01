@@ -99,6 +99,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         IsSubjectToGravity = startWithGravity;
+        IsEmpowered = false;
     }
 
     private void FixedUpdate()
@@ -111,9 +112,6 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
-			if (player.attacking)
-				player.CatchBall();
-
             if(IsEmpowered && player.team != TeamEmpowerement)
             {
                 player.ReceiveDamage((int)Mathf.Sign(player.transform.position.x - transform.position.x));
@@ -134,7 +132,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Character>(out Character player))
         {
-            if (!(IsEmpowered && player.team != TeamEmpowerement))
+            if (!IsEmpowered || (player.team == TeamEmpowerement) || player.attacking)
             {
                 player.CatchBall();
             }  
@@ -166,6 +164,7 @@ public class Ball : MonoBehaviour
     public void SetAsGrabbed(Character grabber)
     {
         Grabber = grabber;
+        StopEmpowerementState();
         gameObject.SetActive(false);
     }
 
@@ -221,7 +220,9 @@ public class Ball : MonoBehaviour
 
     private void StopEmpowerementState()
     {
-        StopCoroutine(empowerementFadeCoroutine);
+        if(empowerementFadeCoroutine != null)
+            StopCoroutine(empowerementFadeCoroutine);
+
         IsEmpowered = false;
         TeamEmpowerement = TeamEnum.NONE;
 		UpdateTrailColor();
