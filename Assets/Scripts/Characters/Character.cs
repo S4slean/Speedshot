@@ -133,91 +133,14 @@ public class Character : MonoBehaviour
 
 	public void Update()
 	{
-		//HandleInputs();
-		NewHandleInputs();
+		HandleInputs();
 		HandleCollisions();
 
 		MoveCharacter();
 		UpdateAnims();
 	}
 
-	//private void HandleInputs()
-	//{
-	//	movementAxis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-	//	movementAxis.Normalize();
-
-	//	HandleDodgeBuffers();
-
-	//	if (Input.GetButtonDown("Jump"))
-	//	{
-	//		if (grounded)
-	//			Jump();
-	//		else if (!grounded && wallRide != WallRide.None)
-	//			WallJump();
-	//	}
-
-	//	if (Input.GetButtonDown("Fire1"))
-	//	{
-	//		if (hasTheBall)
-	//			Shoot();
-	//		else if (canAttack)
-	//		{
-	//			if (grounded)
-	//				Slide();
-
-	//			else
-	//				Tackle();
-	//		}
-
-	//	}
-	//}
-
-	//private void HandleDodgeBuffers()
-	//{
-	//	if (Input.GetButtonDown("Left"))
-	//	{
-	//		rightBuffer = false;
-	//		if (leftBuffer)
-	//		{
-	//			bufferTracker = 0;
-	//			leftBuffer = false;
-	//			Dodge(-1);
-	//		}
-	//		else
-	//		{
-	//			leftBuffer = true;
-	//			bufferTracker = bufferDuration;
-	//		}
-	//	}
-	//	if (Input.GetButtonDown("Right"))
-	//	{
-	//		leftBuffer = false;
-	//		if (rightBuffer)
-	//		{
-	//			bufferTracker = 0;
-	//			rightBuffer = false;
-	//			Dodge(1);
-	//		}
-	//		else
-	//		{
-	//			rightBuffer = true;
-	//			bufferTracker = bufferDuration;
-	//		}
-	//	}
-
-	//	if (bufferTracker > 0)
-	//	{
-	//		bufferTracker -= Time.deltaTime;
-	//	}
-	//	if (bufferTracker <= 0)
-	//	{
-	//		bufferTracker = 0;
-	//		rightBuffer = false;
-	//		leftBuffer = false;
-	//	}
-	//}
-
-	private void NewHandleInputs()
+	private void HandleInputs()
 	{
 		movementAxis = characterInputHandler.MovementAxis;
 		movementAxis.Normalize();
